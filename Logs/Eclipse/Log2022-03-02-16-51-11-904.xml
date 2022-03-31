@@ -1,0 +1,587 @@
+<Events startTimestamp="1646257871904" logVersion="1.0.0.202101171653">
+  <Command __id="2" _type="RunCommand" date="Wed Mar 02 16:55:43 EST 2022" kind="HitBreakPoint" projectName="ValgrindWrappingTool" starttimestamp="1646257871904" timestamp="271590" type="Run" />
+  <Command __id="3" _type="RunCommand" date="Wed Mar 02 16:55:43 EST 2022" kind="HitBreakPoint" projectName="ValgrindWrappingTool" starttimestamp="1646257871904" timestamp="271591" type="Run" />
+  <Command __id="4" _type="ConsoleOutput" date="Wed Mar 02 16:55:44 EST 2022" overflow="false" starttimestamp="1646257871904" timestamp="272252" type="ConsoleOutput">
+    <outputString><![CDATA[Executing: /usr/local/bin/docker start grader-container
+]]></outputString>
+    <diff><![CDATA[null]]></diff>
+  </Command>
+  <Command __id="5" _type="ConsoleOutput" date="Wed Mar 02 16:55:45 EST 2022" overflow="false" starttimestamp="1646257871904" timestamp="273285" type="ConsoleOutput">
+    <outputString><![CDATA[grader-container
+Enter config file location: ]]></outputString>
+    <diff><![CDATA[[Diff(DELETE,"Executing: /usr/local/bin/docker start grad"), Diff(INSERT,"grader-container¶Ent"), Diff(EQUAL,"er"), Diff(DELETE,"-"), Diff(INSERT," "), Diff(EQUAL,"con"), Diff(DELETE,"tainer¶"), Diff(INSERT,"fig file location: ")]]]></diff>
+  </Command>
+  <Command __id="6" _type="EHExceptionCommand" date="Wed Mar 02 16:55:55 EST 2022" starttimestamp="1646257871904" timestamp="283650" type="Exception">
+    <outputString><![CDATA[SampleInput
+]]></outputString>
+  </Command>
+  <Command __id="7" _type="ConsoleOutput" date="Wed Mar 02 16:55:55 EST 2022" overflow="false" starttimestamp="1646257871904" timestamp="283724" type="ConsoleOutput">
+    <outputString><![CDATA[Executing: /usr/local/bin/docker exec grader-container gcc -c -pthread SampleInput-wrapper.c -o SampleInput-wrapper.o
+]]></outputString>
+    <diff><![CDATA[[Diff(DELETE,"grader-container¶Enter config file location: "), Diff(INSERT,"Executing: /usr/local/bin/docker exec grader-container gcc -c -pthread SampleInput-wrapper.c -o SampleInput-wrapper.o¶")]]]></diff>
+  </Command>
+  <Command __id="8" _type="EHExceptionCommand" date="Wed Mar 02 16:56:12 EST 2022" starttimestamp="1646257871904" timestamp="300644" type="Exception">
+    <outputString><![CDATA[Enter student code directory: StudentCode
+]]></outputString>
+  </Command>
+  <Command __id="9" _type="ConsoleOutput" date="Wed Mar 02 16:56:12 EST 2022" overflow="false" starttimestamp="1646257871904" timestamp="300753" type="ConsoleOutput">
+    <outputString><![CDATA[Executing: /usr/local/bin/docker exec grader-container gcc -pthread SampleInput-wrapper.o -o WrappedStudentCode StudentCode/threaded.c StudentCode/boundedbuffer.c
+]]></outputString>
+    <diff><![CDATA[[Diff(EQUAL,"Executing: /usr/local/bin/docker exec grader-container gcc "), Diff(DELETE,"-c "), Diff(EQUAL,"-pthread SampleInput-wrapper."), Diff(DELETE,"c"), Diff(INSERT,"o"), Diff(EQUAL," -o "), Diff(DELETE,"SampleInput-wrapper.o"), Diff(INSERT,"WrappedStudentCode StudentCode/threaded.c StudentCode/boundedbuffer.c"), Diff(EQUAL,"¶")]]]></diff>
+  </Command>
+  <Command __id="26" _type="ShellCommand" date="Wed Mar 02 17:06:48 EST 2022" starttimestamp="1646257871904" timestamp="936733" type="ECLIPSE_GAINED_FOCUS" />
+  <Command __id="27" _type="MoveCaretCommand" caretOffset="236" date="Wed Mar 02 17:06:49 EST 2022" docOffset="344" starttimestamp="1646257871904" timestamp="937096" />
+  <Command __id="28" _type="ShellCommand" date="Wed Mar 02 17:06:54 EST 2022" starttimestamp="1646257871904" timestamp="943048" type="ECLIPSE_LOST_FOCUS" />
+  <Command __id="31" _type="RunCommand" date="Wed Mar 02 17:07:06 EST 2022" kind="HitBreakPoint" projectName="ValgrindWrappingTool" starttimestamp="1646257871904" timestamp="955055" type="Run" />
+  <Command __id="32" _type="RunCommand" date="Wed Mar 02 17:07:06 EST 2022" kind="HitBreakPoint" projectName="ValgrindWrappingTool" starttimestamp="1646257871904" timestamp="955056" type="Run" />
+  <Command __id="33" _type="ConsoleOutput" date="Wed Mar 02 17:07:07 EST 2022" overflow="false" starttimestamp="1646257871904" timestamp="956091" type="ConsoleOutput">
+    <outputString><![CDATA[Executing: /usr/local/bin/docker run -it -d --mount type=bind,src=/Users/nalingaddis/Documents/COMP691H/ValgrindWrappingTool,target=/home --name grader-container nalingaddis/valgrind
+]]></outputString>
+    <diff><![CDATA[[Diff(DELETE,"grader-container"), Diff(INSERT,"Executing: /usr/local/bin/docker run -it -d --mount type=bind,src=/Users/nalingaddis/Documents/COMP691H/ValgrindWrappingTool,target=/home --name grader-container nalingaddis/valgrind"), Diff(EQUAL,"¶")]]]></diff>
+  </Command>
+  <Command __id="34" _type="ConsoleOutput" date="Wed Mar 02 17:07:08 EST 2022" overflow="false" starttimestamp="1646257871904" timestamp="956515" type="ConsoleOutput">
+    <outputString><![CDATA[331e0ede35b8bde923925d2267b225ef8065e3a41cc7e34e8eebdf6de0764fac
+]]></outputString>
+    <diff><![CDATA[[Diff(DELETE,"Executing: /usr/local/bin/docker run -it -d --mount type=bind,src=/Users/nalingaddis/Documents/COMP691H/ValgrindWrappingTool,target=/home --name grader-container nalingaddis/valgrind"), Diff(INSERT,"331e0ede35b8bde923925d2267b225ef8065e3a41cc7e34e8eebdf6de0764fac"), Diff(EQUAL,"¶")]]]></diff>
+  </Command>
+  <Command __id="35" _type="ShellCommand" date="Wed Mar 02 17:07:17 EST 2022" starttimestamp="1646257871904" timestamp="965182" type="ECLIPSE_LOST_FOCUS" />
+  <Command __id="0" _type="DiffBasedFileOpenCommand" date="Wed Mar 02 16:51:12 EST 2022" docASTNodeCount="151" docActiveCodeLength="948" docExpressionCount="95" docLength="948" projectName="ValgrindWrappingTool" starttimestamp="1646257871904" timestamp="251">
+    <filePath><![CDATA[/Users/nalingaddis/Documents/COMP691H/ValgrindWrappingTool/src/main/Main.java]]></filePath>
+    <diff><![CDATA[null]]></diff>
+    <snapshot><![CDATA[package main;
+
+import java.util.Scanner;
+
+import compiler.CompilerHelper;
+import compiler.DockerHelper;
+import parser.Parser;
+import parser.Wrapper;
+
+public class Main {
+	public static final String WRAPPER_FILE_SUFFIX = "-wrapper";
+	
+	public static void main(String[] args) {
+		try {
+			DockerHelper.startContainer();
+			
+			Scanner scanner = new Scanner(System.in);
+			System.out.print("Enter config file location: ");
+			String filename = scanner.nextLine();
+			
+			Parser parser = new Parser(filename);
+			
+			Wrapper wrapper = parser.parse();
+			wrapper.toFile(filename);
+			
+			CompilerHelper.compileWrapper(filename);
+			
+			System.out.print("Enter student code directory: ");
+			String studentDir = scanner.nextLine();
+			
+			CompilerHelper.compileStudentCode(studentDir, filename);
+			
+			CompilerHelper.trace("test1");
+			
+			DockerHelper.stopContainer();
+			scanner.close();
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+}
+]]></snapshot>
+  </Command>
+  <Command __id="36" _type="ShellCommand" date="Wed Mar 02 17:07:24 EST 2022" starttimestamp="1646257871904" timestamp="973018" type="ECLIPSE_GAINED_FOCUS" />
+  <Command __id="39" _type="SelectTextCommand" caretOffset="1040" date="Wed Mar 02 17:07:29 EST 2022" end="1040" start="1000" starttimestamp="1646257871904" timestamp="977880" />
+  <Command __id="40" _type="MoveCaretCommand" caretOffset="788" date="Wed Mar 02 17:07:29 EST 2022" docOffset="788" starttimestamp="1646257871904" timestamp="978061" />
+  <Command __id="41" _type="SelectTextCommand" caretOffset="685" date="Wed Mar 02 17:08:03 EST 2022" end="685" start="655" starttimestamp="1646257871904" timestamp="1011672" />
+  <Command __id="42" _type="MoveCaretCommand" caretOffset="754" date="Wed Mar 02 17:09:21 EST 2022" docOffset="754" starttimestamp="1646257871904" timestamp="1090095" />
+  <Command __id="43" _type="SelectTextCommand" caretOffset="685" date="Wed Mar 02 17:09:25 EST 2022" end="685" start="655" starttimestamp="1646257871904" timestamp="1093156" />
+  <Command __id="44" _type="ShellCommand" date="Wed Mar 02 17:09:53 EST 2022" starttimestamp="1646257871904" timestamp="1121401" type="ECLIPSE_LOST_FOCUS" />
+  <Command __id="45" _type="ShellCommand" date="Wed Mar 02 17:10:06 EST 2022" starttimestamp="1646257871904" timestamp="1134736" type="ECLIPSE_GAINED_FOCUS" />
+  <Command __id="46" _type="MoveCaretCommand" caretOffset="690" date="Wed Mar 02 17:10:06 EST 2022" docOffset="690" starttimestamp="1646257871904" timestamp="1134960" />
+  <Command __id="47" _type="SelectTextCommand" caretOffset="700" date="Wed Mar 02 17:10:08 EST 2022" end="700" start="695" starttimestamp="1646257871904" timestamp="1136173" />
+  <Command __id="48" _type="SelectTextCommand" caretOffset="685" date="Wed Mar 02 17:10:12 EST 2022" end="685" start="655" starttimestamp="1646257871904" timestamp="1140908" />
+  <Command __id="49" _type="MoveCaretCommand" caretOffset="654" date="Wed Mar 02 17:10:45 EST 2022" docOffset="654" starttimestamp="1646257871904" timestamp="1174008" />
+  <Command __id="50" _type="SelectTextCommand" caretOffset="718" date="Wed Mar 02 17:10:47 EST 2022" end="718" start="654" starttimestamp="1646257871904" timestamp="1175691" />
+  <Command __id="51" _type="MoveCaretCommand" caretOffset="717" date="Wed Mar 02 17:10:47 EST 2022" docOffset="717" starttimestamp="1646257871904" timestamp="1176078" />
+  <Command __id="52" _type="SelectTextCommand" caretOffset="649" date="Wed Mar 02 17:10:49 EST 2022" end="649" start="531" starttimestamp="1646257871904" timestamp="1177823" />
+  <Command __id="53" _type="MoveCaretCommand" caretOffset="615" date="Wed Mar 02 17:10:50 EST 2022" docOffset="615" starttimestamp="1646257871904" timestamp="1179024" />
+  <Command __id="54" _type="MoveCaretCommand" caretOffset="632" date="Wed Mar 02 17:10:52 EST 2022" docOffset="632" starttimestamp="1646257871904" timestamp="1180625" />
+  <Command __id="55" _type="ShellCommand" date="Wed Mar 02 17:11:26 EST 2022" starttimestamp="1646257871904" timestamp="1214831" type="ECLIPSE_LOST_FOCUS" />
+  <Command __id="56" _type="ShellCommand" date="Wed Mar 02 17:12:15 EST 2022" starttimestamp="1646257871904" timestamp="1263375" type="ECLIPSE_GAINED_FOCUS" />
+  <Command __id="57" _type="ShellCommand" date="Wed Mar 02 17:12:20 EST 2022" starttimestamp="1646257871904" timestamp="1268939" type="ECLIPSE_LOST_FOCUS" />
+  <Command __id="58" _type="ShellCommand" date="Wed Mar 02 17:13:46 EST 2022" starttimestamp="1646257871904" timestamp="1354621" type="ECLIPSE_GAINED_FOCUS" />
+  <Command __id="59" _type="MoveCaretCommand" caretOffset="743" date="Wed Mar 02 17:13:46 EST 2022" docOffset="743" starttimestamp="1646257871904" timestamp="1354980" />
+  <Command __id="60" _type="ShellCommand" date="Wed Mar 02 17:13:48 EST 2022" starttimestamp="1646257871904" timestamp="1356436" type="ECLIPSE_LOST_FOCUS" />
+  <Command __id="61" _type="ShellCommand" date="Wed Mar 02 17:14:21 EST 2022" starttimestamp="1646257871904" timestamp="1389741" type="ECLIPSE_GAINED_FOCUS" />
+  <Command __id="62" _type="ShellCommand" date="Wed Mar 02 17:14:28 EST 2022" starttimestamp="1646257871904" timestamp="1396833" type="ECLIPSE_LOST_FOCUS" />
+  <Command __id="65" _type="RunCommand" date="Wed Mar 02 17:15:07 EST 2022" kind="HitBreakPoint" projectName="ValgrindWrappingTool" starttimestamp="1646257871904" timestamp="1435982" type="Run" />
+  <Command __id="66" _type="RunCommand" date="Wed Mar 02 17:15:07 EST 2022" kind="HitBreakPoint" projectName="ValgrindWrappingTool" starttimestamp="1646257871904" timestamp="1435984" type="Run" />
+  <Command __id="67" _type="ExceptionCommand" date="Wed Mar 02 17:15:07 EST 2022" starttimestamp="1646257871904" timestamp="1435988" type="Exception">
+    <exceptionString><![CDATA[java.util.NoSuchElementException: No line found
+	at java.base/java.util.Scanner.nextLine(Scanner.java:1651)
+	at main.Main.main(Main.java:19)
+]]></exceptionString>
+    <language><![CDATA[java]]></language>
+  </Command>
+  <Command __id="68" _type="ShellCommand" date="Wed Mar 02 17:16:58 EST 2022" starttimestamp="1646257871904" timestamp="1546354" type="ECLIPSE_LOST_FOCUS" />
+  <Command __id="69" _type="ShellCommand" date="Wed Mar 02 17:16:58 EST 2022" starttimestamp="1646257871904" timestamp="1547065" type="ECLIPSE_GAINED_FOCUS" />
+  <Command __id="70" _type="ShellCommand" date="Wed Mar 02 17:17:20 EST 2022" starttimestamp="1646257871904" timestamp="1568349" type="ECLIPSE_LOST_FOCUS" />
+  <Command __id="71" _type="ShellCommand" date="Wed Mar 02 17:17:32 EST 2022" starttimestamp="1646257871904" timestamp="1580293" type="ECLIPSE_GAINED_FOCUS" />
+  <Command __id="72" _type="MoveCaretCommand" caretOffset="89" date="Wed Mar 02 17:17:32 EST 2022" docOffset="89" starttimestamp="1646257871904" timestamp="1580584" />
+  <Command __id="73" _type="SelectTextCommand" caretOffset="109" date="Wed Mar 02 17:17:34 EST 2022" end="109" start="87" starttimestamp="1646257871904" timestamp="1583040" />
+  <Command __id="74" _type="MoveCaretCommand" caretOffset="300" date="Wed Mar 02 17:17:35 EST 2022" docOffset="300" starttimestamp="1646257871904" timestamp="1583998" />
+  <Command __id="75" _type="MoveCaretCommand" caretOffset="211" date="Wed Mar 02 17:18:56 EST 2022" docOffset="211" starttimestamp="1646257871904" timestamp="1664661" />
+  <Command __id="76" _type="SelectTextCommand" caretOffset="216" date="Wed Mar 02 17:18:56 EST 2022" end="216" start="205" starttimestamp="1646257871904" timestamp="1664765" />
+  <Command __id="77" _type="ShellCommand" date="Wed Mar 02 17:19:00 EST 2022" starttimestamp="1646257871904" timestamp="1668695" type="ECLIPSE_LOST_FOCUS" />
+  <Command __id="78" _type="ShellCommand" date="Wed Mar 02 17:19:02 EST 2022" starttimestamp="1646257871904" timestamp="1670343" type="ECLIPSE_GAINED_FOCUS" />
+  <Command __id="79" _type="ShellCommand" date="Wed Mar 02 17:19:03 EST 2022" starttimestamp="1646257871904" timestamp="1671973" type="ECLIPSE_LOST_FOCUS" />
+  <Command __id="80" _type="ShellCommand" date="Wed Mar 02 17:19:16 EST 2022" starttimestamp="1646257871904" timestamp="1684340" type="ECLIPSE_GAINED_FOCUS" />
+  <Command __id="81" _type="MoveCaretCommand" caretOffset="717" date="Wed Mar 02 17:19:22 EST 2022" docOffset="717" starttimestamp="1646257871904" timestamp="1690109" />
+  <Command __id="82" _type="MoveCaretCommand" caretOffset="764" date="Wed Mar 02 17:19:23 EST 2022" docOffset="764" starttimestamp="1646257871904" timestamp="1691165" />
+  <Command __id="83" _type="MoveCaretCommand" caretOffset="268" date="Wed Mar 02 17:20:27 EST 2022" docOffset="268" starttimestamp="1646257871904" timestamp="1755435" />
+  <Command __id="84" _type="SelectTextCommand" caretOffset="247" date="Wed Mar 02 17:20:37 EST 2022" end="379" start="247" starttimestamp="1646257871904" timestamp="1765619" />
+  <Command __id="85" _type="MoveCaretCommand" caretOffset="247" date="Wed Mar 02 17:20:37 EST 2022" docOffset="247" starttimestamp="1646257871904" timestamp="1765969" />
+  <Command __id="37" _type="DiffBasedFileOpenCommand" date="Wed Mar 02 17:07:28 EST 2022" docASTNodeCount="188" docActiveCodeLength="1046" docExpressionCount="116" docLength="1046" projectName="ValgrindWrappingTool" starttimestamp="1646257871904" timestamp="976543">
+    <filePath><![CDATA[/Users/nalingaddis/Documents/COMP691H/ValgrindWrappingTool/src/compiler/CommandLineHelper.java]]></filePath>
+    <diff><![CDATA[null]]></diff>
+    <snapshot><![CDATA[package compiler;
+
+public class CommandLineHelper {
+	
+	public static int execute(String[] command) throws Exception {
+		return execute(command, false);
+	}
+	
+	public static int execute(String[] command, boolean silent) throws Exception{
+		if(!silent) System.out.println("Executing: " + String.join(" ", command));
+		
+		ProcessBuilder pb = new ProcessBuilder();
+		if(silent) {
+			pb.command(command);
+		} else {
+			pb.command(command).inheritIO();
+		}
+		
+		Process process = pb.start();
+		
+		return process.waitFor();
+	}
+	
+	public static int executeInDocker(String[] command) throws Exception {
+		return executeInDocker(command, false);
+	}
+	
+	public static int executeInDocker(String[] command, boolean silent) throws Exception {
+		String[] dockerCommand = new String[command.length+3];
+		
+		dockerCommand[0] = DockerHelper.DOCKER_PATH;
+		dockerCommand[1] = "exec";
+		dockerCommand[2] = DockerHelper.CONTAINER_NAME;
+		
+		for(int i=0; i<command.length; i++) {
+			dockerCommand[i+3] = command[i];
+		}
+		
+		return execute(dockerCommand, silent);
+	}
+}
+]]></snapshot>
+  </Command>
+  <Command __id="38" _type="DiffBasedFileOpenCommand" date="Wed Mar 02 17:07:29 EST 2022" docASTNodeCount="121" docActiveCodeLength="1001" docExpressionCount="70" docLength="1001" projectName="ValgrindWrappingTool" starttimestamp="1646257871904" timestamp="977414">
+    <filePath><![CDATA[/Users/nalingaddis/Documents/COMP691H/ValgrindWrappingTool/src/compiler/DockerHelper.java]]></filePath>
+    <diff><![CDATA[null]]></diff>
+    <snapshot><![CDATA[package compiler;
+
+public class DockerHelper {
+	public static final String IMAGE_NAME = "nalingaddis/valgrind";
+	public static final String CONTAINER_NAME = "grader-container";
+	public static final String DOCKER_PATH = "/usr/local/bin/docker";
+	
+	public static int startContainer() throws Exception {
+		String[] command = {
+				DOCKER_PATH,
+				"inspect",
+				CONTAINER_NAME
+		};
+		
+		if(CommandLineHelper.execute(command, true) == 0) {
+			command = new String[]{
+					DOCKER_PATH, 
+					"start",
+					CONTAINER_NAME,
+			};
+		} else {
+			command = new String[]{
+					DOCKER_PATH, 
+					"run",
+					"-it",
+					"-d",
+					"--mount", 
+					"type=bind,src="+System.getProperty("user.dir")+",target=/home",
+					"--name",
+					CONTAINER_NAME,
+					IMAGE_NAME
+			};
+		}
+		
+		return CommandLineHelper.execute(command);
+	}
+	
+	public static int stopContainer() throws Exception {
+		String[] command = {
+				DOCKER_PATH,
+				"stop",
+				CONTAINER_NAME
+		};
+		
+		return CommandLineHelper.execute(command);
+	}
+}
+]]></snapshot>
+  </Command>
+  <Command __id="86" _type="SelectTextCommand" caretOffset="380" date="Wed Mar 02 17:20:39 EST 2022" end="380" start="247" starttimestamp="1646257871904" timestamp="1767524" />
+  <Command __id="87" _type="MoveCaretCommand" caretOffset="379" date="Wed Mar 02 17:20:39 EST 2022" docOffset="379" starttimestamp="1646257871904" timestamp="1768069" />
+  <Command __id="89" _type="MoveCaretCommand" caretOffset="175" date="Wed Mar 02 17:23:12 EST 2022" docOffset="283" starttimestamp="1646257871904" timestamp="1920854" />
+  <Command __id="90" _type="SelectTextCommand" caretOffset="209" date="Wed Mar 02 17:23:15 EST 2022" end="209" start="179" starttimestamp="1646257871904" timestamp="1923655" />
+  <Command __id="88" _type="DiffBasedFileOpenCommand" date="Wed Mar 02 17:23:12 EST 2022" docASTNodeCount="151" docActiveCodeLength="948" docExpressionCount="95" docLength="948" projectName="ValgrindWrappingTool" starttimestamp="1646257871904" timestamp="1920574">
+    <filePath><![CDATA[/Users/nalingaddis/Documents/COMP691H/ValgrindWrappingTool/src/main/Main.java]]></filePath>
+    <diff><![CDATA[[Diff(EQUAL,"package main;¶¶import java.util.Scanner;¶¶import compiler.CompilerHelper;¶import compiler.DockerHelper;¶import parser.Parser;¶import parser.Wrapper;¶¶public class Main {¶	public static final String WRAPPER_FILE_SUFFIX = "-wrapper";¶	¶	public static void main(String[] args) {¶		try {¶			DockerHelper.startContainer();¶			¶			Scanner scanner = new Scanner(System.in);¶			System.out.print("Enter config file location: ");¶			String filename = scanner.nextLine();¶			¶			Parser parser = new Parser(filename);¶			¶			Wrapper wrapper = parser.parse();¶			wrapper.toFile(filename);¶			¶			CompilerHelper.compileWrapper(filename);¶			¶			System.out.print("Enter student code directory: ");¶			String studentDir = scanner.nextLine();¶			¶			CompilerHelper.compileStudentCode(studentDir, filename);¶			¶			CompilerHelper.trace("test1");¶			¶			DockerHelper.stopContainer();¶			scanner.close();¶			¶		} catch (Exception e) {¶			e.printStackTrace();¶		}¶	}¶}¶")]]]></diff>
+  </Command>
+  <Command __id="92" _type="DiffBasedFileOpenCommand" date="Wed Mar 02 17:23:26 EST 2022" docASTNodeCount="1" docActiveCodeLength="262" docExpressionCount="0" docLength="550" projectName="ValgrindWrappingTool" starttimestamp="1646257871904" timestamp="1934799">
+    <filePath><![CDATA[/Users/nalingaddis/Documents/COMP691H/ValgrindWrappingTool/SampleInput]]></filePath>
+    <diff><![CDATA[null]]></diff>
+    <snapshot><![CDATA[#include <stdio.h>
+#include <pthread.h>
+#include <stdarg.h>
+
+#include "StudentCode/boundedbuffer.h"
+
+libpthread.so.0,pthread_create:pthread_t *restrict thread, const pthread_attr_t *restrict attr,void *(*start_routine)(void *),void *restrict arg->int
+
+//libpthread*,pthread_join:pthread_t thread, void **retval->int
+
+//*, sem_wait: sem_t *sem -> int
+//*, sem_post: sem_t *sem -> int
+
+//*, get*: BoundedBuffer* buffer -> char
+
+//*, put*: BoundedBuffer* buffer, char c -> void
+//*, pu*: char c, BoundedBuffer* buffer -> void
+
+// loop limiting algorithm]]></snapshot>
+  </Command>
+  <Command __id="93" _type="DiffBasedFileOpenCommand" date="Wed Mar 02 17:24:08 EST 2022" docASTNodeCount="1" docActiveCodeLength="262" docExpressionCount="0" docLength="550" projectName="ValgrindWrappingTool" starttimestamp="1646257871904" timestamp="1976627">
+    <filePath><![CDATA[/Users/nalingaddis/Documents/COMP691H/ValgrindWrappingTool/SampleInput]]></filePath>
+    <diff><![CDATA[[Diff(EQUAL,"#include <stdio.h>¶#include <pthread.h>¶#include <stdarg.h>¶¶#include "StudentCode/boundedbuffer.h"¶¶libpthread.so.0,pthread_create:pthread_t *restrict thread, const pthread_attr_t *restrict attr,void *(*start_routine)(void *),void *restrict arg->int¶¶//libpthread*,pthread_join:pthread_t thread, void **retval->int¶¶//*, sem_wait: sem_t *sem -> int¶//*, sem_post: sem_t *sem -> int¶¶//*, get*: BoundedBuffer* buffer -> char¶¶//*, put*: BoundedBuffer* buffer, char c -> void¶//*, pu*: char c, BoundedBuffer* buffer -> void¶¶// loop limiting algorithm")]]]></diff>
+  </Command>
+  <Command __id="91" _type="SelectTextCommand" caretOffset="311" date="Wed Mar 02 17:23:24 EST 2022" end="311" start="262" starttimestamp="1646257871904" timestamp="1932322" />
+  <Command __id="95" _type="SelectTextCommand" caretOffset="311" date="Wed Mar 02 17:27:05 EST 2022" end="311" start="262" starttimestamp="1646257871904" timestamp="2153882" />
+  <Command __id="96" _type="SelectTextCommand" caretOffset="352" date="Wed Mar 02 17:27:07 EST 2022" end="352" start="315" starttimestamp="1646257871904" timestamp="2155959" />
+  <Command __id="97" _type="SelectTextCommand" caretOffset="471" date="Wed Mar 02 17:27:09 EST 2022" end="471" start="360" starttimestamp="1646257871904" timestamp="2158091" />
+  <Command __id="98" _type="MoveCaretCommand" caretOffset="471" date="Wed Mar 02 17:27:10 EST 2022" docOffset="579" starttimestamp="1646257871904" timestamp="2158648" />
+  <Command __id="99" _type="SelectTextCommand" caretOffset="515" date="Wed Mar 02 17:27:15 EST 2022" end="515" start="475" starttimestamp="1646257871904" timestamp="2163608" />
+  <Command __id="100" _type="ShellCommand" date="Wed Mar 02 17:27:33 EST 2022" starttimestamp="1646257871904" timestamp="2181600" type="ECLIPSE_LOST_FOCUS" />
+  <Command __id="101" _type="ShellCommand" date="Wed Mar 02 17:28:30 EST 2022" starttimestamp="1646257871904" timestamp="2238676" type="ECLIPSE_GAINED_FOCUS" />
+  <Command __id="103" _type="ShellCommand" date="Wed Mar 02 17:29:09 EST 2022" starttimestamp="1646257871904" timestamp="2278068" type="ECLIPSE_LOST_FOCUS" />
+  <Command __id="104" _type="ShellCommand" date="Wed Mar 02 17:29:29 EST 2022" starttimestamp="1646257871904" timestamp="2297408" type="ECLIPSE_GAINED_FOCUS" />
+  <Command __id="105" _type="ShellCommand" date="Wed Mar 02 17:29:34 EST 2022" starttimestamp="1646257871904" timestamp="2302784" type="ECLIPSE_LOST_FOCUS" />
+  <Command __id="94" _type="DiffBasedFileOpenCommand" date="Wed Mar 02 17:27:05 EST 2022" docASTNodeCount="151" docActiveCodeLength="948" docExpressionCount="95" docLength="948" projectName="ValgrindWrappingTool" starttimestamp="1646257871904" timestamp="2153576">
+    <filePath><![CDATA[/Users/nalingaddis/Documents/COMP691H/ValgrindWrappingTool/src/main/Main.java]]></filePath>
+    <diff><![CDATA[[Diff(EQUAL,"package main;¶¶import java.util.Scanner;¶¶import compiler.CompilerHelper;¶import compiler.DockerHelper;¶import parser.Parser;¶import parser.Wrapper;¶¶public class Main {¶	public static final String WRAPPER_FILE_SUFFIX = "-wrapper";¶	¶	public static void main(String[] args) {¶		try {¶			DockerHelper.startContainer();¶			¶			Scanner scanner = new Scanner(System.in);¶			System.out.print("Enter config file location: ");¶			String filename = scanner.nextLine();¶			¶			Parser parser = new Parser(filename);¶			¶			Wrapper wrapper = parser.parse();¶			wrapper.toFile(filename);¶			¶			CompilerHelper.compileWrapper(filename);¶			¶			System.out.print("Enter student code directory: ");¶			String studentDir = scanner.nextLine();¶			¶			CompilerHelper.compileStudentCode(studentDir, filename);¶			¶			CompilerHelper.trace("test1");¶			¶			DockerHelper.stopContainer();¶			scanner.close();¶			¶		} catch (Exception e) {¶			e.printStackTrace();¶		}¶	}¶}¶")]]]></diff>
+  </Command>
+  <Command __id="102" _type="DiffBasedFileOpenCommand" date="Wed Mar 02 17:28:30 EST 2022" docASTNodeCount="1" docActiveCodeLength="262" docExpressionCount="0" docLength="550" projectName="ValgrindWrappingTool" starttimestamp="1646257871904" timestamp="2239001">
+    <filePath><![CDATA[/Users/nalingaddis/Documents/COMP691H/ValgrindWrappingTool/SampleInput]]></filePath>
+    <diff><![CDATA[[Diff(EQUAL,"#include <stdio.h>¶#include <pthread.h>¶#include <stdarg.h>¶¶#include "StudentCode/boundedbuffer.h"¶¶libpthread.so.0,pthread_create:pthread_t *restrict thread, const pthread_attr_t *restrict attr,void *(*start_routine)(void *),void *restrict arg->int¶¶//libpthread*,pthread_join:pthread_t thread, void **retval->int¶¶//*, sem_wait: sem_t *sem -> int¶//*, sem_post: sem_t *sem -> int¶¶//*, get*: BoundedBuffer* buffer -> char¶¶//*, put*: BoundedBuffer* buffer, char c -> void¶//*, pu*: char c, BoundedBuffer* buffer -> void¶¶// loop limiting algorithm")]]]></diff>
+  </Command>
+  <Command __id="106" _type="ShellCommand" date="Wed Mar 02 17:29:42 EST 2022" starttimestamp="1646257871904" timestamp="2310797" type="ECLIPSE_GAINED_FOCUS" />
+  <Command __id="107" _type="DiffBasedFileOpenCommand" date="Wed Mar 02 17:29:50 EST 2022" docASTNodeCount="151" docActiveCodeLength="948" docExpressionCount="95" docLength="948" projectName="ValgrindWrappingTool" starttimestamp="1646257871904" timestamp="2318543">
+    <filePath><![CDATA[/Users/nalingaddis/Documents/COMP691H/ValgrindWrappingTool/src/main/Main.java]]></filePath>
+    <diff><![CDATA[[Diff(EQUAL,"package main;¶¶import java.util.Scanner;¶¶import compiler.CompilerHelper;¶import compiler.DockerHelper;¶import parser.Parser;¶import parser.Wrapper;¶¶public class Main {¶	public static final String WRAPPER_FILE_SUFFIX = "-wrapper";¶	¶	public static void main(String[] args) {¶		try {¶			DockerHelper.startContainer();¶			¶			Scanner scanner = new Scanner(System.in);¶			System.out.print("Enter config file location: ");¶			String filename = scanner.nextLine();¶			¶			Parser parser = new Parser(filename);¶			¶			Wrapper wrapper = parser.parse();¶			wrapper.toFile(filename);¶			¶			CompilerHelper.compileWrapper(filename);¶			¶			System.out.print("Enter student code directory: ");¶			String studentDir = scanner.nextLine();¶			¶			CompilerHelper.compileStudentCode(studentDir, filename);¶			¶			CompilerHelper.trace("test1");¶			¶			DockerHelper.stopContainer();¶			scanner.close();¶			¶		} catch (Exception e) {¶			e.printStackTrace();¶		}¶	}¶}¶")]]]></diff>
+  </Command>
+  <Command __id="108" _type="SelectTextCommand" caretOffset="515" date="Wed Mar 02 17:29:51 EST 2022" end="515" start="475" starttimestamp="1646257871904" timestamp="2319263" />
+  <Command __id="109" _type="DiffBasedFileOpenCommand" date="Wed Mar 02 17:30:07 EST 2022" docASTNodeCount="188" docActiveCodeLength="1046" docExpressionCount="116" docLength="1046" projectName="ValgrindWrappingTool" starttimestamp="1646257871904" timestamp="2335790">
+    <filePath><![CDATA[/Users/nalingaddis/Documents/COMP691H/ValgrindWrappingTool/src/compiler/CommandLineHelper.java]]></filePath>
+    <diff><![CDATA[[Diff(EQUAL,"package compiler;¶¶public class CommandLineHelper {¶	¶	public static int execute(String[] command) throws Exception {¶		return execute(command, false);¶	}¶	¶	public static int execute(String[] command, boolean silent) throws Exception{¶		if(!silent) System.out.println("Executing: " + String.join(" ", command));¶		¶		ProcessBuilder pb = new ProcessBuilder();¶		if(silent) {¶			pb.command(command);¶		} else {¶			pb.command(command).inheritIO();¶		}¶		¶		Process process = pb.start();¶		¶		return process.waitFor();¶	}¶	¶	public static int executeInDocker(String[] command) throws Exception {¶		return executeInDocker(command, false);¶	}¶	¶	public static int executeInDocker(String[] command, boolean silent) throws Exception {¶		String[] dockerCommand = new String[command.length+3];¶		¶		dockerCommand[0] = DockerHelper.DOCKER_PATH;¶		dockerCommand[1] = "exec";¶		dockerCommand[2] = DockerHelper.CONTAINER_NAME;¶		¶		for(int i=0; i<command.length; i++) {¶			dockerCommand[i+3] = command[i];¶		}¶		¶		return execute(dockerCommand, silent);¶	}¶}¶")]]]></diff>
+  </Command>
+  <Command __id="110" _type="SelectTextCommand" caretOffset="1040" date="Wed Mar 02 17:30:08 EST 2022" end="1040" start="1000" starttimestamp="1646257871904" timestamp="2336223" />
+  <Command __id="111" _type="DiffBasedFileOpenCommand" date="Wed Mar 02 17:30:09 EST 2022" docASTNodeCount="286" docActiveCodeLength="1564" docExpressionCount="181" docLength="1564" projectName="ValgrindWrappingTool" starttimestamp="1646257871904" timestamp="2337240">
+    <filePath><![CDATA[/Users/nalingaddis/Documents/COMP691H/ValgrindWrappingTool/src/compiler/CompilerHelper.java]]></filePath>
+    <diff><![CDATA[null]]></diff>
+    <snapshot><![CDATA[package compiler;
+
+import java.io.File;
+import java.util.ArrayList;
+import java.util.List;
+
+public class CompilerHelper {
+	static final String CC = "gcc";
+	static final String FLAGS = "-pthread";
+	static final String EXEC_NAME = "WrappedStudentCode";
+	
+	private static String objFilename(String filename) {
+		return filename + main.Main.WRAPPER_FILE_SUFFIX + ".o";
+	}
+	
+	public static int compileWrapper(String filename) throws Exception {
+		String objFile = objFilename(filename);
+		String cFile = filename + main.Main.WRAPPER_FILE_SUFFIX + ".c";
+		
+		String[] command = {CC, "-c", FLAGS, cFile, "-o", objFile};
+		
+		return CommandLineHelper.executeInDocker(command);
+	}
+	
+	public static int compileStudentCode(String studentDir, String wrapperFilename) throws Exception {
+		File dir = new File(studentDir);
+		
+		List<String> srcFiles = new ArrayList<String>();
+		
+		for(String filename: dir.list()) {
+			if(filename.endsWith(".c")) {
+				srcFiles.add(filename);
+			}
+		}
+		
+		String[] command = new String[srcFiles.size() + 5];
+		
+		command[0] = CC;
+		command[1] = FLAGS;
+		command[2] = objFilename(wrapperFilename);
+		command[3] = "-o";
+		command[4] = EXEC_NAME;
+		
+		for(int i=0; i<srcFiles.size(); i++) {
+			command[i+5] = studentDir + "/" + srcFiles.get(i);
+		}
+
+		return CommandLineHelper.executeInDocker(command);
+	}
+	
+	public static int trace(String testfile) throws Exception{
+		String[] command = {
+				"valgrind",
+				"--trace-children=yes",
+				"./"+EXEC_NAME,
+				"<",
+				testfile
+		};
+		
+		return CommandLineHelper.executeInDocker(command);
+	}
+}
+	
+]]></snapshot>
+  </Command>
+  <Command __id="112" _type="MoveCaretCommand" caretOffset="1334" date="Wed Mar 02 17:30:09 EST 2022" docOffset="1385" starttimestamp="1646257871904" timestamp="2338011" />
+  <Command __id="114" _type="SelectTextCommand" caretOffset="515" date="Wed Mar 02 17:30:22 EST 2022" end="515" start="475" starttimestamp="1646257871904" timestamp="2350844" />
+  <Command __id="115" _type="MoveCaretCommand" caretOffset="511" date="Wed Mar 02 17:30:25 EST 2022" docOffset="619" starttimestamp="1646257871904" timestamp="2353266" />
+  <Command __id="116" _type="ShellCommand" date="Wed Mar 02 17:31:45 EST 2022" starttimestamp="1646257871904" timestamp="2433606" type="ECLIPSE_LOST_FOCUS" />
+  <Command __id="113" _type="DiffBasedFileOpenCommand" date="Wed Mar 02 17:30:22 EST 2022" docASTNodeCount="151" docActiveCodeLength="948" docExpressionCount="95" docLength="948" projectName="ValgrindWrappingTool" starttimestamp="1646257871904" timestamp="2350557">
+    <filePath><![CDATA[/Users/nalingaddis/Documents/COMP691H/ValgrindWrappingTool/src/main/Main.java]]></filePath>
+    <diff><![CDATA[[Diff(EQUAL,"package main;¶¶import java.util.Scanner;¶¶import compiler.CompilerHelper;¶import compiler.DockerHelper;¶import parser.Parser;¶import parser.Wrapper;¶¶public class Main {¶	public static final String WRAPPER_FILE_SUFFIX = "-wrapper";¶	¶	public static void main(String[] args) {¶		try {¶			DockerHelper.startContainer();¶			¶			Scanner scanner = new Scanner(System.in);¶			System.out.print("Enter config file location: ");¶			String filename = scanner.nextLine();¶			¶			Parser parser = new Parser(filename);¶			¶			Wrapper wrapper = parser.parse();¶			wrapper.toFile(filename);¶			¶			CompilerHelper.compileWrapper(filename);¶			¶			System.out.print("Enter student code directory: ");¶			String studentDir = scanner.nextLine();¶			¶			CompilerHelper.compileStudentCode(studentDir, filename);¶			¶			CompilerHelper.trace("test1");¶			¶			DockerHelper.stopContainer();¶			scanner.close();¶			¶		} catch (Exception e) {¶			e.printStackTrace();¶		}¶	}¶}¶")]]]></diff>
+  </Command>
+  <Command __id="117" _type="ShellCommand" date="Wed Mar 02 17:32:46 EST 2022" starttimestamp="1646257871904" timestamp="2494622" type="ECLIPSE_GAINED_FOCUS" />
+  <Command __id="119" _type="ShellCommand" date="Wed Mar 02 17:33:50 EST 2022" starttimestamp="1646257871904" timestamp="2558299" type="ECLIPSE_LOST_FOCUS" />
+  <Command __id="118" _type="DiffBasedFileOpenCommand" date="Wed Mar 02 17:33:31 EST 2022" docASTNodeCount="1" docActiveCodeLength="262" docExpressionCount="0" docLength="550" projectName="ValgrindWrappingTool" starttimestamp="1646257871904" timestamp="2539900">
+    <filePath><![CDATA[/Users/nalingaddis/Documents/COMP691H/ValgrindWrappingTool/SampleInput]]></filePath>
+    <diff><![CDATA[[Diff(EQUAL,"#include <stdio.h>¶#include <pthread.h>¶#include <stdarg.h>¶¶#include "StudentCode/boundedbuffer.h"¶¶libpthread.so.0,pthread_create:pthread_t *restrict thread, const pthread_attr_t *restrict attr,void *(*start_routine)(void *),void *restrict arg->int¶¶//libpthread*,pthread_join:pthread_t thread, void **retval->int¶¶//*, sem_wait: sem_t *sem -> int¶//*, sem_post: sem_t *sem -> int¶¶//*, get*: BoundedBuffer* buffer -> char¶¶//*, put*: BoundedBuffer* buffer, char c -> void¶//*, pu*: char c, BoundedBuffer* buffer -> void¶¶// loop limiting algorithm")]]]></diff>
+  </Command>
+  <Command __id="120" _type="ShellCommand" date="Wed Mar 02 17:34:41 EST 2022" starttimestamp="1646257871904" timestamp="2609875" type="ECLIPSE_GAINED_FOCUS" />
+  <Command __id="122" _type="MoveCaretCommand" caretOffset="511" date="Wed Mar 02 17:35:05 EST 2022" docOffset="619" starttimestamp="1646257871904" timestamp="2634072" />
+  <Command __id="123" _type="MoveCaretCommand" caretOffset="519" date="Wed Mar 02 17:35:09 EST 2022" docOffset="627" starttimestamp="1646257871904" timestamp="2637200" />
+  <Command __id="124" _type="MoveCaretCommand" caretOffset="519" date="Wed Mar 02 17:35:09 EST 2022" docOffset="627" starttimestamp="1646257871904" timestamp="2637693" />
+  <Command __id="125" _type="SelectTextCommand" caretOffset="515" date="Wed Mar 02 17:35:13 EST 2022" end="515" start="475" starttimestamp="1646257871904" timestamp="2642066" />
+  <Command __id="126" _type="MoveCaretCommand" caretOffset="488" date="Wed Mar 02 17:35:27 EST 2022" docOffset="596" starttimestamp="1646257871904" timestamp="2655104" />
+  <Command __id="127" _type="MoveCaretCommand" caretOffset="497" date="Wed Mar 02 17:35:28 EST 2022" docOffset="605" starttimestamp="1646257871904" timestamp="2656216" />
+  <Command __id="121" _type="DiffBasedFileOpenCommand" date="Wed Mar 02 17:35:05 EST 2022" docASTNodeCount="151" docActiveCodeLength="948" docExpressionCount="95" docLength="948" projectName="ValgrindWrappingTool" starttimestamp="1646257871904" timestamp="2633891">
+    <filePath><![CDATA[/Users/nalingaddis/Documents/COMP691H/ValgrindWrappingTool/src/main/Main.java]]></filePath>
+    <diff><![CDATA[[Diff(EQUAL,"package main;¶¶import java.util.Scanner;¶¶import compiler.CompilerHelper;¶import compiler.DockerHelper;¶import parser.Parser;¶import parser.Wrapper;¶¶public class Main {¶	public static final String WRAPPER_FILE_SUFFIX = "-wrapper";¶	¶	public static void main(String[] args) {¶		try {¶			DockerHelper.startContainer();¶			¶			Scanner scanner = new Scanner(System.in);¶			System.out.print("Enter config file location: ");¶			String filename = scanner.nextLine();¶			¶			Parser parser = new Parser(filename);¶			¶			Wrapper wrapper = parser.parse();¶			wrapper.toFile(filename);¶			¶			CompilerHelper.compileWrapper(filename);¶			¶			System.out.print("Enter student code directory: ");¶			String studentDir = scanner.nextLine();¶			¶			CompilerHelper.compileStudentCode(studentDir, filename);¶			¶			CompilerHelper.trace("test1");¶			¶			DockerHelper.stopContainer();¶			scanner.close();¶			¶		} catch (Exception e) {¶			e.printStackTrace();¶		}¶	}¶}¶")]]]></diff>
+  </Command>
+  <Command __id="128" _type="MoveCaretCommand" caretOffset="481" date="Wed Mar 02 17:35:30 EST 2022" docOffset="589" starttimestamp="1646257871904" timestamp="2658367" />
+  <Command __id="130" _type="SelectTextCommand" caretOffset="352" date="Wed Mar 02 17:35:32 EST 2022" end="352" start="338" starttimestamp="1646257871904" timestamp="2660866" />
+  <Command __id="129" _type="DiffBasedFileOpenCommand" date="Wed Mar 02 17:35:32 EST 2022" docASTNodeCount="286" docActiveCodeLength="1564" docExpressionCount="181" docLength="1564" projectName="ValgrindWrappingTool" starttimestamp="1646257871904" timestamp="2660562">
+    <filePath><![CDATA[/Users/nalingaddis/Documents/COMP691H/ValgrindWrappingTool/src/compiler/CompilerHelper.java]]></filePath>
+    <diff><![CDATA[[Diff(EQUAL,"package compiler;¶¶import java.io.File;¶import java.util.ArrayList;¶import java.util.List;¶¶public class CompilerHelper {¶	static final String CC = "gcc";¶	static final String FLAGS = "-pthread";¶	static final String EXEC_NAME = "WrappedStudentCode";¶	¶	private static String objFilename(String filename) {¶		return filename + main.Main.WRAPPER_FILE_SUFFIX + ".o";¶	}¶	¶	public static int compileWrapper(String filename) throws Exception {¶		String objFile = objFilename(filename);¶		String cFile = filename + main.Main.WRAPPER_FILE_SUFFIX + ".c";¶		¶		String[] command = {CC, "-c", FLAGS, cFile, "-o", objFile};¶		¶		return CommandLineHelper.executeInDocker(command);¶	}¶	¶	public static int compileStudentCode(String studentDir, String wrapperFilename) throws Exception {¶		File dir = new File(studentDir);¶		¶		List<String> srcFiles = new ArrayList<String>();¶		¶		for(String filename: dir.list()) {¶			if(filename.endsWith(".c")) {¶				srcFiles.add(filename);¶			}¶		}¶		¶		String[] command = new String[srcFiles.size() + 5];¶		¶		command[0] = CC;¶		command[1] = FLAGS;¶		command[2] = objFilename(wrapperFilename);¶		command[3] = "-o";¶		command[4] = EXEC_NAME;¶		¶		for(int i=0; i<srcFiles.size(); i++) {¶			command[i+5] = studentDir + "/" + srcFiles.get(i);¶		}¶¶		return CommandLineHelper.executeInDocker(command);¶	}¶	¶	public static int trace(String testfile) throws Exception{¶		String[] command = {¶				"valgrind",¶				"--trace-children=yes",¶				"./"+EXEC_NAME,¶				"<",¶				testfile¶		};¶		¶		return CommandLineHelper.executeInDocker(command);¶	}¶}¶	¶")]]]></diff>
+  </Command>
+  <Command __id="131" _type="SelectTextCommand" caretOffset="564" date="Wed Mar 02 17:35:36 EST 2022" end="564" start="391" starttimestamp="1646257871904" timestamp="2665054" />
+  <Command __id="133" _type="SelectTextCommand" caretOffset="555" date="Wed Mar 02 17:35:43 EST 2022" end="555" start="540" starttimestamp="1646257871904" timestamp="2671659" />
+  <Command __id="132" _type="DiffBasedFileOpenCommand" date="Wed Mar 02 17:35:43 EST 2022" docASTNodeCount="188" docActiveCodeLength="1046" docExpressionCount="116" docLength="1046" projectName="ValgrindWrappingTool" starttimestamp="1646257871904" timestamp="2671471">
+    <filePath><![CDATA[/Users/nalingaddis/Documents/COMP691H/ValgrindWrappingTool/src/compiler/CommandLineHelper.java]]></filePath>
+    <diff><![CDATA[[Diff(EQUAL,"package compiler;¶¶public class CommandLineHelper {¶	¶	public static int execute(String[] command) throws Exception {¶		return execute(command, false);¶	}¶	¶	public static int execute(String[] command, boolean silent) throws Exception{¶		if(!silent) System.out.println("Executing: " + String.join(" ", command));¶		¶		ProcessBuilder pb = new ProcessBuilder();¶		if(silent) {¶			pb.command(command);¶		} else {¶			pb.command(command).inheritIO();¶		}¶		¶		Process process = pb.start();¶		¶		return process.waitFor();¶	}¶	¶	public static int executeInDocker(String[] command) throws Exception {¶		return executeInDocker(command, false);¶	}¶	¶	public static int executeInDocker(String[] command, boolean silent) throws Exception {¶		String[] dockerCommand = new String[command.length+3];¶		¶		dockerCommand[0] = DockerHelper.DOCKER_PATH;¶		dockerCommand[1] = "exec";¶		dockerCommand[2] = DockerHelper.CONTAINER_NAME;¶		¶		for(int i=0; i<command.length; i++) {¶			dockerCommand[i+3] = command[i];¶		}¶		¶		return execute(dockerCommand, silent);¶	}¶}¶")]]]></diff>
+  </Command>
+  <Command __id="134" _type="SelectTextCommand" caretOffset="637" date="Wed Mar 02 17:35:46 EST 2022" end="637" start="522" starttimestamp="1646257871904" timestamp="2674133" />
+  <Command __id="135" _type="SelectTextCommand" caretOffset="637" date="Wed Mar 02 17:35:46 EST 2022" end="637" start="522" starttimestamp="1646257871904" timestamp="2674134" />
+  <Command __id="137" _type="MoveCaretCommand" caretOffset="500" date="Wed Mar 02 17:35:51 EST 2022" docOffset="608" starttimestamp="1646257871904" timestamp="2679808" />
+  <Command __id="138" _type="ShellCommand" date="Wed Mar 02 17:36:45 EST 2022" starttimestamp="1646257871904" timestamp="2733625" type="ECLIPSE_LOST_FOCUS" />
+  <Command __id="136" _type="DiffBasedFileOpenCommand" date="Wed Mar 02 17:35:51 EST 2022" docASTNodeCount="151" docActiveCodeLength="948" docExpressionCount="95" docLength="948" projectName="ValgrindWrappingTool" starttimestamp="1646257871904" timestamp="2679641">
+    <filePath><![CDATA[/Users/nalingaddis/Documents/COMP691H/ValgrindWrappingTool/src/main/Main.java]]></filePath>
+    <diff><![CDATA[[Diff(EQUAL,"package main;¶¶import java.util.Scanner;¶¶import compiler.CompilerHelper;¶import compiler.DockerHelper;¶import parser.Parser;¶import parser.Wrapper;¶¶public class Main {¶	public static final String WRAPPER_FILE_SUFFIX = "-wrapper";¶	¶	public static void main(String[] args) {¶		try {¶			DockerHelper.startContainer();¶			¶			Scanner scanner = new Scanner(System.in);¶			System.out.print("Enter config file location: ");¶			String filename = scanner.nextLine();¶			¶			Parser parser = new Parser(filename);¶			¶			Wrapper wrapper = parser.parse();¶			wrapper.toFile(filename);¶			¶			CompilerHelper.compileWrapper(filename);¶			¶			System.out.print("Enter student code directory: ");¶			String studentDir = scanner.nextLine();¶			¶			CompilerHelper.compileStudentCode(studentDir, filename);¶			¶			CompilerHelper.trace("test1");¶			¶			DockerHelper.stopContainer();¶			scanner.close();¶			¶		} catch (Exception e) {¶			e.printStackTrace();¶		}¶	}¶}¶")]]]></diff>
+  </Command>
+  <Command __id="139" _type="ShellCommand" date="Wed Mar 02 17:39:22 EST 2022" starttimestamp="1646257871904" timestamp="2890834" type="ECLIPSE_GAINED_FOCUS" />
+  <Command __id="140" _type="MoveCaretCommand" caretOffset="414" date="Wed Mar 02 17:39:22 EST 2022" docOffset="522" starttimestamp="1646257871904" timestamp="2891022" />
+  <Command __id="141" _type="DiffBasedFileOpenCommand" date="Wed Mar 02 17:39:24 EST 2022" docASTNodeCount="286" docActiveCodeLength="1564" docExpressionCount="181" docLength="1564" projectName="ValgrindWrappingTool" starttimestamp="1646257871904" timestamp="2892464">
+    <filePath><![CDATA[/Users/nalingaddis/Documents/COMP691H/ValgrindWrappingTool/src/compiler/CompilerHelper.java]]></filePath>
+    <diff><![CDATA[[Diff(EQUAL,"package compiler;¶¶import java.io.File;¶import java.util.ArrayList;¶import java.util.List;¶¶public class CompilerHelper {¶	static final String CC = "gcc";¶	static final String FLAGS = "-pthread";¶	static final String EXEC_NAME = "WrappedStudentCode";¶	¶	private static String objFilename(String filename) {¶		return filename + main.Main.WRAPPER_FILE_SUFFIX + ".o";¶	}¶	¶	public static int compileWrapper(String filename) throws Exception {¶		String objFile = objFilename(filename);¶		String cFile = filename + main.Main.WRAPPER_FILE_SUFFIX + ".c";¶		¶		String[] command = {CC, "-c", FLAGS, cFile, "-o", objFile};¶		¶		return CommandLineHelper.executeInDocker(command);¶	}¶	¶	public static int compileStudentCode(String studentDir, String wrapperFilename) throws Exception {¶		File dir = new File(studentDir);¶		¶		List<String> srcFiles = new ArrayList<String>();¶		¶		for(String filename: dir.list()) {¶			if(filename.endsWith(".c")) {¶				srcFiles.add(filename);¶			}¶		}¶		¶		String[] command = new String[srcFiles.size() + 5];¶		¶		command[0] = CC;¶		command[1] = FLAGS;¶		command[2] = objFilename(wrapperFilename);¶		command[3] = "-o";¶		command[4] = EXEC_NAME;¶		¶		for(int i=0; i<srcFiles.size(); i++) {¶			command[i+5] = studentDir + "/" + srcFiles.get(i);¶		}¶¶		return CommandLineHelper.executeInDocker(command);¶	}¶	¶	public static int trace(String testfile) throws Exception{¶		String[] command = {¶				"valgrind",¶				"--trace-children=yes",¶				"./"+EXEC_NAME,¶				"<",¶				testfile¶		};¶		¶		return CommandLineHelper.executeInDocker(command);¶	}¶}¶	¶")]]]></diff>
+  </Command>
+  <Command __id="142" _type="MoveCaretCommand" caretOffset="598" date="Wed Mar 02 17:39:24 EST 2022" docOffset="649" starttimestamp="1646257871904" timestamp="2892681" />
+  <Command __id="144" _type="MoveCaretCommand" caretOffset="379" date="Wed Mar 02 17:39:26 EST 2022" docOffset="379" starttimestamp="1646257871904" timestamp="2894996" />
+  <Command __id="145" _type="SelectTextCommand" caretOffset="174" date="Wed Mar 02 17:39:29 EST 2022" end="174" start="158" starttimestamp="1646257871904" timestamp="2897372" />
+  <Command __id="146" _type="MoveCaretCommand" caretOffset="174" date="Wed Mar 02 17:39:29 EST 2022" docOffset="174" starttimestamp="1646257871904" timestamp="2897675" />
+  <Command __id="148" _type="InsertStringCommand" date="Wed Mar 02 17:39:30 EST 2022" starttimestamp="1646257871904" timestamp="2898498" timestamp2="2898498">
+    <data><![CDATA[-]]></data>
+  </Command>
+  <Command __id="150" _type="InsertStringCommand" date="Wed Mar 02 17:39:30 EST 2022" starttimestamp="1646257871904" timestamp="2898918" timestamp2="2898918">
+    <data><![CDATA[A]]></data>
+  </Command>
+  <Command __id="152" _type="InsertStringCommand" date="Wed Mar 02 17:39:31 EST 2022" starttimestamp="1646257871904" timestamp="2899117" timestamp2="2899117">
+    <data><![CDATA[0]]></data>
+  </Command>
+  <Command __id="153" _type="MoveCaretCommand" caretOffset="179" date="Wed Mar 02 17:39:32 EST 2022" docOffset="179" starttimestamp="1646257871904" timestamp="2900222" />
+  <Command __id="154" _type="SelectTextCommand" caretOffset="179" date="Wed Mar 02 17:39:49 EST 2022" end="179" start="157" starttimestamp="1646257871904" timestamp="2917578" />
+  <Command __id="155" _type="MoveCaretCommand" caretOffset="167" date="Wed Mar 02 17:40:00 EST 2022" docOffset="167" starttimestamp="1646257871904" timestamp="2928959" />
+  <Command __id="156" _type="SelectTextCommand" caretOffset="688" date="Wed Mar 02 17:40:58 EST 2022" end="688" start="658" starttimestamp="1646257871904" timestamp="2986374" />
+  <Command __id="157" _type="MoveCaretCommand" caretOffset="666" date="Wed Mar 02 17:41:03 EST 2022" docOffset="666" starttimestamp="1646257871904" timestamp="2991160" />
+  <Command __id="158" _type="SelectTextCommand" caretOffset="688" date="Wed Mar 02 17:41:05 EST 2022" end="688" start="658" starttimestamp="1646257871904" timestamp="2993359" />
+  <Command __id="159" _type="MoveCaretCommand" caretOffset="358" date="Wed Mar 02 17:41:06 EST 2022" docOffset="358" starttimestamp="1646257871904" timestamp="2994373" />
+  <Command __id="143" _type="DiffBasedFileOpenCommand" date="Wed Mar 02 17:39:26 EST 2022" docASTNodeCount="121" docActiveCodeLength="1001" docExpressionCount="70" docLength="1001" projectName="ValgrindWrappingTool" starttimestamp="1646257871904" timestamp="2894786">
+    <filePath><![CDATA[/Users/nalingaddis/Documents/COMP691H/ValgrindWrappingTool/src/compiler/DockerHelper.java]]></filePath>
+    <diff><![CDATA[[Diff(EQUAL,"package compiler;¶¶public class DockerHelper {¶	public static final String IMAGE_NAME = "nalingaddis/valgrind";¶	public static final String CONTAINER_NAME = "grader-container";¶	public static final String DOCKER_PATH = "/usr/local/bin/docker";¶	¶	public static int startContainer() throws Exception {¶		String[] command = {¶				DOCKER_PATH,¶				"inspect",¶				CONTAINER_NAME¶		};¶		¶		if(CommandLineHelper.execute(command, true) == 0) {¶			command = new String[]{¶					DOCKER_PATH, ¶					"start",¶					CONTAINER_NAME,¶			};¶		} else {¶			command = new String[]{¶					DOCKER_PATH, ¶					"run",¶					"-it",¶					"-d",¶					"--mount", ¶					"type=bind,src="+System.getProperty("user.dir")+",target=/home",¶					"--name",¶					CONTAINER_NAME,¶					IMAGE_NAME¶			};¶		}¶		¶		return CommandLineHelper.execute(command);¶	}¶	¶	public static int stopContainer() throws Exception {¶		String[] command = {¶				DOCKER_PATH,¶				"stop",¶				CONTAINER_NAME¶		};¶		¶		return CommandLineHelper.execute(command);¶	}¶}¶")]]]></diff>
+  </Command>
+  <DocumentChange __id="147" _type="Insert" date="Wed Mar 02 17:39:30 EST 2022" docASTNodeCount="121" docActiveCodeLength="1004" docExpressionCount="70" docLength="1004" length="3" offset="174" repeat="3" starttimestamp="1646257871904" timestamp="2898493" timestamp2="2899114">
+    <text><![CDATA[-A0]]></text>
+  </DocumentChange>
+  <Command __id="160" _type="MoveCaretCommand" caretOffset="177" date="Wed Mar 02 17:41:08 EST 2022" docOffset="177" starttimestamp="1646257871904" timestamp="2996657" />
+  <Command __id="162" _type="EclipseCommand" commandID="eventLogger.styledTextCommand.DELETE_PREVIOUS" date="Wed Mar 02 17:41:13 EST 2022" starttimestamp="1646257871904" timestamp="3001746" />
+  <Command __id="164" _type="EclipseCommand" commandID="eventLogger.styledTextCommand.DELETE_PREVIOUS" date="Wed Mar 02 17:41:13 EST 2022" starttimestamp="1646257871904" timestamp="3001918" />
+  <Command __id="166" _type="EclipseCommand" commandID="eventLogger.styledTextCommand.DELETE_PREVIOUS" date="Wed Mar 02 17:41:14 EST 2022" starttimestamp="1646257871904" timestamp="3002237" />
+  <Command __id="167" _type="EclipseCommand" commandID="org.eclipse.ui.file.save" date="Wed Mar 02 17:41:14 EST 2022" starttimestamp="1646257871904" timestamp="3002987" />
+  <Command __id="168" _type="EclipseCommand" commandID="" date="Wed Mar 02 17:41:14 EST 2022" starttimestamp="1646257871904" timestamp="3003082" />
+  <Command __id="169" _type="EclipseCommand" commandID="" date="Wed Mar 02 17:41:15 EST 2022" starttimestamp="1646257871904" timestamp="3003120" />
+  <Command __id="170" _type="ShellCommand" date="Wed Mar 02 17:42:25 EST 2022" starttimestamp="1646257871904" timestamp="3073904" type="ECLIPSE_LOST_FOCUS" />
+  <Command __id="171" _type="MoveCaretCommand" caretOffset="767" date="Wed Mar 02 17:42:28 EST 2022" docOffset="767" starttimestamp="1646257871904" timestamp="3076554" />
+  <Command __id="172" _type="ShellCommand" date="Wed Mar 02 17:42:28 EST 2022" starttimestamp="1646257871904" timestamp="3076707" type="ECLIPSE_GAINED_FOCUS" />
+  <Command __id="173" _type="ShellCommand" date="Wed Mar 02 17:42:29 EST 2022" starttimestamp="1646257871904" timestamp="3077364" type="ECLIPSE_LOST_FOCUS" />
+  <DocumentChange __id="161" _type="Delete" date="Wed Mar 02 17:41:13 EST 2022" docASTNodeCount="121" docActiveCodeLength="1001" docExpressionCount="70" docLength="1001" endLine="4" length="3" offset="174" repeat="3" startLine="4" starttimestamp="1646257871904" timestamp="3001741" timestamp2="3002233">
+    <text><![CDATA[-A0]]></text>
+  </DocumentChange>
+  <Command __id="174" _type="ShellCommand" date="Wed Mar 02 17:42:33 EST 2022" starttimestamp="1646257871904" timestamp="3081676" type="ECLIPSE_GAINED_FOCUS" />
+  <Command __id="175" _type="MoveCaretCommand" caretOffset="300" date="Wed Mar 02 17:42:33 EST 2022" docOffset="300" starttimestamp="1646257871904" timestamp="3081809" />
+  <Command __id="177" _type="MoveCaretCommand" caretOffset="414" date="Wed Mar 02 17:43:21 EST 2022" docOffset="522" starttimestamp="1646257871904" timestamp="3129200" />
+  <Command __id="178" _type="SelectTextCommand" caretOffset="617" date="Wed Mar 02 17:43:23 EST 2022" end="617" start="522" starttimestamp="1646257871904" timestamp="3131697" />
+  <Command __id="179" _type="MoveCaretCommand" caretOffset="617" date="Wed Mar 02 17:43:25 EST 2022" docOffset="725" starttimestamp="1646257871904" timestamp="3133159" />
+  <Command __id="180" _type="SelectTextCommand" caretOffset="523" date="Wed Mar 02 17:43:26 EST 2022" end="617" start="523" starttimestamp="1646257871904" timestamp="3134659" />
+  <Command __id="181" _type="MoveCaretCommand" caretOffset="523" date="Wed Mar 02 17:43:27 EST 2022" docOffset="631" starttimestamp="1646257871904" timestamp="3135710" />
+  <Command __id="182" _type="SelectTextCommand" caretOffset="681" date="Wed Mar 02 17:43:35 EST 2022" end="681" start="625" starttimestamp="1646257871904" timestamp="3143347" />
+  <Command __id="183" _type="ShellCommand" date="Wed Mar 02 17:44:18 EST 2022" starttimestamp="1646257871904" timestamp="3186140" type="ECLIPSE_LOST_FOCUS" />
+  <Command __id="176" _type="DiffBasedFileOpenCommand" date="Wed Mar 02 17:43:20 EST 2022" docASTNodeCount="151" docActiveCodeLength="948" docExpressionCount="95" docLength="948" projectName="ValgrindWrappingTool" starttimestamp="1646257871904" timestamp="3128815">
+    <filePath><![CDATA[/Users/nalingaddis/Documents/COMP691H/ValgrindWrappingTool/src/main/Main.java]]></filePath>
+    <diff><![CDATA[[Diff(EQUAL,"package main;¶¶import java.util.Scanner;¶¶import compiler.CompilerHelper;¶import compiler.DockerHelper;¶import parser.Parser;¶import parser.Wrapper;¶¶public class Main {¶	public static final String WRAPPER_FILE_SUFFIX = "-wrapper";¶	¶	public static void main(String[] args) {¶		try {¶			DockerHelper.startContainer();¶			¶			Scanner scanner = new Scanner(System.in);¶			System.out.print("Enter config file location: ");¶			String filename = scanner.nextLine();¶			¶			Parser parser = new Parser(filename);¶			¶			Wrapper wrapper = parser.parse();¶			wrapper.toFile(filename);¶			¶			CompilerHelper.compileWrapper(filename);¶			¶			System.out.print("Enter student code directory: ");¶			String studentDir = scanner.nextLine();¶			¶			CompilerHelper.compileStudentCode(studentDir, filename);¶			¶			CompilerHelper.trace("test1");¶			¶			DockerHelper.stopContainer();¶			scanner.close();¶			¶		} catch (Exception e) {¶			e.printStackTrace();¶		}¶	}¶}¶")]]]></diff>
+  </Command>
+  <Command __id="185" _type="DiffBasedFileOpenCommand" date="Wed Mar 02 17:45:20 EST 2022" docASTNodeCount="1" docActiveCodeLength="262" docExpressionCount="0" docLength="550" projectName="ValgrindWrappingTool" starttimestamp="1646257871904" timestamp="3249072">
+    <filePath><![CDATA[/Users/nalingaddis/Documents/COMP691H/ValgrindWrappingTool/SampleInput]]></filePath>
+    <diff><![CDATA[[Diff(EQUAL,"#include <stdio.h>¶#include <pthread.h>¶#include <stdarg.h>¶¶#include "StudentCode/boundedbuffer.h"¶¶libpthread.so.0,pthread_create:pthread_t *restrict thread, const pthread_attr_t *restrict attr,void *(*start_routine)(void *),void *restrict arg->int¶¶//libpthread*,pthread_join:pthread_t thread, void **retval->int¶¶//*, sem_wait: sem_t *sem -> int¶//*, sem_post: sem_t *sem -> int¶¶//*, get*: BoundedBuffer* buffer -> char¶¶//*, put*: BoundedBuffer* buffer, char c -> void¶//*, pu*: char c, BoundedBuffer* buffer -> void¶¶// loop limiting algorithm")]]]></diff>
+  </Command>
+  <Command __id="186" _type="DiffBasedFileOpenCommand" date="Wed Mar 02 17:46:11 EST 2022" docASTNodeCount="1" docActiveCodeLength="262" docExpressionCount="0" docLength="550" projectName="ValgrindWrappingTool" starttimestamp="1646257871904" timestamp="3299845">
+    <filePath><![CDATA[/Users/nalingaddis/Documents/COMP691H/ValgrindWrappingTool/SampleInput]]></filePath>
+    <diff><![CDATA[[Diff(EQUAL,"#include <stdio.h>¶#include <pthread.h>¶#include <stdarg.h>¶¶#include "StudentCode/boundedbuffer.h"¶¶libpthread.so.0,pthread_create:pthread_t *restrict thread, const pthread_attr_t *restrict attr,void *(*start_routine)(void *),void *restrict arg->int¶¶//libpthread*,pthread_join:pthread_t thread, void **retval->int¶¶//*, sem_wait: sem_t *sem -> int¶//*, sem_post: sem_t *sem -> int¶¶//*, get*: BoundedBuffer* buffer -> char¶¶//*, put*: BoundedBuffer* buffer, char c -> void¶//*, pu*: char c, BoundedBuffer* buffer -> void¶¶// loop limiting algorithm")]]]></diff>
+  </Command>
+  <Command __id="188" _type="EclipseCommand" commandID="" date="Wed Mar 02 17:46:41 EST 2022" starttimestamp="1646257871904" timestamp="3329824" />
+  <Command __id="189" _type="EclipseCommand" commandID="" date="Wed Mar 02 17:46:41 EST 2022" starttimestamp="1646257871904" timestamp="3329827" />
+  <Command __id="190" _type="RunCommand" date="Wed Mar 02 17:46:42 EST 2022" kind="HitBreakPoint" projectName="ValgrindWrappingTool" starttimestamp="1646257871904" timestamp="3330686" type="Run" />
+  <Command __id="191" _type="RunCommand" date="Wed Mar 02 17:46:42 EST 2022" kind="HitBreakPoint" projectName="ValgrindWrappingTool" starttimestamp="1646257871904" timestamp="3330686" type="Run" />
+  <Command __id="192" _type="ConsoleOutput" date="Wed Mar 02 17:46:43 EST 2022" overflow="false" starttimestamp="1646257871904" timestamp="3331568" type="ConsoleOutput">
+    <outputString><![CDATA[Executing: /usr/local/bin/docker start grader-container
+]]></outputString>
+    <diff><![CDATA[[Diff(DELETE,"331e0ede35b8bde923925d2267b225ef8065e3a41cc7e34e8eebdf6de0764fac"), Diff(INSERT,"Executing: /usr/local/bin/docker start grader-container"), Diff(EQUAL,"¶")]]]></diff>
+  </Command>
+  <Command __id="193" _type="ConsoleOutput" date="Wed Mar 02 17:46:43 EST 2022" overflow="false" starttimestamp="1646257871904" timestamp="3331980" type="ConsoleOutput">
+    <outputString><![CDATA[grader-container
+]]></outputString>
+    <diff><![CDATA[[Diff(DELETE,"Executing: /usr/local/bin/docker start "), Diff(EQUAL,"grader-container¶")]]]></diff>
+  </Command>
+  <Command __id="194" _type="EHExceptionCommand" date="Wed Mar 02 17:46:49 EST 2022" starttimestamp="1646257871904" timestamp="3337845" type="Exception">
+    <outputString><![CDATA[Enter config file location: SampleInput
+]]></outputString>
+  </Command>
+  <Command __id="195" _type="ConsoleOutput" date="Wed Mar 02 17:46:49 EST 2022" overflow="false" starttimestamp="1646257871904" timestamp="3337918" type="ConsoleOutput">
+    <outputString><![CDATA[Executing: /usr/local/bin/docker exec grader-container gcc -c -pthread SampleInput-wrapper.c -o SampleInput-wrapper.o
+]]></outputString>
+    <diff><![CDATA[[Diff(DELETE,"grader-container"), Diff(INSERT,"Executing: /usr/local/bin/docker exec grader-container gcc -c -pthread SampleInput-wrapper.c -o SampleInput-wrapper.o"), Diff(EQUAL,"¶")]]]></diff>
+  </Command>
+  <Command __id="196" _type="EHExceptionCommand" date="Wed Mar 02 17:46:53 EST 2022" starttimestamp="1646257871904" timestamp="3341846" type="Exception">
+    <outputString><![CDATA[Enter student code directory: StudentCode
+]]></outputString>
+  </Command>
+  <Command __id="197" _type="ConsoleOutput" date="Wed Mar 02 17:46:53 EST 2022" overflow="false" starttimestamp="1646257871904" timestamp="3341903" type="ConsoleOutput">
+    <outputString><![CDATA[Executing: /usr/local/bin/docker exec grader-container gcc -pthread SampleInput-wrapper.o -o WrappedStudentCode StudentCode/threaded.c StudentCode/boundedbuffer.c
+]]></outputString>
+    <diff><![CDATA[[Diff(EQUAL,"Executing: /usr/local/bin/docker exec grader-container gcc "), Diff(DELETE,"-c "), Diff(EQUAL,"-pthread SampleInput-wrapper."), Diff(DELETE,"c"), Diff(INSERT,"o"), Diff(EQUAL," -o "), Diff(DELETE,"SampleInput-wrapper.o"), Diff(INSERT,"WrappedStudentCode StudentCode/threaded.c StudentCode/boundedbuffer.c"), Diff(EQUAL,"¶")]]]></diff>
+  </Command>
+  <Command __id="198" _type="ConsoleOutput" date="Wed Mar 02 17:46:54 EST 2022" overflow="false" starttimestamp="1646257871904" timestamp="3342938" type="ConsoleOutput">
+    <outputString><![CDATA[Executing: /usr/local/bin/docker exec grader-container valgrind --trace-children=yes ./WrappedStudentCode < test1
+]]></outputString>
+    <diff><![CDATA[[Diff(EQUAL,"Executing: /usr/local/bin/docker exec grader-container "), Diff(DELETE,"gcc -pthread SampleInput-wrapper.o -o WrappedStudentCode StudentCode/threaded.c StudentCode/boundedbuffer.c"), Diff(INSERT,"valgrind --trace-children=yes ./WrappedStudentCode < test1"), Diff(EQUAL,"¶")]]]></diff>
+  </Command>
+  <Command __id="199" _type="ConsoleOutput" date="Wed Mar 02 17:46:55 EST 2022" overflow="false" starttimestamp="1646257871904" timestamp="3343462" type="ConsoleOutput">
+    <outputString><![CDATA[==44== Memcheck, a memory error detector
+==44== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==44== Using Valgrind-3.15.0 and LibVEX; rerun with -h for copyright info
+==44== Command: ./WrappedStudentCode \< test1
+==44== 
+]]></outputString>
+    <diff><![CDATA[[Diff(DELETE,"Executing: /usr/local/bin/docker exec grader-container valgrind --trace-children=yes"), Diff(INSERT,"==44== Memcheck, a memory error detector¶==44== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.¶==44== Using Valgrind-3.15.0 and LibVEX; rerun with -h for copyright info¶==44== Command:"), Diff(EQUAL," ./WrappedStudentCode "), Diff(INSERT,"\"), Diff(EQUAL,"< test1¶"), Diff(INSERT,"==44== ¶")]]]></diff>
+  </Command>
+  <Command __id="187" _type="DiffBasedFileOpenCommand" date="Wed Mar 02 17:46:34 EST 2022" docASTNodeCount="1" docActiveCodeLength="262" docExpressionCount="0" docLength="550" projectName="ValgrindWrappingTool" starttimestamp="1646257871904" timestamp="3322311">
+    <filePath><![CDATA[/Users/nalingaddis/Documents/COMP691H/ValgrindWrappingTool/SampleInput]]></filePath>
+    <diff><![CDATA[[Diff(EQUAL,"#include <stdio.h>¶#include <pthread.h>¶#include <stdarg.h>¶¶#include "StudentCode/boundedbuffer.h"¶¶libpthread.so.0,pthread_create:pthread_t *restrict thread, const pthread_attr_t *restrict attr,void *(*start_routine)(void *),void *restrict arg->int¶¶//libpthread*,pthread_join:pthread_t thread, void **retval->int¶¶//*, sem_wait: sem_t *sem -> int¶//*, sem_post: sem_t *sem -> int¶¶//*, get*: BoundedBuffer* buffer -> char¶¶//*, put*: BoundedBuffer* buffer, char c -> void¶//*, pu*: char c, BoundedBuffer* buffer -> void¶¶// loop limiting algorithm")]]]></diff>
+  </Command>
+  <Command __id="200" _type="ConsoleOutput" date="Wed Mar 02 17:46:56 EST 2022" overflow="false" starttimestamp="1646257871904" timestamp="3344571" type="ConsoleOutput">
+    <outputString><![CDATA[1646261216 - Thread: 78001984 - pthread_create
+1646261216 - Thread: 78001984 - pthread_create
+1646261216 - Thread: 78001984 - pthread_create
+1646261216 - Thread: 78001984 - pthread_create
+1646261216 - Thread: 86402816 - sem_wait
+1646261216 - Thread: 86402816 - sem_post
+1646261216 - Thread: 78001984 - pthread_join
+1646261216 - Thread: 98989824 - sem_wait
+1646261216 - Thread: 98989824 - sem_post
+1646261216 - Thread: 98989824 - sem_wait
+1646261216 - Thread: 98989824 - sem_post
+1646261216 - Thread: 107382528 - sem_wait
+1646261216 - Thread: 107382528 - sem_post
+1646261216 - Thread: 107382528 - sem_wait
+1646261216 - Thread: 107382528 - sem_post
+1646261216 - Thread: 78001984 - pthread_join
+1646261216 - Thread: 78001984 - pthread_join
+1646261216 - Thread: 115775232 - sem_wait
+1646261216 - Thread: 115775232 - sem_post
+1646261216 - Thread: 78001984 - pthread_join
+==44== 
+==44== HEAP SUMMARY:
+==44==     in use at exit: 0 bytes in 0 blocks
+==44==   total heap usage: 6 allocs, 6 frees, 9,280 bytes allocated
+==44== 
+==44== All heap blocks were freed -- no leaks are possible
+==44== 
+==44== For lists of detected and suppressed errors, rerun with: -s
+==44== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+]]></outputString>
+    <diff><![CDATA[[Diff(DELETE,"==44== Memcheck, a memory error detector¶==44== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.¶==44== Using Valgrind-3.15.0 and LibVEX; rerun with -h for copyright info¶==44== Command: ./WrappedStudentCode \< test1¶==44== "), Diff(INSERT,"1646261216 - Thread: 78001984 - pthread_create¶1646261216 - Thread: 78001984 - pthread_create¶1646261216 - Thread: 78001984 - pthread_create¶1646261216 - Thread: 78001984 - pthread_create¶1646261216 - Thread: 86402816 - sem_wait¶1646261216 - Thread: 86402816 - sem_post¶1646261216 - Thread: 78001984 - pthread_join¶1646261216 - Thread: 98989824 - sem_wait¶1646261216 - Thread: 98989824 - sem_post¶1646261216 - Thread: 98989824 - sem_wait¶1646261216 - Thread: 98989824 - sem_post¶1646261216 - Thread: 107382528 - sem_wait¶1646261216 - Thread: 107382528 - sem_post¶1646261216 - Thread: 107382528 - sem_wait¶1646261216 - Thread: 107382528 - sem_post¶1646261216 - Thread: 78001984 - pthread_join¶1646261216 - Thread: 78001984 - pthread_join¶1646261216 - Thread: 115775232 - sem_wait¶1646261216 - Thread: 115775232 - sem_post¶1646261216 - Thread: 78001984 - pthread_join¶==44== ¶==44== HEAP SUMMARY:¶==44==     in use at exit: 0 bytes in 0 blocks¶==44==   total heap usage: 6 allocs, 6 frees, 9,280 bytes allocated¶==44== ¶==44== All heap blocks were freed -- no leaks are possible¶==44== ¶==44== For lists of detected and suppressed errors, rerun with: -s¶==44== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)"), Diff(EQUAL,"¶")]]]></diff>
+  </Command>
+  <Command __id="201" _type="ConsoleOutput" date="Wed Mar 02 17:46:56 EST 2022" overflow="false" starttimestamp="1646257871904" timestamp="3344666" type="ConsoleOutput">
+    <outputString><![CDATA[Executing: /usr/local/bin/docker stop grader-container
+]]></outputString>
+    <diff><![CDATA[[Diff(DELETE,"1646261216 - Thread: 78001984 - pthread_create¶1646261216 - Thread: 78001984 - pthread_create¶1646261216 - Thread: 78001984 - pthread_create¶1646261216 - Thread: 78001984 - pthread_create¶1646261216 - Thread: 86402816 - sem_wait¶1646261216 - Thread: 86402816 - sem_post¶1646261216 - Thread: 78001984 - pthread_join¶1646261216 - Thread: 98989824 - sem_wait¶1646261216 - Thread: 98989824 - sem_post¶1646261216 - Thread: 98989824 - sem_wait¶1646261216 - Thread: 98989824 - sem_post¶1646261216 - Thread: 107382528 - sem_wait¶1646261216 - Thread: 107382528 - sem_post¶1646261216 - Thread: 107382528 - sem_wait¶1646261216 - Thread: 107382528 - sem_post¶1646261216 - Thread: 78001984 - pthread_join¶1646261216 - Thread: 78001984 - pthread_join¶1646261216 - Thread: 115775232 - sem_wait¶1646261216 - Thread: 115775232 - sem_post¶1646261216 - Thread: 78001984 - pthread_join¶==44== ¶==44== HEAP SUMMARY:¶==44==     in use at exit: 0 bytes in 0 blocks¶==44==   total heap usage: 6 allocs, 6 frees, 9,280 bytes allocated¶==44== ¶==44== All heap blocks were freed -- no leaks are possible¶==44== ¶==44== For lists of detected and suppressed errors, rerun with: -s¶==44== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)"), Diff(INSERT,"Executing: /usr/local/bin/docker stop grader-container"), Diff(EQUAL,"¶")]]]></diff>
+  </Command>
+  <Command __id="202" _type="RunCommand" date="Wed Mar 02 17:46:57 EST 2022" kind="HitBreakPoint" projectName="ValgrindWrappingTool" starttimestamp="1646257871904" timestamp="3345299" type="Run" />
+  <Command __id="203" _type="RunCommand" date="Wed Mar 02 17:46:57 EST 2022" kind="HitBreakPoint" projectName="ValgrindWrappingTool" starttimestamp="1646257871904" timestamp="3345299" type="Run" />
+  <Command __id="204" _type="ConsoleOutput" date="Wed Mar 02 17:46:57 EST 2022" overflow="false" starttimestamp="1646257871904" timestamp="3345305" type="ConsoleOutput">
+    <outputString><![CDATA[grader-container
+]]></outputString>
+    <diff><![CDATA[[Diff(DELETE,"Executing: /usr/local/bin/docker stop "), Diff(EQUAL,"grader-container¶")]]]></diff>
+  </Command>
+  <Command __id="206" _type="SelectTextCommand" caretOffset="681" date="Wed Mar 02 17:49:27 EST 2022" end="681" start="625" starttimestamp="1646257871904" timestamp="3495168" />
+</Events>

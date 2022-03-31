@@ -1,0 +1,843 @@
+<Events startTimestamp="1644352075968" logVersion="1.0.0.202101171653">
+  <Command __id="1" _type="ShellCommand" date="Tue Feb 08 16:11:39 EST 2022" starttimestamp="1644352075968" timestamp="2623758" type="ECLIPSE_GAINED_FOCUS" />
+  <Command __id="2" _type="ShellCommand" date="Tue Feb 08 16:11:43 EST 2022" starttimestamp="1644352075968" timestamp="2627878" type="ECLIPSE_LOST_FOCUS" />
+  <Command __id="3" _type="ShellCommand" date="Tue Feb 08 16:13:21 EST 2022" starttimestamp="1644352075968" timestamp="2725300" type="ECLIPSE_GAINED_FOCUS" />
+  <Command __id="4" _type="ShellCommand" date="Tue Feb 08 16:13:23 EST 2022" starttimestamp="1644352075968" timestamp="2727148" type="ECLIPSE_LOST_FOCUS" />
+  <Command __id="5" _type="ShellCommand" date="Tue Feb 08 16:13:34 EST 2022" starttimestamp="1644352075968" timestamp="2738102" type="ECLIPSE_GAINED_FOCUS" />
+  <Command __id="6" _type="ShellCommand" date="Tue Feb 08 16:13:36 EST 2022" starttimestamp="1644352075968" timestamp="2740085" type="ECLIPSE_LOST_FOCUS" />
+  <Command __id="7" _type="ShellCommand" date="Tue Feb 08 16:13:45 EST 2022" starttimestamp="1644352075968" timestamp="2749199" type="ECLIPSE_GAINED_FOCUS" />
+  <Command __id="8" _type="ShellCommand" date="Tue Feb 08 16:13:48 EST 2022" starttimestamp="1644352075968" timestamp="2752389" type="ECLIPSE_LOST_FOCUS" />
+  <Command __id="9" _type="ShellCommand" date="Tue Feb 08 16:13:50 EST 2022" starttimestamp="1644352075968" timestamp="2754944" type="ECLIPSE_GAINED_FOCUS" />
+  <Command __id="10" _type="ShellCommand" date="Tue Feb 08 16:14:07 EST 2022" starttimestamp="1644352075968" timestamp="2771702" type="ECLIPSE_LOST_FOCUS" />
+  <Command __id="11" _type="ShellCommand" date="Tue Feb 08 16:14:13 EST 2022" starttimestamp="1644352075968" timestamp="2777099" type="ECLIPSE_GAINED_FOCUS" />
+  <Command __id="12" _type="ShellCommand" date="Tue Feb 08 16:14:25 EST 2022" starttimestamp="1644352075968" timestamp="2789142" type="ECLIPSE_LOST_FOCUS" />
+  <Command __id="13" _type="ShellCommand" date="Tue Feb 08 16:14:30 EST 2022" starttimestamp="1644352075968" timestamp="2794911" type="ECLIPSE_GAINED_FOCUS" />
+  <Command __id="14" _type="ShellCommand" date="Tue Feb 08 16:14:37 EST 2022" starttimestamp="1644352075968" timestamp="2801876" type="ECLIPSE_LOST_FOCUS" />
+  <Command __id="15" _type="ShellCommand" date="Tue Feb 08 16:14:38 EST 2022" starttimestamp="1644352075968" timestamp="2802415" type="ECLIPSE_GAINED_FOCUS" />
+  <Command __id="16" _type="ShellCommand" date="Tue Feb 08 16:15:03 EST 2022" starttimestamp="1644352075968" timestamp="2827295" type="ECLIPSE_LOST_FOCUS" />
+  <Command __id="17" _type="ShellCommand" date="Tue Feb 08 16:15:07 EST 2022" starttimestamp="1644352075968" timestamp="2831143" type="ECLIPSE_GAINED_FOCUS" />
+  <Command __id="18" _type="ShellCommand" date="Tue Feb 08 16:15:10 EST 2022" starttimestamp="1644352075968" timestamp="2834503" type="ECLIPSE_LOST_FOCUS" />
+  <Command __id="0" _type="DiffBasedFileOpenCommand" date="Tue Feb 08 15:27:56 EST 2022" docASTNodeCount="1" docActiveCodeLength="248" docExpressionCount="0" docLength="248" projectName="ValgrindWrappingTool" starttimestamp="1644352075968" timestamp="299">
+    <filePath><![CDATA[/Users/nalingaddis/Documents/COMP691H/ValgrindWrappingTool/SampleInput]]></filePath>
+    <diff><![CDATA[null]]></diff>
+    <snapshot><![CDATA[#include <stdio.h>
+#include <pthread.h>
+#include <stdarg.h>
+
+#include "../src/v2/boundedbuffer.h"
+
+libpthread.so.0,pthread_create:pthread_t *restrict thread,const pthread_attr_t *restrict attr,void *(*start_routine)(void *),void *restrict arg->int
+]]></snapshot>
+  </Command>
+  <Command __id="19" _type="ShellCommand" date="Tue Feb 08 16:15:11 EST 2022" starttimestamp="1644352075968" timestamp="2835712" type="ECLIPSE_GAINED_FOCUS" />
+  <Command __id="20" _type="DiffBasedFileOpenCommand" date="Tue Feb 08 16:15:13 EST 2022" docASTNodeCount="50" docActiveCodeLength="229" docExpressionCount="27" docLength="229" projectName="ValgrindWrappingTool" starttimestamp="1644352075968" timestamp="2837120">
+    <filePath><![CDATA[/Users/nalingaddis/Documents/COMP691H/ValgrindWrappingTool/src/parser/Wrapper.java]]></filePath>
+    <diff><![CDATA[null]]></diff>
+    <snapshot><![CDATA[package parser;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class Wrapper {
+	List<String> imports;
+	List<Function> functions;
+	
+	public Wrapper() {
+		imports = new ArrayList();
+		functions = new ArrayList();
+	}
+}
+]]></snapshot>
+  </Command>
+  <Command __id="21" _type="MoveCaretCommand" caretOffset="200" date="Tue Feb 08 16:15:13 EST 2022" docOffset="223" starttimestamp="1644352075968" timestamp="2837685" />
+  <Command __id="23" _type="ShellCommand" date="Tue Feb 08 16:15:15 EST 2022" starttimestamp="1644352075968" timestamp="2839601" type="ECLIPSE_LOST_FOCUS" />
+  <Command __id="24" _type="ShellCommand" date="Tue Feb 08 16:15:21 EST 2022" starttimestamp="1644352075968" timestamp="2845877" type="ECLIPSE_GAINED_FOCUS" />
+  <Command __id="25" _type="ShellCommand" date="Tue Feb 08 16:15:42 EST 2022" starttimestamp="1644352075968" timestamp="2866544" type="ECLIPSE_LOST_FOCUS" />
+  <Command __id="26" _type="ShellCommand" date="Tue Feb 08 16:15:43 EST 2022" starttimestamp="1644352075968" timestamp="2867586" type="ECLIPSE_GAINED_FOCUS" />
+  <Command __id="27" _type="ShellCommand" date="Tue Feb 08 16:15:44 EST 2022" starttimestamp="1644352075968" timestamp="2868567" type="ECLIPSE_LOST_FOCUS" />
+  <Command __id="28" _type="ShellCommand" date="Tue Feb 08 16:17:22 EST 2022" starttimestamp="1644352075968" timestamp="2966251" type="ECLIPSE_GAINED_FOCUS" />
+  <Command __id="29" _type="ShellCommand" date="Tue Feb 08 16:17:35 EST 2022" starttimestamp="1644352075968" timestamp="2979441" type="ECLIPSE_LOST_FOCUS" />
+  <Command __id="30" _type="ShellCommand" date="Tue Feb 08 16:17:56 EST 2022" starttimestamp="1644352075968" timestamp="3000149" type="ECLIPSE_GAINED_FOCUS" />
+  <Command __id="31" _type="ShellCommand" date="Tue Feb 08 16:18:12 EST 2022" starttimestamp="1644352075968" timestamp="3016490" type="ECLIPSE_LOST_FOCUS" />
+  <Command __id="32" _type="ShellCommand" date="Tue Feb 08 16:22:01 EST 2022" starttimestamp="1644352075968" timestamp="3245264" type="ECLIPSE_GAINED_FOCUS" />
+  <Command __id="33" _type="ShellCommand" date="Tue Feb 08 16:22:03 EST 2022" starttimestamp="1644352075968" timestamp="3247325" type="ECLIPSE_LOST_FOCUS" />
+  <Command __id="34" _type="ShellCommand" date="Tue Feb 08 16:22:10 EST 2022" starttimestamp="1644352075968" timestamp="3254823" type="ECLIPSE_GAINED_FOCUS" />
+  <Command __id="35" _type="ShellCommand" date="Tue Feb 08 16:22:29 EST 2022" starttimestamp="1644352075968" timestamp="3273146" type="ECLIPSE_LOST_FOCUS" />
+  <Command __id="37" _type="EclipseCommand" commandID="" date="Tue Feb 08 16:22:52 EST 2022" starttimestamp="1644352075968" timestamp="3296335" />
+  <Command __id="38" _type="EclipseCommand" commandID="" date="Tue Feb 08 16:22:52 EST 2022" starttimestamp="1644352075968" timestamp="3296463" />
+  <Command __id="39" _type="ShellCommand" date="Tue Feb 08 16:23:20 EST 2022" starttimestamp="1644352075968" timestamp="3324673" type="ECLIPSE_LOST_FOCUS" />
+  <Command __id="40" _type="ShellCommand" date="Tue Feb 08 16:26:51 EST 2022" starttimestamp="1644352075968" timestamp="3535745" type="ECLIPSE_GAINED_FOCUS" />
+  <Command __id="41" _type="ShellCommand" date="Tue Feb 08 16:27:21 EST 2022" starttimestamp="1644352075968" timestamp="3565527" type="ECLIPSE_LOST_FOCUS" />
+  <Command __id="42" _type="ShellCommand" date="Tue Feb 08 16:27:23 EST 2022" starttimestamp="1644352075968" timestamp="3567717" type="ECLIPSE_GAINED_FOCUS" />
+  <Command __id="43" _type="ShellCommand" date="Tue Feb 08 16:27:25 EST 2022" starttimestamp="1644352075968" timestamp="3569591" type="ECLIPSE_LOST_FOCUS" />
+  <Command __id="44" _type="ShellCommand" date="Tue Feb 08 16:27:47 EST 2022" starttimestamp="1644352075968" timestamp="3591283" type="ECLIPSE_GAINED_FOCUS" />
+  <Command __id="45" _type="ShellCommand" date="Tue Feb 08 16:27:55 EST 2022" starttimestamp="1644352075968" timestamp="3599125" type="ECLIPSE_LOST_FOCUS" />
+  <Command __id="46" _type="ShellCommand" date="Tue Feb 08 16:28:02 EST 2022" starttimestamp="1644352075968" timestamp="3606328" type="ECLIPSE_GAINED_FOCUS" />
+  <Command __id="47" _type="ShellCommand" date="Tue Feb 08 16:28:20 EST 2022" starttimestamp="1644352075968" timestamp="3624208" type="ECLIPSE_LOST_FOCUS" />
+  <Command __id="49" _type="EclipseCommand" commandID="" date="Tue Feb 08 16:28:30 EST 2022" starttimestamp="1644352075968" timestamp="3634452" />
+  <Command __id="50" _type="EclipseCommand" commandID="" date="Tue Feb 08 16:28:30 EST 2022" starttimestamp="1644352075968" timestamp="3634459" />
+  <Command __id="51" _type="ShellCommand" date="Tue Feb 08 16:28:36 EST 2022" starttimestamp="1644352075968" timestamp="3640851" type="ECLIPSE_LOST_FOCUS" />
+  <Command __id="22" _type="DiffBasedFileOpenCommand" date="Tue Feb 08 16:15:14 EST 2022" docASTNodeCount="1" docActiveCodeLength="308" docExpressionCount="0" docLength="308" projectName="ValgrindWrappingTool" starttimestamp="1644352075968" timestamp="2838270">
+    <filePath><![CDATA[/Users/nalingaddis/Documents/COMP691H/ValgrindWrappingTool/SampleInput]]></filePath>
+    <diff><![CDATA[[Diff(EQUAL,"#include <stdio.h>¶#include <pthread.h>¶#include <stdarg.h>¶¶#include "../src/v2/boundedbuffer.h"¶¶libpthread.so.0,pthread_create:pthread_t *restrict thread,const pthread_attr_t *restrict attr,void *(*start_routine)(void *),void *restrict arg->int¶"), Diff(INSERT,"¶libpthread*,pthread_join:pthread_t thread, void **retval-> ")]]]></diff>
+    <snapshot><![CDATA[#include <stdio.h>
+#include <pthread.h>
+#include <stdarg.h>
+
+#include "../src/v2/boundedbuffer.h"
+
+libpthread.so.0,pthread_create:pthread_t *restrict thread,const pthread_attr_t *restrict attr,void *(*start_routine)(void *),void *restrict arg->int
+
+libpthread*,pthread_join:pthread_t thread, void **retval-> ]]></snapshot>
+  </Command>
+  <Command __id="52" _type="ShellCommand" date="Tue Feb 08 16:28:38 EST 2022" starttimestamp="1644352075968" timestamp="3642677" type="ECLIPSE_GAINED_FOCUS" />
+  <Command __id="53" _type="DiffBasedFileOpenCommand" date="Tue Feb 08 16:28:42 EST 2022" docASTNodeCount="50" docActiveCodeLength="229" docExpressionCount="27" docLength="229" projectName="ValgrindWrappingTool" starttimestamp="1644352075968" timestamp="3646670">
+    <filePath><![CDATA[/Users/nalingaddis/Documents/COMP691H/ValgrindWrappingTool/src/parser/Wrapper.java]]></filePath>
+    <diff><![CDATA[[Diff(EQUAL,"package parser;¶¶import java.util.ArrayList;¶import java.util.List;¶¶public class Wrapper {¶	List<String> imports;¶	List<Function> functions;¶	¶	public Wrapper() {¶		imports = new ArrayList();¶		functions = new ArrayList();¶	}¶}¶")]]]></diff>
+  </Command>
+  <Command __id="54" _type="MoveCaretCommand" caretOffset="200" date="Tue Feb 08 16:28:42 EST 2022" docOffset="223" starttimestamp="1644352075968" timestamp="3646856" />
+  <Command __id="56" _type="ShellCommand" date="Tue Feb 08 16:28:57 EST 2022" starttimestamp="1644352075968" timestamp="3662008" type="ECLIPSE_LOST_FOCUS" />
+  <Command __id="57" _type="ShellCommand" date="Tue Feb 08 16:29:25 EST 2022" starttimestamp="1644352075968" timestamp="3689249" type="ECLIPSE_GAINED_FOCUS" />
+  <Command __id="58" _type="ShellCommand" date="Tue Feb 08 16:29:26 EST 2022" starttimestamp="1644352075968" timestamp="3690052" type="ECLIPSE_LOST_FOCUS" />
+  <Command __id="59" _type="ShellCommand" date="Tue Feb 08 16:29:28 EST 2022" starttimestamp="1644352075968" timestamp="3692094" type="ECLIPSE_GAINED_FOCUS" />
+  <Command __id="55" _type="DiffBasedFileOpenCommand" date="Tue Feb 08 16:28:47 EST 2022" docASTNodeCount="1" docActiveCodeLength="452" docExpressionCount="0" docLength="452" projectName="ValgrindWrappingTool" starttimestamp="1644352075968" timestamp="3651171">
+    <filePath><![CDATA[/Users/nalingaddis/Documents/COMP691H/ValgrindWrappingTool/SampleInput]]></filePath>
+    <diff><![CDATA[[Diff(EQUAL,"#include <stdio.h>¶#include <pthread.h>¶#include <stdarg.h>¶¶#include "../src/v2/boundedbuffer.h"¶¶libpthread.so.0,pthread_create:pthread_t *restrict thread,const pthread_attr_t *restrict attr,void *(*start_routine)(void *),void *restrict arg->int¶¶libpthread*,pthread_join:pthread_t thread, void **retval->"), Diff(DELETE," "), Diff(INSERT,"int¶¶*, sem_wait: sem_t *sem -> int¶*, sem_post: sem_t *sem -> int¶¶get: BoundedBuffer* buffer -> char¶put: BoundedBuffer* buffer, char c -> void")]]]></diff>
+    <snapshot><![CDATA[#include <stdio.h>
+#include <pthread.h>
+#include <stdarg.h>
+
+#include "../src/v2/boundedbuffer.h"
+
+libpthread.so.0,pthread_create:pthread_t *restrict thread,const pthread_attr_t *restrict attr,void *(*start_routine)(void *),void *restrict arg->int
+
+libpthread*,pthread_join:pthread_t thread, void **retval->int
+
+*, sem_wait: sem_t *sem -> int
+*, sem_post: sem_t *sem -> int
+
+get: BoundedBuffer* buffer -> char
+put: BoundedBuffer* buffer, char c -> void]]></snapshot>
+  </Command>
+  <Command __id="60" _type="ShellCommand" date="Tue Feb 08 16:30:17 EST 2022" starttimestamp="1644352075968" timestamp="3741595" type="ECLIPSE_LOST_FOCUS" />
+  <Command __id="61" _type="ShellCommand" date="Tue Feb 08 16:30:18 EST 2022" starttimestamp="1644352075968" timestamp="3742309" type="ECLIPSE_GAINED_FOCUS" />
+  <Command __id="62" _type="DiffBasedFileOpenCommand" date="Tue Feb 08 16:30:20 EST 2022" docASTNodeCount="50" docActiveCodeLength="229" docExpressionCount="27" docLength="229" projectName="ValgrindWrappingTool" starttimestamp="1644352075968" timestamp="3744046">
+    <filePath><![CDATA[/Users/nalingaddis/Documents/COMP691H/ValgrindWrappingTool/src/parser/Wrapper.java]]></filePath>
+    <diff><![CDATA[[Diff(EQUAL,"package parser;¶¶import java.util.ArrayList;¶import java.util.List;¶¶public class Wrapper {¶	List<String> imports;¶	List<Function> functions;¶	¶	public Wrapper() {¶		imports = new ArrayList();¶		functions = new ArrayList();¶	}¶}¶")]]]></diff>
+  </Command>
+  <Command __id="63" _type="MoveCaretCommand" caretOffset="200" date="Tue Feb 08 16:30:20 EST 2022" docOffset="223" starttimestamp="1644352075968" timestamp="3744212" />
+  <Command __id="64" _type="DiffBasedFileOpenCommand" date="Tue Feb 08 16:30:21 EST 2022" docASTNodeCount="35" docActiveCodeLength="161" docExpressionCount="16" docLength="161" projectName="ValgrindWrappingTool" starttimestamp="1644352075968" timestamp="3745820">
+    <filePath><![CDATA[/Users/nalingaddis/Documents/COMP691H/ValgrindWrappingTool/src/parser/Function.java]]></filePath>
+    <diff><![CDATA[null]]></diff>
+    <snapshot><![CDATA[package parser;
+
+import java.util.List;
+
+public class Function {
+	String name, returnType;
+	List<String> arguments;
+	
+	public Function(String encoded) {
+		
+	}
+}
+]]></snapshot>
+  </Command>
+  <Command __id="66" _type="DiffBasedFileOpenCommand" date="Tue Feb 08 16:30:22 EST 2022" docASTNodeCount="1" docActiveCodeLength="452" docExpressionCount="0" docLength="452" projectName="ValgrindWrappingTool" starttimestamp="1644352075968" timestamp="3746523">
+    <filePath><![CDATA[/Users/nalingaddis/Documents/COMP691H/ValgrindWrappingTool/SampleInput]]></filePath>
+    <diff><![CDATA[[Diff(EQUAL,"#include <stdio.h>¶#include <pthread.h>¶#include <stdarg.h>¶¶#include "../src/v2/boundedbuffer.h"¶¶libpthread.so.0,pthread_create:pthread_t *restrict thread,const pthread_attr_t *restrict attr,void *(*start_routine)(void *),void *restrict arg->int¶¶libpthread*,pthread_join:pthread_t thread, void **retval->int¶¶*, sem_wait: sem_t *sem -> int¶*, sem_post: sem_t *sem -> int¶¶get: BoundedBuffer* buffer -> char¶put: BoundedBuffer* buffer, char c -> void")]]]></diff>
+  </Command>
+  <Command __id="65" _type="MoveCaretCommand" caretOffset="90" date="Tue Feb 08 16:30:22 EST 2022" docOffset="90" starttimestamp="1644352075968" timestamp="3746045" />
+  <Command __id="68" _type="MoveCaretCommand" caretOffset="90" date="Tue Feb 08 16:30:27 EST 2022" docOffset="90" starttimestamp="1644352075968" timestamp="3751708" />
+  <Command __id="70" _type="MoveCaretCommand" caretOffset="463" date="Tue Feb 08 16:30:28 EST 2022" docOffset="527" starttimestamp="1644352075968" timestamp="3752895" />
+  <Command __id="71" _type="MoveCaretCommand" caretOffset="15" date="Tue Feb 08 16:30:31 EST 2022" docOffset="15" starttimestamp="1644352075968" timestamp="3755954" />
+  <Command __id="73" _type="MoveCaretCommand" caretOffset="90" date="Tue Feb 08 16:30:32 EST 2022" docOffset="90" starttimestamp="1644352075968" timestamp="3756487" />
+  <Command __id="74" _type="MoveCaretCommand" caretOffset="155" date="Tue Feb 08 16:30:33 EST 2022" docOffset="155" starttimestamp="1644352075968" timestamp="3758029" />
+  <Command __id="75" _type="ShellCommand" date="Tue Feb 08 16:30:39 EST 2022" starttimestamp="1644352075968" timestamp="3763405" type="ECLIPSE_LOST_FOCUS" />
+  <Command __id="67" _type="DiffBasedFileOpenCommand" date="Tue Feb 08 16:30:27 EST 2022" docASTNodeCount="35" docActiveCodeLength="161" docExpressionCount="16" docLength="161" projectName="ValgrindWrappingTool" starttimestamp="1644352075968" timestamp="3751605">
+    <filePath><![CDATA[/Users/nalingaddis/Documents/COMP691H/ValgrindWrappingTool/src/parser/Function.java]]></filePath>
+    <diff><![CDATA[[Diff(EQUAL,"package parser;¶¶import java.util.List;¶¶public class Function {¶	String name, returnType;¶	List<String> arguments;¶	¶	public Function(String encoded) {¶		¶	}¶}¶")]]]></diff>
+  </Command>
+  <Command __id="69" _type="DiffBasedFileOpenCommand" date="Tue Feb 08 16:30:28 EST 2022" docASTNodeCount="130" docActiveCodeLength="706" docExpressionCount="82" docLength="728" projectName="ValgrindWrappingTool" starttimestamp="1644352075968" timestamp="3752605">
+    <filePath><![CDATA[/Users/nalingaddis/Documents/COMP691H/ValgrindWrappingTool/src/parser/Parser.java]]></filePath>
+    <diff><![CDATA[null]]></diff>
+    <snapshot><![CDATA[package parser;
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.Scanner;
+
+public class Parser {
+	private String filename;
+	
+	public Parser(String filename) {
+		this.filename = filename;
+	}
+	
+	// imports
+	// functions
+	
+	public Object parse() throws FileNotFoundException {
+		File file = new File(filename);
+		Scanner scanner = new Scanner(file);
+		
+		Wrapper wrapper = new Wrapper();
+		
+		while(scanner.hasNextLine()) {
+			String line = scanner.nextLine();
+			if(line.startsWith("//") || line.isBlank()) continue;
+			
+			if(line.startsWith("#include")) {
+				wrapper.imports.add(line);
+			} else {
+				wrapper.functions.add(new Function(line));
+			}
+		}
+		
+		scanner.close();
+		
+		return null;
+	}
+}
+]]></snapshot>
+  </Command>
+  <Command __id="72" _type="DiffBasedFileOpenCommand" date="Tue Feb 08 16:30:32 EST 2022" docASTNodeCount="35" docActiveCodeLength="161" docExpressionCount="16" docLength="161" projectName="ValgrindWrappingTool" starttimestamp="1644352075968" timestamp="3756407">
+    <filePath><![CDATA[/Users/nalingaddis/Documents/COMP691H/ValgrindWrappingTool/src/parser/Function.java]]></filePath>
+    <diff><![CDATA[[Diff(EQUAL,"package parser;¶¶import java.util.List;¶¶public class Function {¶	String name, returnType;¶	List<String> arguments;¶	¶	public Function(String encoded) {¶		¶	}¶}¶")]]]></diff>
+  </Command>
+  <DocumentChange __id="77" _type="Insert" date="Tue Feb 08 16:30:57 EST 2022" docASTNodeCount="37" docActiveCodeLength="170" docExpressionCount="17" docLength="170" length="9" offset="155" repeat="8" starttimestamp="1644352075968" timestamp="3781177" timestamp2="3782957">
+    <text><![CDATA[String[] ]]></text>
+  </DocumentChange>
+  <DocumentChange __id="94" _type="Insert" date="Tue Feb 08 16:31:02 EST 2022" docASTNodeCount="41" docActiveCodeLength="171" docExpressionCount="18" docLength="171" length="1" offset="164" starttimestamp="1644352075968" timestamp="3786881">
+    <text><![CDATA[s]]></text>
+  </DocumentChange>
+  <DocumentChange __id="96" _type="Delete" date="Tue Feb 08 16:31:03 EST 2022" docASTNodeCount="37" docActiveCodeLength="170" docExpressionCount="17" docLength="170" endLine="9" length="1" offset="164" startLine="9" starttimestamp="1644352075968" timestamp="3787504">
+    <text><![CDATA[s]]></text>
+  </DocumentChange>
+  <Command __id="76" _type="ShellCommand" date="Tue Feb 08 16:30:56 EST 2022" starttimestamp="1644352075968" timestamp="3780221" type="ECLIPSE_GAINED_FOCUS" />
+  <Command __id="78" _type="InsertStringCommand" date="Tue Feb 08 16:30:57 EST 2022" starttimestamp="1644352075968" timestamp="3781181" timestamp2="3781181">
+    <data><![CDATA[S]]></data>
+  </Command>
+  <Command __id="80" _type="InsertStringCommand" date="Tue Feb 08 16:30:57 EST 2022" starttimestamp="1644352075968" timestamp="3781414" timestamp2="3781414">
+    <data><![CDATA[t]]></data>
+  </Command>
+  <Command __id="82" _type="InsertStringCommand" date="Tue Feb 08 16:30:57 EST 2022" starttimestamp="1644352075968" timestamp="3781535" timestamp2="3781535">
+    <data><![CDATA[r]]></data>
+  </Command>
+  <Command __id="84" _type="InsertStringCommand" date="Tue Feb 08 16:30:57 EST 2022" starttimestamp="1644352075968" timestamp="3781648" timestamp2="3781648">
+    <data><![CDATA[i]]></data>
+  </Command>
+  <Command __id="86" _type="InsertStringCommand" date="Tue Feb 08 16:30:57 EST 2022" starttimestamp="1644352075968" timestamp="3781729" timestamp2="3781729">
+    <data><![CDATA[n]]></data>
+  </Command>
+  <Command __id="88" _type="InsertStringCommand" date="Tue Feb 08 16:30:57 EST 2022" starttimestamp="1644352075968" timestamp="3781781" timestamp2="3781781">
+    <data><![CDATA[g]]></data>
+  </Command>
+  <Command __id="90" _type="InsertStringCommand" date="Tue Feb 08 16:30:58 EST 2022" starttimestamp="1644352075968" timestamp="3782541" timestamp2="3782541">
+    <data><![CDATA[[]]></data>
+  </Command>
+  <Command __id="91" _type="InsertStringCommand" date="Tue Feb 08 16:30:58 EST 2022" starttimestamp="1644352075968" timestamp="3782599" timestamp2="3782599">
+    <data><![CDATA[]]]></data>
+  </Command>
+  <Command __id="93" _type="InsertStringCommand" date="Tue Feb 08 16:30:58 EST 2022" starttimestamp="1644352075968" timestamp="3782959" timestamp2="3782959">
+    <data><![CDATA[ ]]></data>
+  </Command>
+  <Command __id="95" _type="InsertStringCommand" date="Tue Feb 08 16:31:02 EST 2022" starttimestamp="1644352075968" timestamp="3786884" timestamp2="3786884">
+    <data><![CDATA[s]]></data>
+  </Command>
+  <Command __id="97" _type="EclipseCommand" commandID="eventLogger.styledTextCommand.DELETE_PREVIOUS" date="Tue Feb 08 16:31:03 EST 2022" starttimestamp="1644352075968" timestamp="3787509" />
+  <Command __id="99" _type="MoveCaretCommand" caretOffset="200" date="Tue Feb 08 16:31:07 EST 2022" docOffset="223" starttimestamp="1644352075968" timestamp="3791602" />
+  <Command __id="100" _type="ShellCommand" date="Tue Feb 08 16:31:08 EST 2022" starttimestamp="1644352075968" timestamp="3792613" type="ECLIPSE_LOST_FOCUS" />
+  <Command __id="98" _type="DiffBasedFileOpenCommand" date="Tue Feb 08 16:31:07 EST 2022" docASTNodeCount="50" docActiveCodeLength="229" docExpressionCount="27" docLength="229" projectName="ValgrindWrappingTool" starttimestamp="1644352075968" timestamp="3791498">
+    <filePath><![CDATA[/Users/nalingaddis/Documents/COMP691H/ValgrindWrappingTool/src/parser/Wrapper.java]]></filePath>
+    <diff><![CDATA[[Diff(EQUAL,"package parser;¶¶import java.util.ArrayList;¶import java.util.List;¶¶public class Wrapper {¶	List<String> imports;¶	List<Function> functions;¶	¶	public Wrapper() {¶		imports = new ArrayList();¶		functions = new ArrayList();¶	}¶}¶")]]]></diff>
+  </Command>
+  <Command __id="101" _type="ShellCommand" date="Tue Feb 08 16:31:35 EST 2022" starttimestamp="1644352075968" timestamp="3819614" type="ECLIPSE_GAINED_FOCUS" />
+  <Command __id="102" _type="DiffBasedFileOpenCommand" date="Tue Feb 08 16:31:40 EST 2022" docASTNodeCount="37" docActiveCodeLength="170" docExpressionCount="17" docLength="170" projectName="ValgrindWrappingTool" starttimestamp="1644352075968" timestamp="3824037">
+    <filePath><![CDATA[/Users/nalingaddis/Documents/COMP691H/ValgrindWrappingTool/src/parser/Function.java]]></filePath>
+    <diff><![CDATA[[Diff(EQUAL,"package parser;¶¶import java.util.List;¶¶public class Function {¶	String name, returnType;¶	List<String> arguments;¶	¶	public Function(String encoded) {¶		"), Diff(INSERT,"String[] "), Diff(EQUAL,"¶	}¶}¶")]]]></diff>
+    <snapshot><![CDATA[package parser;
+
+import java.util.List;
+
+public class Function {
+	String name, returnType;
+	List<String> arguments;
+	
+	public Function(String encoded) {
+		String[] 
+	}
+}
+]]></snapshot>
+  </Command>
+  <Command __id="103" _type="MoveCaretCommand" caretOffset="164" date="Tue Feb 08 16:31:40 EST 2022" docOffset="164" starttimestamp="1644352075968" timestamp="3824142" />
+  <DocumentChange __id="104" _type="Insert" date="Tue Feb 08 16:31:41 EST 2022" docASTNodeCount="41" docActiveCodeLength="176" docExpressionCount="18" docLength="176" length="6" offset="164" repeat="6" starttimestamp="1644352075968" timestamp="3825366" timestamp2="3826629">
+    <text><![CDATA[split ]]></text>
+  </DocumentChange>
+  <Command __id="105" _type="InsertStringCommand" date="Tue Feb 08 16:31:41 EST 2022" starttimestamp="1644352075968" timestamp="3825369" timestamp2="3825369">
+    <data><![CDATA[s]]></data>
+  </Command>
+  <Command __id="107" _type="InsertStringCommand" date="Tue Feb 08 16:31:41 EST 2022" starttimestamp="1644352075968" timestamp="3825714" timestamp2="3825714">
+    <data><![CDATA[p]]></data>
+  </Command>
+  <Command __id="109" _type="InsertStringCommand" date="Tue Feb 08 16:31:41 EST 2022" starttimestamp="1644352075968" timestamp="3825921" timestamp2="3825921">
+    <data><![CDATA[l]]></data>
+  </Command>
+  <Command __id="111" _type="InsertStringCommand" date="Tue Feb 08 16:31:42 EST 2022" starttimestamp="1644352075968" timestamp="3826070" timestamp2="3826070">
+    <data><![CDATA[i]]></data>
+  </Command>
+  <Command __id="113" _type="InsertStringCommand" date="Tue Feb 08 16:31:42 EST 2022" starttimestamp="1644352075968" timestamp="3826149" timestamp2="3826149">
+    <data><![CDATA[t]]></data>
+  </Command>
+  <Command __id="115" _type="InsertStringCommand" date="Tue Feb 08 16:31:42 EST 2022" starttimestamp="1644352075968" timestamp="3826631" timestamp2="3826631">
+    <data><![CDATA[ ]]></data>
+  </Command>
+  <DocumentChange __id="116" _type="Delete" date="Tue Feb 08 16:31:43 EST 2022" docASTNodeCount="37" docActiveCodeLength="170" docExpressionCount="17" docLength="170" endLine="9" length="6" offset="164" repeat="6" startLine="9" starttimestamp="1644352075968" timestamp="3827142" timestamp2="3827930">
+    <text><![CDATA[split ]]></text>
+  </DocumentChange>
+  <Command __id="117" _type="EclipseCommand" commandID="eventLogger.styledTextCommand.DELETE_PREVIOUS" date="Tue Feb 08 16:31:43 EST 2022" starttimestamp="1644352075968" timestamp="3827145" />
+  <Command __id="119" _type="EclipseCommand" commandID="eventLogger.styledTextCommand.DELETE_PREVIOUS" date="Tue Feb 08 16:31:43 EST 2022" starttimestamp="1644352075968" timestamp="3827299" />
+  <Command __id="121" _type="EclipseCommand" commandID="eventLogger.styledTextCommand.DELETE_PREVIOUS" date="Tue Feb 08 16:31:43 EST 2022" starttimestamp="1644352075968" timestamp="3827461" />
+  <Command __id="123" _type="EclipseCommand" commandID="eventLogger.styledTextCommand.DELETE_PREVIOUS" date="Tue Feb 08 16:31:43 EST 2022" starttimestamp="1644352075968" timestamp="3827623" />
+  <Command __id="125" _type="EclipseCommand" commandID="eventLogger.styledTextCommand.DELETE_PREVIOUS" date="Tue Feb 08 16:31:43 EST 2022" starttimestamp="1644352075968" timestamp="3827784" />
+  <Command __id="127" _type="EclipseCommand" commandID="eventLogger.styledTextCommand.DELETE_PREVIOUS" date="Tue Feb 08 16:31:43 EST 2022" starttimestamp="1644352075968" timestamp="3827932" />
+  <DocumentChange __id="128" _type="Insert" date="Tue Feb 08 16:31:57 EST 2022" docASTNodeCount="41" docActiveCodeLength="174" docExpressionCount="18" docLength="174" length="4" offset="164" repeat="4" starttimestamp="1644352075968" timestamp="3841260" timestamp2="3841681">
+    <text><![CDATA[name]]></text>
+  </DocumentChange>
+  <Command __id="129" _type="InsertStringCommand" date="Tue Feb 08 16:31:57 EST 2022" starttimestamp="1644352075968" timestamp="3841263" timestamp2="3841263">
+    <data><![CDATA[n]]></data>
+  </Command>
+  <Command __id="131" _type="InsertStringCommand" date="Tue Feb 08 16:31:57 EST 2022" starttimestamp="1644352075968" timestamp="3841444" timestamp2="3841444">
+    <data><![CDATA[a]]></data>
+  </Command>
+  <Command __id="133" _type="InsertStringCommand" date="Tue Feb 08 16:31:57 EST 2022" starttimestamp="1644352075968" timestamp="3841560" timestamp2="3841560">
+    <data><![CDATA[m]]></data>
+  </Command>
+  <Command __id="135" _type="InsertStringCommand" date="Tue Feb 08 16:31:57 EST 2022" starttimestamp="1644352075968" timestamp="3841683" timestamp2="3841683">
+    <data><![CDATA[e]]></data>
+  </Command>
+  <DocumentChange __id="136" _type="Delete" date="Tue Feb 08 16:31:58 EST 2022" docASTNodeCount="37" docActiveCodeLength="162" docExpressionCount="17" docLength="162" endLine="9" length="12" offset="156" repeat="12" startLine="9" starttimestamp="1644352075968" timestamp="3842092" timestamp2="3843897">
+    <text><![CDATA[tring[] name]]></text>
+  </DocumentChange>
+  <Command __id="137" _type="EclipseCommand" commandID="eventLogger.styledTextCommand.DELETE_PREVIOUS" date="Tue Feb 08 16:31:58 EST 2022" starttimestamp="1644352075968" timestamp="3842094" />
+  <Command __id="139" _type="EclipseCommand" commandID="eventLogger.styledTextCommand.DELETE_PREVIOUS" date="Tue Feb 08 16:31:58 EST 2022" starttimestamp="1644352075968" timestamp="3842245" />
+  <Command __id="141" _type="EclipseCommand" commandID="eventLogger.styledTextCommand.DELETE_PREVIOUS" date="Tue Feb 08 16:31:58 EST 2022" starttimestamp="1644352075968" timestamp="3842414" />
+  <Command __id="143" _type="EclipseCommand" commandID="eventLogger.styledTextCommand.DELETE_PREVIOUS" date="Tue Feb 08 16:31:58 EST 2022" starttimestamp="1644352075968" timestamp="3842574" />
+  <Command __id="145" _type="EclipseCommand" commandID="eventLogger.styledTextCommand.DELETE_PREVIOUS" date="Tue Feb 08 16:31:58 EST 2022" starttimestamp="1644352075968" timestamp="3842733" />
+  <Command __id="147" _type="EclipseCommand" commandID="eventLogger.styledTextCommand.DELETE_PREVIOUS" date="Tue Feb 08 16:31:58 EST 2022" starttimestamp="1644352075968" timestamp="3842889" />
+  <Command __id="149" _type="EclipseCommand" commandID="eventLogger.styledTextCommand.DELETE_PREVIOUS" date="Tue Feb 08 16:31:59 EST 2022" starttimestamp="1644352075968" timestamp="3843052" />
+  <Command __id="151" _type="EclipseCommand" commandID="eventLogger.styledTextCommand.DELETE_PREVIOUS" date="Tue Feb 08 16:31:59 EST 2022" starttimestamp="1644352075968" timestamp="3843232" />
+  <Command __id="153" _type="EclipseCommand" commandID="eventLogger.styledTextCommand.DELETE_PREVIOUS" date="Tue Feb 08 16:31:59 EST 2022" starttimestamp="1644352075968" timestamp="3843403" />
+  <Command __id="155" _type="EclipseCommand" commandID="eventLogger.styledTextCommand.DELETE_PREVIOUS" date="Tue Feb 08 16:31:59 EST 2022" starttimestamp="1644352075968" timestamp="3843567" />
+  <Command __id="157" _type="EclipseCommand" commandID="eventLogger.styledTextCommand.DELETE_PREVIOUS" date="Tue Feb 08 16:31:59 EST 2022" starttimestamp="1644352075968" timestamp="3843737" />
+  <Command __id="159" _type="EclipseCommand" commandID="eventLogger.styledTextCommand.DELETE_PREVIOUS" date="Tue Feb 08 16:31:59 EST 2022" starttimestamp="1644352075968" timestamp="3843899" />
+  <DocumentChange __id="160" _type="Insert" date="Tue Feb 08 16:32:00 EST 2022" docASTNodeCount="37" docActiveCodeLength="163" docExpressionCount="17" docLength="163" length="1" offset="156" starttimestamp="1644352075968" timestamp="3844437">
+    <text><![CDATA[r]]></text>
+  </DocumentChange>
+  <Command __id="161" _type="InsertStringCommand" date="Tue Feb 08 16:32:00 EST 2022" starttimestamp="1644352075968" timestamp="3844440" timestamp2="3844440">
+    <data><![CDATA[r]]></data>
+  </Command>
+  <DocumentChange __id="162" _type="Delete" date="Tue Feb 08 16:32:00 EST 2022" docASTNodeCount="37" docActiveCodeLength="162" docExpressionCount="17" docLength="162" endLine="9" length="1" offset="156" startLine="9" starttimestamp="1644352075968" timestamp="3844818">
+    <text><![CDATA[r]]></text>
+  </DocumentChange>
+  <Command __id="163" _type="EclipseCommand" commandID="eventLogger.styledTextCommand.DELETE_PREVIOUS" date="Tue Feb 08 16:32:00 EST 2022" starttimestamp="1644352075968" timestamp="3844821" />
+  <DocumentChange __id="164" _type="Insert" date="Tue Feb 08 16:32:00 EST 2022" docASTNodeCount="41" docActiveCodeLength="177" docExpressionCount="18" docLength="177" length="15" offset="156" repeat="14" starttimestamp="1644352075968" timestamp="3844887" timestamp2="3847803">
+    <text><![CDATA[tring[] data = ]]></text>
+  </DocumentChange>
+  <Command __id="165" _type="InsertStringCommand" date="Tue Feb 08 16:32:00 EST 2022" starttimestamp="1644352075968" timestamp="3844889" timestamp2="3844889">
+    <data><![CDATA[t]]></data>
+  </Command>
+  <Command __id="167" _type="InsertStringCommand" date="Tue Feb 08 16:32:01 EST 2022" starttimestamp="1644352075968" timestamp="3845053" timestamp2="3845053">
+    <data><![CDATA[r]]></data>
+  </Command>
+  <Command __id="169" _type="InsertStringCommand" date="Tue Feb 08 16:32:01 EST 2022" starttimestamp="1644352075968" timestamp="3845165" timestamp2="3845165">
+    <data><![CDATA[i]]></data>
+  </Command>
+  <Command __id="171" _type="InsertStringCommand" date="Tue Feb 08 16:32:01 EST 2022" starttimestamp="1644352075968" timestamp="3845240" timestamp2="3845240">
+    <data><![CDATA[n]]></data>
+  </Command>
+  <Command __id="173" _type="InsertStringCommand" date="Tue Feb 08 16:32:01 EST 2022" starttimestamp="1644352075968" timestamp="3845284" timestamp2="3845284">
+    <data><![CDATA[g]]></data>
+  </Command>
+  <Command __id="175" _type="InsertStringCommand" date="Tue Feb 08 16:32:01 EST 2022" starttimestamp="1644352075968" timestamp="3845687" timestamp2="3845687">
+    <data><![CDATA[[]]></data>
+  </Command>
+  <Command __id="176" _type="InsertStringCommand" date="Tue Feb 08 16:32:01 EST 2022" starttimestamp="1644352075968" timestamp="3845809" timestamp2="3845809">
+    <data><![CDATA[]]]></data>
+  </Command>
+  <Command __id="178" _type="InsertStringCommand" date="Tue Feb 08 16:32:01 EST 2022" starttimestamp="1644352075968" timestamp="3845966" timestamp2="3845966">
+    <data><![CDATA[ ]]></data>
+  </Command>
+  <Command __id="180" _type="InsertStringCommand" date="Tue Feb 08 16:32:02 EST 2022" starttimestamp="1644352075968" timestamp="3846945" timestamp2="3846945">
+    <data><![CDATA[d]]></data>
+  </Command>
+  <Command __id="182" _type="InsertStringCommand" date="Tue Feb 08 16:32:03 EST 2022" starttimestamp="1644352075968" timestamp="3847089" timestamp2="3847089">
+    <data><![CDATA[a]]></data>
+  </Command>
+  <Command __id="184" _type="InsertStringCommand" date="Tue Feb 08 16:32:03 EST 2022" starttimestamp="1644352075968" timestamp="3847250" timestamp2="3847250">
+    <data><![CDATA[t]]></data>
+  </Command>
+  <Command __id="186" _type="InsertStringCommand" date="Tue Feb 08 16:32:03 EST 2022" starttimestamp="1644352075968" timestamp="3847347" timestamp2="3847347">
+    <data><![CDATA[a]]></data>
+  </Command>
+  <Command __id="188" _type="InsertStringCommand" date="Tue Feb 08 16:32:03 EST 2022" starttimestamp="1644352075968" timestamp="3847496" timestamp2="3847496">
+    <data><![CDATA[ ]]></data>
+  </Command>
+  <Command __id="190" _type="InsertStringCommand" date="Tue Feb 08 16:32:03 EST 2022" starttimestamp="1644352075968" timestamp="3847701" timestamp2="3847701">
+    <data><![CDATA[=]]></data>
+  </Command>
+  <Command __id="192" _type="InsertStringCommand" date="Tue Feb 08 16:32:03 EST 2022" starttimestamp="1644352075968" timestamp="3847805" timestamp2="3847805">
+    <data><![CDATA[ ]]></data>
+  </Command>
+  <DocumentChange __id="193" _type="Insert" date="Tue Feb 08 16:32:10 EST 2022" docASTNodeCount="44" docActiveCodeLength="190" docExpressionCount="21" docLength="190" length="13" offset="171" repeat="13" starttimestamp="1644352075968" timestamp="3854587" timestamp2="3856657">
+    <text><![CDATA[encoded.split]]></text>
+  </DocumentChange>
+  <Command __id="194" _type="InsertStringCommand" date="Tue Feb 08 16:32:10 EST 2022" starttimestamp="1644352075968" timestamp="3854590" timestamp2="3854590">
+    <data><![CDATA[e]]></data>
+  </Command>
+  <Command __id="196" _type="InsertStringCommand" date="Tue Feb 08 16:32:10 EST 2022" starttimestamp="1644352075968" timestamp="3854749" timestamp2="3854749">
+    <data><![CDATA[n]]></data>
+  </Command>
+  <Command __id="198" _type="InsertStringCommand" date="Tue Feb 08 16:32:10 EST 2022" starttimestamp="1644352075968" timestamp="3854903" timestamp2="3854903">
+    <data><![CDATA[c]]></data>
+  </Command>
+  <Command __id="200" _type="InsertStringCommand" date="Tue Feb 08 16:32:10 EST 2022" starttimestamp="1644352075968" timestamp="3854991" timestamp2="3854991">
+    <data><![CDATA[o]]></data>
+  </Command>
+  <Command __id="202" _type="InsertStringCommand" date="Tue Feb 08 16:32:11 EST 2022" starttimestamp="1644352075968" timestamp="3855154" timestamp2="3855154">
+    <data><![CDATA[d]]></data>
+  </Command>
+  <Command __id="204" _type="InsertStringCommand" date="Tue Feb 08 16:32:11 EST 2022" starttimestamp="1644352075968" timestamp="3855258" timestamp2="3855258">
+    <data><![CDATA[e]]></data>
+  </Command>
+  <Command __id="206" _type="InsertStringCommand" date="Tue Feb 08 16:32:11 EST 2022" starttimestamp="1644352075968" timestamp="3855389" timestamp2="3855389">
+    <data><![CDATA[d]]></data>
+  </Command>
+  <Command __id="208" _type="InsertStringCommand" date="Tue Feb 08 16:32:11 EST 2022" starttimestamp="1644352075968" timestamp="3855666" timestamp2="3855666">
+    <data><![CDATA[.]]></data>
+  </Command>
+  <Command __id="209" _type="AssistCommand" assist_type="CONTENT_ASSIST" auto_activated="true" date="Tue Feb 08 16:32:11 EST 2022" start_end="START" starttimestamp="1644352075968" timestamp="3855702" />
+  <Command __id="215" _type="AssistCommand" assist_type="CONTENT_ASSIST" auto_activated="false" date="Tue Feb 08 16:32:12 EST 2022" start_end="END" starttimestamp="1644352075968" timestamp="3856955" />
+  <DocumentChange __id="216" _type="Replace" date="Tue Feb 08 16:32:12 EST 2022" docASTNodeCount="45" docActiveCodeLength="199" docExpressionCount="22" docLength="199" endLine="9" insertionLength="14" int_docASTNodeCount="42" int_docActiveCodeLength="185" int_docExpressionCount="19" int_docLength="185" length="5" offset="179" startLine="9" starttimestamp="1644352075968" timestamp="3856965">
+    <deletedText><![CDATA[split]]></deletedText>
+    <insertedText><![CDATA[split(encoded)]]></insertedText>
+  </DocumentChange>
+  <Command __id="217" _type="InsertStringCommand" date="Tue Feb 08 16:32:12 EST 2022" starttimestamp="1644352075968" timestamp="3857002" timestamp2="3857002">
+    <data><![CDATA[(]]></data>
+  </Command>
+  <DocumentChange __id="218" _type="Insert" date="Tue Feb 08 16:32:13 EST 2022" docASTNodeCount="45" docActiveCodeLength="204" docExpressionCount="22" docLength="204" length="5" offset="193" starttimestamp="1644352075968" timestamp="3857345">
+    <text><![CDATA[
+				]]></text>
+  </DocumentChange>
+  <Command __id="219" _type="EclipseCommand" commandID="org.eclipse.ui.edit.text.smartEnter" date="Tue Feb 08 16:32:13 EST 2022" starttimestamp="1644352075968" timestamp="3857347" />
+  <DocumentChange __id="220" _type="Delete" date="Tue Feb 08 16:32:14 EST 2022" docASTNodeCount="45" docActiveCodeLength="199" docExpressionCount="22" docLength="199" endLine="10" length="5" offset="193" startLine="9" starttimestamp="1644352075968" timestamp="3858230">
+    <text><![CDATA[
+				]]></text>
+  </DocumentChange>
+  <Command __id="221" _type="UndoCommand" date="Tue Feb 08 16:32:14 EST 2022" starttimestamp="1644352075968" timestamp="3858236" />
+  <DocumentChange __id="222" _type="Insert" date="Tue Feb 08 16:32:14 EST 2022" docASTNodeCount="45" docActiveCodeLength="200" docExpressionCount="22" docLength="200" length="1" offset="193" starttimestamp="1644352075968" timestamp="3858683">
+    <text><![CDATA[;]]></text>
+  </DocumentChange>
+  <Command __id="223" _type="InsertStringCommand" date="Tue Feb 08 16:32:14 EST 2022" starttimestamp="1644352075968" timestamp="3858687" timestamp2="3858687">
+    <data><![CDATA[;]]></data>
+  </Command>
+  <Command __id="224" _type="EclipseCommand" commandID="eventLogger.styledTextCommand.COLUMN_PREVIOUS" date="Tue Feb 08 16:32:15 EST 2022" starttimestamp="1644352075968" timestamp="3859502" />
+  <Command __id="225" _type="EclipseCommand" commandID="eventLogger.styledTextCommand.COLUMN_PREVIOUS" date="Tue Feb 08 16:32:15 EST 2022" starttimestamp="1644352075968" timestamp="3859921" />
+  <DocumentChange __id="226" _type="Delete" date="Tue Feb 08 16:32:16 EST 2022" docASTNodeCount="44" docActiveCodeLength="193" docExpressionCount="21" docLength="193" endLine="9" length="7" offset="185" repeat="7" startLine="9" starttimestamp="1644352075968" timestamp="3860266" timestamp2="3861257">
+    <text><![CDATA[encoded]]></text>
+  </DocumentChange>
+  <Command __id="227" _type="EclipseCommand" commandID="eventLogger.styledTextCommand.DELETE_PREVIOUS" date="Tue Feb 08 16:32:16 EST 2022" starttimestamp="1644352075968" timestamp="3860269" />
+  <Command __id="229" _type="EclipseCommand" commandID="eventLogger.styledTextCommand.DELETE_PREVIOUS" date="Tue Feb 08 16:32:16 EST 2022" starttimestamp="1644352075968" timestamp="3860429" />
+  <Command __id="231" _type="EclipseCommand" commandID="eventLogger.styledTextCommand.DELETE_PREVIOUS" date="Tue Feb 08 16:32:16 EST 2022" starttimestamp="1644352075968" timestamp="3860592" />
+  <Command __id="233" _type="EclipseCommand" commandID="eventLogger.styledTextCommand.DELETE_PREVIOUS" date="Tue Feb 08 16:32:16 EST 2022" starttimestamp="1644352075968" timestamp="3860761" />
+  <Command __id="235" _type="EclipseCommand" commandID="eventLogger.styledTextCommand.DELETE_PREVIOUS" date="Tue Feb 08 16:32:16 EST 2022" starttimestamp="1644352075968" timestamp="3860913" />
+  <Command __id="237" _type="EclipseCommand" commandID="eventLogger.styledTextCommand.DELETE_PREVIOUS" date="Tue Feb 08 16:32:17 EST 2022" starttimestamp="1644352075968" timestamp="3861077" />
+  <Command __id="239" _type="EclipseCommand" commandID="eventLogger.styledTextCommand.DELETE_PREVIOUS" date="Tue Feb 08 16:32:17 EST 2022" starttimestamp="1644352075968" timestamp="3861261" />
+  <DocumentChange __id="240" _type="Insert" date="Tue Feb 08 16:32:17 EST 2022" docASTNodeCount="45" docActiveCodeLength="196" docExpressionCount="22" docLength="196" length="3" offset="185" repeat="2" starttimestamp="1644352075968" timestamp="3861846" timestamp2="3862036">
+    <text><![CDATA[";"]]></text>
+  </DocumentChange>
+  <Command __id="241" _type="InsertStringCommand" date="Tue Feb 08 16:32:17 EST 2022" starttimestamp="1644352075968" timestamp="3861850" timestamp2="3861850">
+    <data><![CDATA["]]></data>
+  </Command>
+  <Command __id="243" _type="InsertStringCommand" date="Tue Feb 08 16:32:18 EST 2022" starttimestamp="1644352075968" timestamp="3862036" timestamp2="3862036">
+    <data><![CDATA[;]]></data>
+  </Command>
+  <DocumentChange __id="244" _type="Delete" date="Tue Feb 08 16:32:19 EST 2022" docASTNodeCount="45" docActiveCodeLength="195" docExpressionCount="22" docLength="195" endLine="9" length="1" offset="186" startLine="9" starttimestamp="1644352075968" timestamp="3863130">
+    <text><![CDATA[;]]></text>
+  </DocumentChange>
+  <Command __id="245" _type="EclipseCommand" commandID="eventLogger.styledTextCommand.DELETE_PREVIOUS" date="Tue Feb 08 16:32:19 EST 2022" starttimestamp="1644352075968" timestamp="3863132" />
+  <Command __id="247" _type="InsertStringCommand" date="Tue Feb 08 16:32:19 EST 2022" starttimestamp="1644352075968" timestamp="3863373" timestamp2="3863373">
+    <data><![CDATA[:]]></data>
+  </Command>
+  <DocumentChange __id="246" _type="Insert" date="Tue Feb 08 16:32:19 EST 2022" docASTNodeCount="45" docActiveCodeLength="196" docExpressionCount="22" docLength="196" length="1" offset="186" starttimestamp="1644352075968" timestamp="3863373">
+    <text><![CDATA[:]]></text>
+  </DocumentChange>
+  <Command __id="248" _type="MoveCaretCommand" caretOffset="152" date="Tue Feb 08 16:32:20 EST 2022" docOffset="152" starttimestamp="1644352075968" timestamp="3864453" />
+  <Command __id="249" _type="MoveCaretCommand" caretOffset="190" date="Tue Feb 08 16:32:21 EST 2022" docOffset="190" starttimestamp="1644352075968" timestamp="3865431" />
+  <DocumentChange __id="250" _type="Insert" date="Tue Feb 08 16:32:21 EST 2022" docASTNodeCount="47" docActiveCodeLength="208" docExpressionCount="23" docLength="208" length="12" offset="190" repeat="9" starttimestamp="1644352075968" timestamp="3865891" timestamp2="3870485">
+    <text><![CDATA[
+		String[] ]]></text>
+  </DocumentChange>
+  <Command __id="251" _type="InsertStringCommand" date="Tue Feb 08 16:32:21 EST 2022" starttimestamp="1644352075968" timestamp="3865899" timestamp2="3865899">
+    <data><![CDATA[]]></data>
+  </Command>
+  <Command __id="253" _type="InsertStringCommand" date="Tue Feb 08 16:32:22 EST 2022" starttimestamp="1644352075968" timestamp="3866814" timestamp2="3866814">
+    <data><![CDATA[S]]></data>
+  </Command>
+  <Command __id="255" _type="InsertStringCommand" date="Tue Feb 08 16:32:23 EST 2022" starttimestamp="1644352075968" timestamp="3867125" timestamp2="3867125">
+    <data><![CDATA[t]]></data>
+  </Command>
+  <Command __id="257" _type="InsertStringCommand" date="Tue Feb 08 16:32:23 EST 2022" starttimestamp="1644352075968" timestamp="3867324" timestamp2="3867324">
+    <data><![CDATA[r]]></data>
+  </Command>
+  <Command __id="259" _type="InsertStringCommand" date="Tue Feb 08 16:32:23 EST 2022" starttimestamp="1644352075968" timestamp="3867597" timestamp2="3867597">
+    <data><![CDATA[i]]></data>
+  </Command>
+  <Command __id="261" _type="InsertStringCommand" date="Tue Feb 08 16:32:25 EST 2022" starttimestamp="1644352075968" timestamp="3869153" timestamp2="3869153">
+    <data><![CDATA[n]]></data>
+  </Command>
+  <Command __id="263" _type="InsertStringCommand" date="Tue Feb 08 16:32:25 EST 2022" starttimestamp="1644352075968" timestamp="3869289" timestamp2="3869289">
+    <data><![CDATA[g]]></data>
+  </Command>
+  <Command __id="265" _type="InsertStringCommand" date="Tue Feb 08 16:32:26 EST 2022" starttimestamp="1644352075968" timestamp="3870095" timestamp2="3870095">
+    <data><![CDATA[[]]></data>
+  </Command>
+  <Command __id="266" _type="InsertStringCommand" date="Tue Feb 08 16:32:26 EST 2022" starttimestamp="1644352075968" timestamp="3870207" timestamp2="3870207">
+    <data><![CDATA[]]]></data>
+  </Command>
+  <Command __id="268" _type="InsertStringCommand" date="Tue Feb 08 16:32:26 EST 2022" starttimestamp="1644352075968" timestamp="3870487" timestamp2="3870487">
+    <data><![CDATA[ ]]></data>
+  </Command>
+  <DocumentChange __id="269" _type="Insert" date="Tue Feb 08 16:32:28 EST 2022" docASTNodeCount="51" docActiveCodeLength="209" docExpressionCount="24" docLength="209" length="1" offset="202" starttimestamp="1644352075968" timestamp="3872955">
+    <text><![CDATA[a]]></text>
+  </DocumentChange>
+  <Command __id="270" _type="InsertStringCommand" date="Tue Feb 08 16:32:28 EST 2022" starttimestamp="1644352075968" timestamp="3872957" timestamp2="3872957">
+    <data><![CDATA[a]]></data>
+  </Command>
+  <DocumentChange __id="271" _type="Delete" date="Tue Feb 08 16:32:29 EST 2022" docASTNodeCount="47" docActiveCodeLength="208" docExpressionCount="23" docLength="208" endLine="10" length="1" offset="202" startLine="10" starttimestamp="1644352075968" timestamp="3873314">
+    <text><![CDATA[a]]></text>
+  </DocumentChange>
+  <Command __id="272" _type="EclipseCommand" commandID="eventLogger.styledTextCommand.DELETE_PREVIOUS" date="Tue Feb 08 16:32:29 EST 2022" starttimestamp="1644352075968" timestamp="3873316" />
+  <DocumentChange __id="273" _type="Insert" date="Tue Feb 08 16:32:29 EST 2022" docASTNodeCount="51" docActiveCodeLength="215" docExpressionCount="24" docLength="215" length="7" offset="202" repeat="7" starttimestamp="1644352075968" timestamp="3873536" timestamp2="3874275">
+    <text><![CDATA[name = ]]></text>
+  </DocumentChange>
+  <Command __id="274" _type="InsertStringCommand" date="Tue Feb 08 16:32:29 EST 2022" starttimestamp="1644352075968" timestamp="3873539" timestamp2="3873539">
+    <data><![CDATA[n]]></data>
+  </Command>
+  <Command __id="276" _type="InsertStringCommand" date="Tue Feb 08 16:32:29 EST 2022" starttimestamp="1644352075968" timestamp="3873652" timestamp2="3873652">
+    <data><![CDATA[a]]></data>
+  </Command>
+  <Command __id="278" _type="InsertStringCommand" date="Tue Feb 08 16:32:29 EST 2022" starttimestamp="1644352075968" timestamp="3873772" timestamp2="3873772">
+    <data><![CDATA[m]]></data>
+  </Command>
+  <Command __id="280" _type="InsertStringCommand" date="Tue Feb 08 16:32:29 EST 2022" starttimestamp="1644352075968" timestamp="3873858" timestamp2="3873858">
+    <data><![CDATA[e]]></data>
+  </Command>
+  <Command __id="282" _type="InsertStringCommand" date="Tue Feb 08 16:32:29 EST 2022" starttimestamp="1644352075968" timestamp="3873986" timestamp2="3873986">
+    <data><![CDATA[ ]]></data>
+  </Command>
+  <Command __id="284" _type="InsertStringCommand" date="Tue Feb 08 16:32:30 EST 2022" starttimestamp="1644352075968" timestamp="3874158" timestamp2="3874158">
+    <data><![CDATA[=]]></data>
+  </Command>
+  <Command __id="286" _type="InsertStringCommand" date="Tue Feb 08 16:32:30 EST 2022" starttimestamp="1644352075968" timestamp="3874277" timestamp2="3874277">
+    <data><![CDATA[ ]]></data>
+  </Command>
+  <DocumentChange __id="287" _type="Insert" date="Tue Feb 08 16:32:32 EST 2022" docASTNodeCount="56" docActiveCodeLength="228" docExpressionCount="29" docLength="228" length="13" offset="209" repeat="12" starttimestamp="1644352075968" timestamp="3876667" timestamp2="3879627">
+    <text><![CDATA[data[0].split]]></text>
+  </DocumentChange>
+  <Command __id="288" _type="InsertStringCommand" date="Tue Feb 08 16:32:32 EST 2022" starttimestamp="1644352075968" timestamp="3876668" timestamp2="3876668">
+    <data><![CDATA[d]]></data>
+  </Command>
+  <Command __id="290" _type="InsertStringCommand" date="Tue Feb 08 16:32:32 EST 2022" starttimestamp="1644352075968" timestamp="3876872" timestamp2="3876872">
+    <data><![CDATA[a]]></data>
+  </Command>
+  <Command __id="292" _type="InsertStringCommand" date="Tue Feb 08 16:32:32 EST 2022" starttimestamp="1644352075968" timestamp="3876957" timestamp2="3876957">
+    <data><![CDATA[t]]></data>
+  </Command>
+  <Command __id="294" _type="InsertStringCommand" date="Tue Feb 08 16:32:33 EST 2022" starttimestamp="1644352075968" timestamp="3877117" timestamp2="3877117">
+    <data><![CDATA[a]]></data>
+  </Command>
+  <Command __id="296" _type="InsertStringCommand" date="Tue Feb 08 16:32:33 EST 2022" starttimestamp="1644352075968" timestamp="3877619" timestamp2="3877619">
+    <data><![CDATA[[]]></data>
+  </Command>
+  <Command __id="298" _type="InsertStringCommand" date="Tue Feb 08 16:32:33 EST 2022" starttimestamp="1644352075968" timestamp="3877807" timestamp2="3877807">
+    <data><![CDATA[0]]></data>
+  </Command>
+  <Command __id="299" _type="InsertStringCommand" date="Tue Feb 08 16:32:34 EST 2022" starttimestamp="1644352075968" timestamp="3878058" timestamp2="3878058">
+    <data><![CDATA[]]]></data>
+  </Command>
+  <Command __id="301" _type="InsertStringCommand" date="Tue Feb 08 16:32:34 EST 2022" starttimestamp="1644352075968" timestamp="3878729" timestamp2="3878729">
+    <data><![CDATA[.]]></data>
+  </Command>
+  <Command __id="302" _type="AssistCommand" assist_type="CONTENT_ASSIST" auto_activated="true" date="Tue Feb 08 16:32:34 EST 2022" start_end="START" starttimestamp="1644352075968" timestamp="3878733" />
+  <Command __id="308" _type="AssistCommand" assist_type="CONTENT_ASSIST" auto_activated="false" date="Tue Feb 08 16:32:35 EST 2022" start_end="END" starttimestamp="1644352075968" timestamp="3879931" />
+  <DocumentChange __id="309" _type="Replace" date="Tue Feb 08 16:32:35 EST 2022" docASTNodeCount="57" docActiveCodeLength="237" docExpressionCount="30" docLength="237" endLine="10" insertionLength="14" int_docASTNodeCount="54" int_docActiveCodeLength="223" int_docExpressionCount="27" int_docLength="223" length="5" offset="217" startLine="10" starttimestamp="1644352075968" timestamp="3879934">
+    <deletedText><![CDATA[split]]></deletedText>
+    <insertedText><![CDATA[split(encoded)]]></insertedText>
+  </DocumentChange>
+  <Command __id="310" _type="InsertStringCommand" date="Tue Feb 08 16:32:35 EST 2022" starttimestamp="1644352075968" timestamp="3879959" timestamp2="3879959">
+    <data><![CDATA[(]]></data>
+  </Command>
+  <DocumentChange __id="311" _type="Replace" date="Tue Feb 08 16:32:36 EST 2022" docASTNodeCount="35" docActiveCodeLength="231" docExpressionCount="16" docLength="231" endLine="10" insertionLength="1" int_docASTNodeCount="56" int_docActiveCodeLength="230" int_docExpressionCount="29" int_docLength="230" length="7" offset="223" startLine="10" starttimestamp="1644352075968" timestamp="3880791">
+    <deletedText><![CDATA[encoded]]></deletedText>
+    <insertedText><![CDATA[']]></insertedText>
+  </DocumentChange>
+  <Command __id="312" _type="InsertStringCommand" date="Tue Feb 08 16:32:36 EST 2022" starttimestamp="1644352075968" timestamp="3880796" timestamp2="3880796">
+    <data><![CDATA[']]></data>
+  </Command>
+  <DocumentChange __id="313" _type="Delete" date="Tue Feb 08 16:32:37 EST 2022" docASTNodeCount="56" docActiveCodeLength="230" docExpressionCount="29" docLength="230" endLine="10" length="1" offset="223" startLine="10" starttimestamp="1644352075968" timestamp="3881405">
+    <text><![CDATA[']]></text>
+  </DocumentChange>
+  <Command __id="314" _type="EclipseCommand" commandID="eventLogger.styledTextCommand.DELETE_PREVIOUS" date="Tue Feb 08 16:32:37 EST 2022" starttimestamp="1644352075968" timestamp="3881409" />
+  <DocumentChange __id="315" _type="Insert" date="Tue Feb 08 16:32:37 EST 2022" docASTNodeCount="57" docActiveCodeLength="233" docExpressionCount="30" docLength="233" length="3" offset="223" repeat="2" starttimestamp="1644352075968" timestamp="3881663" timestamp2="3882225">
+    <text><![CDATA[";"]]></text>
+  </DocumentChange>
+  <Command __id="316" _type="InsertStringCommand" date="Tue Feb 08 16:32:37 EST 2022" starttimestamp="1644352075968" timestamp="3881666" timestamp2="3881666">
+    <data><![CDATA["]]></data>
+  </Command>
+  <Command __id="318" _type="InsertStringCommand" date="Tue Feb 08 16:32:38 EST 2022" starttimestamp="1644352075968" timestamp="3882225" timestamp2="3882225">
+    <data><![CDATA[;]]></data>
+  </Command>
+  <DocumentChange __id="319" _type="Delete" date="Tue Feb 08 16:32:38 EST 2022" docASTNodeCount="57" docActiveCodeLength="232" docExpressionCount="30" docLength="232" endLine="10" length="1" offset="224" startLine="10" starttimestamp="1644352075968" timestamp="3882703">
+    <text><![CDATA[;]]></text>
+  </DocumentChange>
+  <Command __id="320" _type="EclipseCommand" commandID="eventLogger.styledTextCommand.DELETE_PREVIOUS" date="Tue Feb 08 16:32:38 EST 2022" starttimestamp="1644352075968" timestamp="3882705" />
+  <DocumentChange __id="321" _type="Insert" date="Tue Feb 08 16:32:39 EST 2022" docASTNodeCount="57" docActiveCodeLength="233" docExpressionCount="30" docLength="233" length="1" offset="224" starttimestamp="1644352075968" timestamp="3883439">
+    <text><![CDATA[,]]></text>
+  </DocumentChange>
+  <Command __id="322" _type="InsertStringCommand" date="Tue Feb 08 16:32:39 EST 2022" starttimestamp="1644352075968" timestamp="3883440" timestamp2="3883440">
+    <data><![CDATA[,]]></data>
+  </Command>
+  <DocumentChange __id="323" _type="Insert" date="Tue Feb 08 16:32:40 EST 2022" docASTNodeCount="57" docActiveCodeLength="238" docExpressionCount="30" docLength="238" length="5" offset="227" starttimestamp="1644352075968" timestamp="3884415">
+    <text><![CDATA[
+				]]></text>
+  </DocumentChange>
+  <Command __id="324" _type="EclipseCommand" commandID="org.eclipse.ui.edit.text.smartEnter" date="Tue Feb 08 16:32:40 EST 2022" starttimestamp="1644352075968" timestamp="3884418" />
+  <DocumentChange __id="325" _type="Delete" date="Tue Feb 08 16:32:41 EST 2022" docASTNodeCount="57" docActiveCodeLength="233" docExpressionCount="30" docLength="233" endLine="11" length="5" offset="227" repeat="5" startLine="10" starttimestamp="1644352075968" timestamp="3885593" timestamp2="3886818">
+    <text><![CDATA[
+				]]></text>
+  </DocumentChange>
+  <Command __id="326" _type="EclipseCommand" commandID="eventLogger.styledTextCommand.DELETE_PREVIOUS" date="Tue Feb 08 16:32:41 EST 2022" starttimestamp="1644352075968" timestamp="3885595" />
+  <Command __id="328" _type="EclipseCommand" commandID="eventLogger.styledTextCommand.DELETE_PREVIOUS" date="Tue Feb 08 16:32:41 EST 2022" starttimestamp="1644352075968" timestamp="3885916" />
+  <Command __id="330" _type="EclipseCommand" commandID="eventLogger.styledTextCommand.DELETE_PREVIOUS" date="Tue Feb 08 16:32:42 EST 2022" starttimestamp="1644352075968" timestamp="3886102" />
+  <Command __id="332" _type="EclipseCommand" commandID="eventLogger.styledTextCommand.DELETE_PREVIOUS" date="Tue Feb 08 16:32:42 EST 2022" starttimestamp="1644352075968" timestamp="3886466" />
+  <Command __id="334" _type="EclipseCommand" commandID="eventLogger.styledTextCommand.DELETE_PREVIOUS" date="Tue Feb 08 16:32:42 EST 2022" starttimestamp="1644352075968" timestamp="3886823" />
+  <DocumentChange __id="335" _type="Insert" date="Tue Feb 08 16:32:43 EST 2022" docASTNodeCount="57" docActiveCodeLength="234" docExpressionCount="30" docLength="234" length="1" offset="227" starttimestamp="1644352075968" timestamp="3887273">
+    <text><![CDATA[)]]></text>
+  </DocumentChange>
+  <Command __id="336" _type="InsertStringCommand" date="Tue Feb 08 16:32:43 EST 2022" starttimestamp="1644352075968" timestamp="3887277" timestamp2="3887277">
+    <data><![CDATA[)]]></data>
+  </Command>
+  <DocumentChange __id="337" _type="Delete" date="Tue Feb 08 16:32:43 EST 2022" docASTNodeCount="57" docActiveCodeLength="233" docExpressionCount="30" docLength="233" endLine="10" length="1" offset="227" startLine="10" starttimestamp="1644352075968" timestamp="3887814">
+    <text><![CDATA[)]]></text>
+  </DocumentChange>
+  <Command __id="338" _type="EclipseCommand" commandID="eventLogger.styledTextCommand.DELETE_PREVIOUS" date="Tue Feb 08 16:32:43 EST 2022" starttimestamp="1644352075968" timestamp="3887817" />
+  <DocumentChange __id="339" _type="Insert" date="Tue Feb 08 16:32:44 EST 2022" docASTNodeCount="59" docActiveCodeLength="246" docExpressionCount="31" docLength="246" length="13" offset="227" repeat="10" starttimestamp="1644352075968" timestamp="3888073" timestamp2="3892221">
+    <text><![CDATA[;
+		String[] ]]></text>
+  </DocumentChange>
+  <Command __id="340" _type="InsertStringCommand" date="Tue Feb 08 16:32:44 EST 2022" starttimestamp="1644352075968" timestamp="3888077" timestamp2="3888077">
+    <data><![CDATA[;]]></data>
+  </Command>
+  <Command __id="342" _type="InsertStringCommand" date="Tue Feb 08 16:32:45 EST 2022" starttimestamp="1644352075968" timestamp="3889547" timestamp2="3889547">
+    <data><![CDATA[]]></data>
+  </Command>
+  <Command __id="344" _type="InsertStringCommand" date="Tue Feb 08 16:32:46 EST 2022" starttimestamp="1644352075968" timestamp="3890746" timestamp2="3890746">
+    <data><![CDATA[S]]></data>
+  </Command>
+  <Command __id="346" _type="InsertStringCommand" date="Tue Feb 08 16:32:46 EST 2022" starttimestamp="1644352075968" timestamp="3891007" timestamp2="3891007">
+    <data><![CDATA[t]]></data>
+  </Command>
+  <Command __id="348" _type="InsertStringCommand" date="Tue Feb 08 16:32:47 EST 2022" starttimestamp="1644352075968" timestamp="3891198" timestamp2="3891198">
+    <data><![CDATA[r]]></data>
+  </Command>
+  <Command __id="350" _type="InsertStringCommand" date="Tue Feb 08 16:32:47 EST 2022" starttimestamp="1644352075968" timestamp="3891290" timestamp2="3891290">
+    <data><![CDATA[i]]></data>
+  </Command>
+  <Command __id="352" _type="InsertStringCommand" date="Tue Feb 08 16:32:47 EST 2022" starttimestamp="1644352075968" timestamp="3891373" timestamp2="3891373">
+    <data><![CDATA[n]]></data>
+  </Command>
+  <Command __id="354" _type="InsertStringCommand" date="Tue Feb 08 16:32:47 EST 2022" starttimestamp="1644352075968" timestamp="3891433" timestamp2="3891433">
+    <data><![CDATA[g]]></data>
+  </Command>
+  <Command __id="356" _type="InsertStringCommand" date="Tue Feb 08 16:32:47 EST 2022" starttimestamp="1644352075968" timestamp="3891924" timestamp2="3891924">
+    <data><![CDATA[[]]></data>
+  </Command>
+  <Command __id="357" _type="InsertStringCommand" date="Tue Feb 08 16:32:47 EST 2022" starttimestamp="1644352075968" timestamp="3891988" timestamp2="3891988">
+    <data><![CDATA[]]]></data>
+  </Command>
+  <Command __id="359" _type="InsertStringCommand" date="Tue Feb 08 16:32:48 EST 2022" starttimestamp="1644352075968" timestamp="3892223" timestamp2="3892223">
+    <data><![CDATA[ ]]></data>
+  </Command>
+  <DocumentChange __id="360" _type="Insert" date="Tue Feb 08 16:32:57 EST 2022" docASTNodeCount="63" docActiveCodeLength="249" docExpressionCount="32" docLength="249" length="3" offset="240" repeat="3" starttimestamp="1644352075968" timestamp="3901723" timestamp2="3902008">
+    <text><![CDATA[par]]></text>
+  </DocumentChange>
+  <Command __id="361" _type="InsertStringCommand" date="Tue Feb 08 16:32:57 EST 2022" starttimestamp="1644352075968" timestamp="3901725" timestamp2="3901725">
+    <data><![CDATA[p]]></data>
+  </Command>
+  <Command __id="363" _type="InsertStringCommand" date="Tue Feb 08 16:32:57 EST 2022" starttimestamp="1644352075968" timestamp="3901875" timestamp2="3901875">
+    <data><![CDATA[a]]></data>
+  </Command>
+  <Command __id="365" _type="InsertStringCommand" date="Tue Feb 08 16:32:57 EST 2022" starttimestamp="1644352075968" timestamp="3902009" timestamp2="3902009">
+    <data><![CDATA[r]]></data>
+  </Command>
+  <DocumentChange __id="366" _type="Delete" date="Tue Feb 08 16:32:58 EST 2022" docASTNodeCount="59" docActiveCodeLength="246" docExpressionCount="31" docLength="246" endLine="11" length="3" offset="240" repeat="3" startLine="11" starttimestamp="1644352075968" timestamp="3902626" timestamp2="3902943">
+    <text><![CDATA[par]]></text>
+  </DocumentChange>
+  <Command __id="367" _type="EclipseCommand" commandID="eventLogger.styledTextCommand.DELETE_PREVIOUS" date="Tue Feb 08 16:32:58 EST 2022" starttimestamp="1644352075968" timestamp="3902628" />
+  <Command __id="369" _type="EclipseCommand" commandID="eventLogger.styledTextCommand.DELETE_PREVIOUS" date="Tue Feb 08 16:32:58 EST 2022" starttimestamp="1644352075968" timestamp="3902773" />
+  <Command __id="371" _type="EclipseCommand" commandID="eventLogger.styledTextCommand.DELETE_PREVIOUS" date="Tue Feb 08 16:32:58 EST 2022" starttimestamp="1644352075968" timestamp="3902944" />
+  <DocumentChange __id="372" _type="Insert" date="Tue Feb 08 16:32:59 EST 2022" docASTNodeCount="63" docActiveCodeLength="258" docExpressionCount="32" docLength="258" length="12" offset="240" repeat="12" starttimestamp="1644352075968" timestamp="3903496" timestamp2="3905048">
+    <text><![CDATA[signature = ]]></text>
+  </DocumentChange>
+  <Command __id="373" _type="InsertStringCommand" date="Tue Feb 08 16:32:59 EST 2022" starttimestamp="1644352075968" timestamp="3903498" timestamp2="3903498">
+    <data><![CDATA[s]]></data>
+  </Command>
+  <Command __id="375" _type="InsertStringCommand" date="Tue Feb 08 16:32:59 EST 2022" starttimestamp="1644352075968" timestamp="3903590" timestamp2="3903590">
+    <data><![CDATA[i]]></data>
+  </Command>
+  <Command __id="377" _type="InsertStringCommand" date="Tue Feb 08 16:32:59 EST 2022" starttimestamp="1644352075968" timestamp="3903718" timestamp2="3903718">
+    <data><![CDATA[g]]></data>
+  </Command>
+  <Command __id="379" _type="InsertStringCommand" date="Tue Feb 08 16:32:59 EST 2022" starttimestamp="1644352075968" timestamp="3903835" timestamp2="3903835">
+    <data><![CDATA[n]]></data>
+  </Command>
+  <Command __id="381" _type="InsertStringCommand" date="Tue Feb 08 16:33:00 EST 2022" starttimestamp="1644352075968" timestamp="3904193" timestamp2="3904193">
+    <data><![CDATA[a]]></data>
+  </Command>
+  <Command __id="383" _type="InsertStringCommand" date="Tue Feb 08 16:33:00 EST 2022" starttimestamp="1644352075968" timestamp="3904301" timestamp2="3904301">
+    <data><![CDATA[t]]></data>
+  </Command>
+  <Command __id="385" _type="InsertStringCommand" date="Tue Feb 08 16:33:00 EST 2022" starttimestamp="1644352075968" timestamp="3904433" timestamp2="3904433">
+    <data><![CDATA[u]]></data>
+  </Command>
+  <Command __id="387" _type="InsertStringCommand" date="Tue Feb 08 16:33:00 EST 2022" starttimestamp="1644352075968" timestamp="3904541" timestamp2="3904541">
+    <data><![CDATA[r]]></data>
+  </Command>
+  <Command __id="389" _type="InsertStringCommand" date="Tue Feb 08 16:33:00 EST 2022" starttimestamp="1644352075968" timestamp="3904580" timestamp2="3904580">
+    <data><![CDATA[e]]></data>
+  </Command>
+  <Command __id="391" _type="InsertStringCommand" date="Tue Feb 08 16:33:00 EST 2022" starttimestamp="1644352075968" timestamp="3904697" timestamp2="3904697">
+    <data><![CDATA[ ]]></data>
+  </Command>
+  <Command __id="393" _type="InsertStringCommand" date="Tue Feb 08 16:33:00 EST 2022" starttimestamp="1644352075968" timestamp="3904942" timestamp2="3904942">
+    <data><![CDATA[=]]></data>
+  </Command>
+  <Command __id="395" _type="InsertStringCommand" date="Tue Feb 08 16:33:01 EST 2022" starttimestamp="1644352075968" timestamp="3905050" timestamp2="3905050">
+    <data><![CDATA[ ]]></data>
+  </Command>
+  <DocumentChange __id="396" _type="Delete" date="Tue Feb 08 16:33:03 EST 2022" docASTNodeCount="63" docActiveCodeLength="255" docExpressionCount="32" docLength="255" endLine="11" length="3" offset="249" repeat="3" startLine="11" starttimestamp="1644352075968" timestamp="3907098" timestamp2="3907465">
+    <text><![CDATA[ = ]]></text>
+  </DocumentChange>
+  <Command __id="397" _type="EclipseCommand" commandID="eventLogger.styledTextCommand.DELETE_PREVIOUS" date="Tue Feb 08 16:33:03 EST 2022" starttimestamp="1644352075968" timestamp="3907100" />
+  <Command __id="399" _type="EclipseCommand" commandID="eventLogger.styledTextCommand.DELETE_PREVIOUS" date="Tue Feb 08 16:33:03 EST 2022" starttimestamp="1644352075968" timestamp="3907284" />
+  <Command __id="401" _type="EclipseCommand" commandID="eventLogger.styledTextCommand.DELETE_PREVIOUS" date="Tue Feb 08 16:33:03 EST 2022" starttimestamp="1644352075968" timestamp="3907467" />
+  <DocumentChange __id="402" _type="Insert" date="Tue Feb 08 16:33:04 EST 2022" docASTNodeCount="66" docActiveCodeLength="265" docExpressionCount="35" docLength="265" length="10" offset="249" repeat="9" starttimestamp="1644352075968" timestamp="3908432" timestamp2="3910056">
+    <text><![CDATA[ = data[1]]]></text>
+  </DocumentChange>
+  <Command __id="403" _type="InsertStringCommand" date="Tue Feb 08 16:33:04 EST 2022" starttimestamp="1644352075968" timestamp="3908435" timestamp2="3908435">
+    <data><![CDATA[ ]]></data>
+  </Command>
+  <Command __id="405" _type="InsertStringCommand" date="Tue Feb 08 16:33:04 EST 2022" starttimestamp="1644352075968" timestamp="3908633" timestamp2="3908633">
+    <data><![CDATA[=]]></data>
+  </Command>
+  <Command __id="407" _type="InsertStringCommand" date="Tue Feb 08 16:33:04 EST 2022" starttimestamp="1644352075968" timestamp="3908741" timestamp2="3908741">
+    <data><![CDATA[ ]]></data>
+  </Command>
+  <Command __id="409" _type="InsertStringCommand" date="Tue Feb 08 16:33:05 EST 2022" starttimestamp="1644352075968" timestamp="3909047" timestamp2="3909047">
+    <data><![CDATA[d]]></data>
+  </Command>
+  <Command __id="411" _type="InsertStringCommand" date="Tue Feb 08 16:33:05 EST 2022" starttimestamp="1644352075968" timestamp="3909208" timestamp2="3909208">
+    <data><![CDATA[a]]></data>
+  </Command>
+  <Command __id="413" _type="InsertStringCommand" date="Tue Feb 08 16:33:05 EST 2022" starttimestamp="1644352075968" timestamp="3909307" timestamp2="3909307">
+    <data><![CDATA[t]]></data>
+  </Command>
+  <Command __id="415" _type="InsertStringCommand" date="Tue Feb 08 16:33:05 EST 2022" starttimestamp="1644352075968" timestamp="3909455" timestamp2="3909455">
+    <data><![CDATA[a]]></data>
+  </Command>
+  <Command __id="417" _type="InsertStringCommand" date="Tue Feb 08 16:33:05 EST 2022" starttimestamp="1644352075968" timestamp="3909619" timestamp2="3909619">
+    <data><![CDATA[[]]></data>
+  </Command>
+  <Command __id="419" _type="InsertStringCommand" date="Tue Feb 08 16:33:06 EST 2022" starttimestamp="1644352075968" timestamp="3910058" timestamp2="3910058">
+    <data><![CDATA[1]]></data>
+  </Command>
+  <Command __id="420" _type="InsertStringCommand" date="Tue Feb 08 16:33:06 EST 2022" starttimestamp="1644352075968" timestamp="3910380" timestamp2="3910380">
+    <data><![CDATA[]]]></data>
+  </Command>
+  <Command __id="422" _type="InsertStringCommand" date="Tue Feb 08 16:33:10 EST 2022" starttimestamp="1644352075968" timestamp="3914829" timestamp2="3914829">
+    <data><![CDATA[.]]></data>
+  </Command>
+  <Command __id="423" _type="AssistCommand" assist_type="CONTENT_ASSIST" auto_activated="true" date="Tue Feb 08 16:33:10 EST 2022" start_end="START" starttimestamp="1644352075968" timestamp="3914832" />
+  <DocumentChange __id="421" _type="Insert" date="Tue Feb 08 16:33:10 EST 2022" docASTNodeCount="68" docActiveCodeLength="271" docExpressionCount="37" docLength="271" length="6" offset="259" repeat="6" starttimestamp="1644352075968" timestamp="3914823" timestamp2="3915667">
+    <text><![CDATA[.split]]></text>
+  </DocumentChange>
+  <DocumentChange __id="430" _type="Replace" date="Tue Feb 08 16:33:12 EST 2022" docASTNodeCount="69" docActiveCodeLength="280" docExpressionCount="38" docLength="280" endLine="11" insertionLength="14" int_docASTNodeCount="66" int_docActiveCodeLength="266" int_docExpressionCount="35" int_docLength="266" length="5" offset="260" startLine="11" starttimestamp="1644352075968" timestamp="3916691">
+    <deletedText><![CDATA[split]]></deletedText>
+    <insertedText><![CDATA[split(encoded)]]></insertedText>
+  </DocumentChange>
+  <DocumentChange __id="432" _type="Replace" date="Tue Feb 08 16:33:13 EST 2022" docASTNodeCount="35" docActiveCodeLength="274" docExpressionCount="16" docLength="274" endLine="11" insertionLength="1" int_docASTNodeCount="68" int_docActiveCodeLength="273" int_docExpressionCount="37" int_docLength="273" length="7" offset="266" startLine="11" starttimestamp="1644352075968" timestamp="3917561">
+    <deletedText><![CDATA[encoded]]></deletedText>
+    <insertedText><![CDATA["]]></insertedText>
+  </DocumentChange>
+  <DocumentChange __id="434" _type="Insert" date="Tue Feb 08 16:33:14 EST 2022" docASTNodeCount="69" docActiveCodeLength="277" docExpressionCount="38" docLength="277" length="3" offset="267" repeat="3" starttimestamp="1644352075968" timestamp="3918196" timestamp2="3918996">
+    <text><![CDATA[->"]]></text>
+  </DocumentChange>
+  <DocumentChange __id="441" _type="Insert" date="Tue Feb 08 16:33:15 EST 2022" docASTNodeCount="71" docActiveCodeLength="290" docExpressionCount="39" docLength="290" length="13" offset="271" repeat="10" starttimestamp="1644352075968" timestamp="3919876" timestamp2="3924760">
+    <text><![CDATA[;
+		String[] ]]></text>
+  </DocumentChange>
+  <Command __id="429" _type="AssistCommand" assist_type="CONTENT_ASSIST" auto_activated="false" date="Tue Feb 08 16:33:12 EST 2022" start_end="END" starttimestamp="1644352075968" timestamp="3916687" />
+  <Command __id="431" _type="InsertStringCommand" date="Tue Feb 08 16:33:12 EST 2022" starttimestamp="1644352075968" timestamp="3916715" timestamp2="3916715">
+    <data><![CDATA[(]]></data>
+  </Command>
+  <Command __id="433" _type="InsertStringCommand" date="Tue Feb 08 16:33:13 EST 2022" starttimestamp="1644352075968" timestamp="3917566" timestamp2="3917566">
+    <data><![CDATA["]]></data>
+  </Command>
+  <Command __id="435" _type="InsertStringCommand" date="Tue Feb 08 16:33:14 EST 2022" starttimestamp="1644352075968" timestamp="3918196" timestamp2="3918196">
+    <data><![CDATA[-]]></data>
+  </Command>
+  <Command __id="437" _type="InsertStringCommand" date="Tue Feb 08 16:33:14 EST 2022" starttimestamp="1644352075968" timestamp="3918616" timestamp2="3918616">
+    <data><![CDATA[>]]></data>
+  </Command>
+  <Command __id="439" _type="InsertStringCommand" date="Tue Feb 08 16:33:14 EST 2022" starttimestamp="1644352075968" timestamp="3918998" timestamp2="3918998">
+    <data><![CDATA["]]></data>
+  </Command>
+  <Command __id="440" _type="InsertStringCommand" date="Tue Feb 08 16:33:15 EST 2022" starttimestamp="1644352075968" timestamp="3919451" timestamp2="3919451">
+    <data><![CDATA[)]]></data>
+  </Command>
+  <Command __id="442" _type="InsertStringCommand" date="Tue Feb 08 16:33:15 EST 2022" starttimestamp="1644352075968" timestamp="3919878" timestamp2="3919878">
+    <data><![CDATA[;]]></data>
+  </Command>
+  <Command __id="444" _type="InsertStringCommand" date="Tue Feb 08 16:33:17 EST 2022" starttimestamp="1644352075968" timestamp="3921458" timestamp2="3921458">
+    <data><![CDATA[]]></data>
+  </Command>
+  <Command __id="446" _type="InsertStringCommand" date="Tue Feb 08 16:33:18 EST 2022" starttimestamp="1644352075968" timestamp="3922489" timestamp2="3922489">
+    <data><![CDATA[S]]></data>
+  </Command>
+  <Command __id="448" _type="InsertStringCommand" date="Tue Feb 08 16:33:18 EST 2022" starttimestamp="1644352075968" timestamp="3922796" timestamp2="3922796">
+    <data><![CDATA[t]]></data>
+  </Command>
+  <Command __id="450" _type="InsertStringCommand" date="Tue Feb 08 16:33:18 EST 2022" starttimestamp="1644352075968" timestamp="3922987" timestamp2="3922987">
+    <data><![CDATA[r]]></data>
+  </Command>
+  <Command __id="452" _type="InsertStringCommand" date="Tue Feb 08 16:33:19 EST 2022" starttimestamp="1644352075968" timestamp="3923083" timestamp2="3923083">
+    <data><![CDATA[i]]></data>
+  </Command>
+  <Command __id="454" _type="InsertStringCommand" date="Tue Feb 08 16:33:19 EST 2022" starttimestamp="1644352075968" timestamp="3923187" timestamp2="3923187">
+    <data><![CDATA[n]]></data>
+  </Command>
+  <Command __id="456" _type="InsertStringCommand" date="Tue Feb 08 16:33:19 EST 2022" starttimestamp="1644352075968" timestamp="3923255" timestamp2="3923255">
+    <data><![CDATA[g]]></data>
+  </Command>
+  <Command __id="458" _type="InsertStringCommand" date="Tue Feb 08 16:33:19 EST 2022" starttimestamp="1644352075968" timestamp="3924019" timestamp2="3924019">
+    <data><![CDATA[[]]></data>
+  </Command>
+  <Command __id="459" _type="InsertStringCommand" date="Tue Feb 08 16:33:20 EST 2022" starttimestamp="1644352075968" timestamp="3924153" timestamp2="3924153">
+    <data><![CDATA[]]]></data>
+  </Command>
+  <Command __id="461" _type="InsertStringCommand" date="Tue Feb 08 16:33:20 EST 2022" starttimestamp="1644352075968" timestamp="3924762" timestamp2="3924762">
+    <data><![CDATA[ ]]></data>
+  </Command>
+  <Command __id="463" _type="ShellCommand" date="Tue Feb 08 16:33:45 EST 2022" starttimestamp="1644352075968" timestamp="3949257" type="ECLIPSE_LOST_FOCUS" />
+</Events>

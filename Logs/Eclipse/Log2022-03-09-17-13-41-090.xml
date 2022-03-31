@@ -1,0 +1,810 @@
+<Events startTimestamp="1646864021090" logVersion="1.0.0.202101171653">
+  <Command __id="0" _type="DiffBasedFileOpenCommand" date="Wed Mar 09 17:13:41 EST 2022" docASTNodeCount="93" docActiveCodeLength="432" docExpressionCount="59" docLength="432" projectName="ValgrindWrappingTool" starttimestamp="1646864021090" timestamp="160">
+    <filePath><![CDATA[/Users/nalingaddis/Documents/COMP691H/ValgrindWrappingTool/src/grader/Test.java]]></filePath>
+    <diff><![CDATA[null]]></diff>
+    <snapshot><![CDATA[package grader;
+
+import java.awt.Color;
+import java.awt.Component;
+
+import javax.swing.JLabel;
+
+public class Test {
+	public String name;
+	public boolean passed;
+	
+	public Test(String name, boolean passed) {
+		this.name = name;
+		this.passed = passed;
+	}
+	
+	public Component view() {
+		JLabel view = new JLabel((passed ? "PASSED - " : "FAILED - ") + name);
+		view.setForeground(passed ? Color.GREEN : Color.RED);
+		return view;
+	}
+}
+]]></snapshot>
+  </Command>
+  <Command __id="2" _type="DiffBasedFileOpenCommand" date="Wed Mar 09 17:13:49 EST 2022" docASTNodeCount="1" docActiveCodeLength="468" docExpressionCount="0" docLength="468" projectName="ValgrindWrappingTool" starttimestamp="1646864021090" timestamp="8098">
+    <filePath><![CDATA[/Users/nalingaddis/Documents/COMP691H/ValgrindWrappingTool/src/TraceConfig]]></filePath>
+    <diff><![CDATA[null]]></diff>
+    <snapshot><![CDATA[#include <stdio.h>
+#include <pthread.h>
+#include <unistd.h>
+
+
+libpthread.so.0,pthread_create:pthread_t *restrict thread, const pthread_attr_t *restrict attr,void *(*start_routine)(void *),void *restrict arg->int
+libpthread*,pthread_join:pthread_t thread, void **retval->int
+
+*, pthread_mutex_init: pthread_mutex_t *mutex, const pthread_mutexattr_t *attr -> int
+*, pthread_mutex_lock: pthread_mutex_t *mutex -> int
+*, pthread_mutex_unlock: pthread_mutex_t *mutex -> int]]></snapshot>
+  </Command>
+  <Command __id="3" _type="DiffBasedFileOpenCommand" date="Wed Mar 09 17:14:38 EST 2022" docASTNodeCount="139" docActiveCodeLength="783" docExpressionCount="85" docLength="783" projectName="ValgrindWrappingTool" starttimestamp="1646864021090" timestamp="57344">
+    <filePath><![CDATA[/Users/nalingaddis/Documents/COMP691H/ValgrindWrappingTool/src/grader/SimpleGrader.java]]></filePath>
+    <diff><![CDATA[null]]></diff>
+    <snapshot><![CDATA[package grader;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class SimpleGrader extends AbstractGrader {
+
+	public SimpleGrader(String studentDir, String filename) throws Exception {
+		super(studentDir, filename);
+	}
+
+	public List<Test> grade() {
+		List<Test> tests = new ArrayList<Test>();
+		
+		tests.add(countFuncCall("pthread_create", 2));
+		tests.add(countFuncCall("pthread_join", 2));
+		tests.add(countFuncCall("pthread_mutex_lock", 20));
+		tests.add(countFuncCall("pthread_mutex_unlock", 20));
+		
+		return tests;
+	}
+	
+	private Test countFuncCall(String fnname, int requiredCount) {
+		int count = 0; 
+		
+		for(Trace trace: traces) {
+			if(trace.fnname.equals(fnname)) {
+				count ++;
+			}
+		}
+		
+		return new Test("Called " + fnname, count >= requiredCount);
+	}
+}
+]]></snapshot>
+  </Command>
+  <Command __id="5" _type="DiffBasedFileOpenCommand" date="Wed Mar 09 17:14:46 EST 2022" docASTNodeCount="1" docActiveCodeLength="468" docExpressionCount="0" docLength="468" projectName="ValgrindWrappingTool" starttimestamp="1646864021090" timestamp="65232">
+    <filePath><![CDATA[/Users/nalingaddis/Documents/COMP691H/ValgrindWrappingTool/src/TraceConfig]]></filePath>
+    <diff><![CDATA[[Diff(EQUAL,"#include <stdio.h>¶#include <pthread.h>¶#include <unistd.h>¶¶¶libpthread.so.0,pthread_create:pthread_t *restrict thread, const pthread_attr_t *restrict attr,void *(*start_routine)(void *),void *restrict arg->int¶libpthread*,pthread_join:pthread_t thread, void **retval->int¶¶*, pthread_mutex_init: pthread_mutex_t *mutex, const pthread_mutexattr_t *attr -> int¶*, pthread_mutex_lock: pthread_mutex_t *mutex -> int¶*, pthread_mutex_unlock: pthread_mutex_t *mutex -> int")]]]></diff>
+  </Command>
+  <Command __id="1" _type="MoveCaretCommand" caretOffset="291" date="Wed Mar 09 17:13:41 EST 2022" docOffset="346" starttimestamp="1646864021090" timestamp="408" />
+  <Command __id="4" _type="MoveCaretCommand" caretOffset="490" date="Wed Mar 09 17:14:38 EST 2022" docOffset="513" starttimestamp="1646864021090" timestamp="57903" />
+  <Command __id="7" _type="MoveCaretCommand" caretOffset="0" date="Wed Mar 09 17:14:54 EST 2022" docOffset="0" starttimestamp="1646864021090" timestamp="73673" />
+  <Command __id="8" _type="SelectTextCommand" caretOffset="1734" date="Wed Mar 09 17:15:00 EST 2022" end="1761" start="1734" starttimestamp="1646864021090" timestamp="79821" />
+  <Command __id="9" _type="MoveCaretCommand" caretOffset="1734" date="Wed Mar 09 17:15:01 EST 2022" docOffset="2196" starttimestamp="1646864021090" timestamp="80625" />
+  <Command __id="10" _type="MoveCaretCommand" caretOffset="1543" date="Wed Mar 09 17:15:03 EST 2022" docOffset="2005" starttimestamp="1646864021090" timestamp="82145" />
+  <Command __id="6" _type="DiffBasedFileOpenCommand" date="Wed Mar 09 17:14:54 EST 2022" docASTNodeCount="367" docActiveCodeLength="2224" docExpressionCount="257" docLength="2224" projectName="ValgrindWrappingTool" starttimestamp="1646864021090" timestamp="73116">
+    <filePath><![CDATA[/Users/nalingaddis/Documents/COMP691H/ValgrindWrappingTool/src/gui/App.java]]></filePath>
+    <diff><![CDATA[null]]></diff>
+    <snapshot><![CDATA[package gui;
+
+import java.awt.Dimension;
+import java.awt.FlowLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.nio.file.FileSystemNotFoundException;
+import java.nio.file.Paths;
+import java.util.List;
+
+import javax.swing.BoxLayout;
+import javax.swing.JButton;
+import javax.swing.JFileChooser;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
+import javax.swing.SwingUtilities;
+
+import grader.Test;
+
+public class App implements Runnable {
+
+	public void run() {
+		JFrame frame = new JFrame("Valgrind Auto Grader");
+		
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.setPreferredSize(new Dimension(500, 300));
+		frame.setLocationRelativeTo(null);
+		frame.setLayout(new FlowLayout());
+		
+		JFileChooser fc = new JFileChooser();
+		fc.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
+		
+		JTextField pathTextField = new JTextField(30);
+		
+		JButton browseButton = new JButton("Browse");		
+		browseButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent event) {
+				int option = fc.showOpenDialog(frame);
+				if(option == JFileChooser.APPROVE_OPTION) {
+					pathTextField.setText(fc.getSelectedFile().getAbsolutePath());
+				}
+			}
+		});
+		
+		JPanel results = new JPanel();
+		results.setLayout(new BoxLayout(results, BoxLayout.PAGE_AXIS));
+		
+		JButton testButton = new JButton("Test");
+		testButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent event) {
+				try {
+					Paths.get(pathTextField.getText());
+					List<Test> tests = main.Main.testDirectory(pathTextField.getText());
+					
+					results.removeAll();
+					
+					for(Test test: tests) {
+						results.add(test.view());
+					}
+					
+					SwingUtilities.updateComponentTreeUI(results);
+				} catch (IllegalArgumentException 
+						| FileSystemNotFoundException 
+						| SecurityException exception) {
+					pathTextField.setText("Invalid Path");
+				}
+			}
+		});
+		
+		frame.add(new JLabel("Select assignment directory:"));
+		frame.add(pathTextField);
+		frame.add(browseButton);
+		frame.add(testButton);
+		frame.add(results);
+		
+		frame.pack();
+		frame.setVisible(true);
+	}
+}
+]]></snapshot>
+  </Command>
+  <Command __id="11" _type="SelectTextCommand" caretOffset="495" date="Wed Mar 09 17:15:11 EST 2022" end="495" start="81" starttimestamp="1646864021090" timestamp="90881" />
+  <Command __id="13" _type="MoveCaretCommand" caretOffset="0" date="Wed Mar 09 17:15:20 EST 2022" docOffset="0" starttimestamp="1646864021090" timestamp="99228" />
+  <Command __id="14" _type="SelectTextCommand" caretOffset="594" date="Wed Mar 09 17:15:23 EST 2022" end="594" start="142" starttimestamp="1646864021090" timestamp="102418" />
+  <Command __id="15" _type="MoveCaretCommand" caretOffset="441" date="Wed Mar 09 17:15:24 EST 2022" docOffset="562" starttimestamp="1646864021090" timestamp="103791" />
+  <Command __id="12" _type="DiffBasedFileOpenCommand" date="Wed Mar 09 17:15:19 EST 2022" docASTNodeCount="154" docActiveCodeLength="757" docExpressionCount="89" docLength="757" projectName="ValgrindWrappingTool" starttimestamp="1646864021090" timestamp="98701">
+    <filePath><![CDATA[/Users/nalingaddis/Documents/COMP691H/ValgrindWrappingTool/src/grader/AbstractGrader.java]]></filePath>
+    <diff><![CDATA[null]]></diff>
+    <snapshot><![CDATA[package grader;
+
+import java.io.File;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+
+import grader.Trace.TraceParsingException;
+
+public abstract class AbstractGrader implements Grader {
+	List<Trace> traces;
+	List<String> stdout;
+	
+	public AbstractGrader(String studentDir, String filename) throws Exception {
+		traces = new ArrayList<Trace>();
+		stdout = new ArrayList<String>();
+		
+		File file = new File(studentDir + "/" + filename);
+		Scanner scanner = new Scanner(file);
+		
+		while(scanner.hasNextLine()) {
+			String line = scanner.nextLine();
+			try {
+				traces.add(new Trace(line));
+			} catch (TraceParsingException e) {
+				stdout.add(line);
+			}
+		}
+		
+		scanner.close();
+	}
+	
+	public abstract List<Test> grade();
+}
+]]></snapshot>
+  </Command>
+  <Command __id="16" _type="SelectTextCommand" caretOffset="494" date="Wed Mar 09 17:15:29 EST 2022" end="494" start="471" starttimestamp="1646864021090" timestamp="108242" />
+  <Command __id="17" _type="MoveCaretCommand" caretOffset="103" date="Wed Mar 09 17:15:30 EST 2022" docOffset="224" starttimestamp="1646864021090" timestamp="109211" />
+  <Command __id="18" _type="SelectTextCommand" caretOffset="107" date="Wed Mar 09 17:15:30 EST 2022" end="107" start="102" starttimestamp="1646864021090" timestamp="109368" />
+  <Command __id="20" _type="MoveCaretCommand" caretOffset="0" date="Wed Mar 09 17:15:33 EST 2022" docOffset="0" starttimestamp="1646864021090" timestamp="112016" />
+  <Command __id="21" _type="SelectTextCommand" caretOffset="82" date="Wed Mar 09 17:15:35 EST 2022" end="82" start="72" starttimestamp="1646864021090" timestamp="114607" />
+  <Command __id="22" _type="MoveCaretCommand" caretOffset="82" date="Wed Mar 09 17:15:36 EST 2022" docOffset="114" starttimestamp="1646864021090" timestamp="114915" />
+  <Command __id="23" _type="SelectTextCommand" caretOffset="86" date="Wed Mar 09 17:15:36 EST 2022" end="86" start="77" starttimestamp="1646864021090" timestamp="115122" />
+  <Command __id="24" _type="MoveCaretCommand" caretOffset="90" date="Wed Mar 09 17:15:37 EST 2022" docOffset="122" starttimestamp="1646864021090" timestamp="116322" />
+  <Command __id="25" _type="SelectTextCommand" caretOffset="94" date="Wed Mar 09 17:15:37 EST 2022" end="94" start="88" starttimestamp="1646864021090" timestamp="116508" />
+  <Command __id="26" _type="MoveCaretCommand" caretOffset="105" date="Wed Mar 09 17:15:41 EST 2022" docOffset="137" starttimestamp="1646864021090" timestamp="120427" />
+  <Command __id="27" _type="SelectTextCommand" caretOffset="110" date="Wed Mar 09 17:15:41 EST 2022" end="110" start="104" starttimestamp="1646864021090" timestamp="120579" />
+  <Command __id="28" _type="MoveCaretCommand" caretOffset="114" date="Wed Mar 09 17:15:43 EST 2022" docOffset="146" starttimestamp="1646864021090" timestamp="122358" />
+  <Command __id="29" _type="SelectTextCommand" caretOffset="118" date="Wed Mar 09 17:15:43 EST 2022" end="118" start="112" starttimestamp="1646864021090" timestamp="122522" />
+  <Command __id="19" _type="DiffBasedFileOpenCommand" date="Wed Mar 09 17:15:32 EST 2022" docASTNodeCount="170" docActiveCodeLength="873" docExpressionCount="111" docLength="873" projectName="ValgrindWrappingTool" starttimestamp="1646864021090" timestamp="111431">
+    <filePath><![CDATA[/Users/nalingaddis/Documents/COMP691H/ValgrindWrappingTool/src/grader/Trace.java]]></filePath>
+    <diff><![CDATA[null]]></diff>
+    <snapshot><![CDATA[package grader;
+
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
+public class Trace {
+	long timestamp, thread;
+	String fnname, result;
+	String[] arguments;
+	
+	public class TraceParsingException extends Exception {
+		public TraceParsingException(String trace) {
+			super(trace);
+		}
+
+		private static final long serialVersionUID = 1;
+	}
+	
+	public Trace(String trace) throws Exception {
+		Pattern pattern = Pattern.compile("([0-9]+) - Thread: ([0-9]+) - (.*): (.*) -> (.*)");
+		Matcher m = pattern.matcher(trace);
+		
+		if(m.matches()) {
+			timestamp = Long.parseLong(m.group(1));
+			thread = Long.parseLong(m.group(2));
+			fnname = m.group(3);
+			arguments = m.group(4).split(",");
+			result = m.group(5);
+
+			for(int i=0; i<arguments.length; i++) {
+				arguments[i] = arguments[i].trim();
+			}
+		} else {
+			throw new TraceParsingException(trace);
+		}
+	}
+}
+]]></snapshot>
+  </Command>
+  <Command __id="30" _type="MoveCaretCommand" caretOffset="134" date="Wed Mar 09 17:15:45 EST 2022" docOffset="166" starttimestamp="1646864021090" timestamp="124540" />
+  <Command __id="31" _type="SelectTextCommand" caretOffset="139" date="Wed Mar 09 17:15:45 EST 2022" end="139" start="130" starttimestamp="1646864021090" timestamp="124708" />
+  <Command __id="33" _type="MoveCaretCommand" caretOffset="0" date="Wed Mar 09 17:15:56 EST 2022" docOffset="0" starttimestamp="1646864021090" timestamp="135187" />
+  <Command __id="34" _type="SelectTextCommand" caretOffset="3648" date="Wed Mar 09 17:16:04 EST 2022" end="3648" start="3453" starttimestamp="1646864021090" timestamp="143289" />
+  <Command __id="35" _type="MoveCaretCommand" caretOffset="3512" date="Wed Mar 09 17:16:07 EST 2022" docOffset="3544" starttimestamp="1646864021090" timestamp="146788" />
+  <Command __id="36" _type="SelectTextCommand" caretOffset="3505" date="Wed Mar 09 17:16:08 EST 2022" end="3505" start="3481" starttimestamp="1646864021090" timestamp="147734" />
+  <Command __id="37" _type="SelectTextCommand" caretOffset="3585" date="Wed Mar 09 17:16:10 EST 2022" end="3585" start="3510" starttimestamp="1646864021090" timestamp="149442" />
+  <Command __id="38" _type="MoveCaretCommand" caretOffset="3568" date="Wed Mar 09 17:16:11 EST 2022" docOffset="3600" starttimestamp="1646864021090" timestamp="149947" />
+  <Command __id="39" _type="SelectTextCommand" caretOffset="3583" date="Wed Mar 09 17:16:11 EST 2022" end="3583" start="3564" starttimestamp="1646864021090" timestamp="150607" />
+  <Command __id="40" _type="MoveCaretCommand" caretOffset="3590" date="Wed Mar 09 17:16:12 EST 2022" docOffset="3622" starttimestamp="1646864021090" timestamp="151102" />
+  <Command __id="41" _type="SelectTextCommand" caretOffset="3593" date="Wed Mar 09 17:16:12 EST 2022" end="3593" start="3588" starttimestamp="1646864021090" timestamp="151253" />
+  <Command __id="42" _type="MoveCaretCommand" caretOffset="3597" date="Wed Mar 09 17:16:12 EST 2022" docOffset="3629" starttimestamp="1646864021090" timestamp="151620" />
+  <Command __id="43" _type="SelectTextCommand" caretOffset="3601" date="Wed Mar 09 17:16:12 EST 2022" end="3601" start="3595" starttimestamp="1646864021090" timestamp="151805" />
+  <Command __id="44" _type="MoveCaretCommand" caretOffset="3603" date="Wed Mar 09 17:16:13 EST 2022" docOffset="3635" starttimestamp="1646864021090" timestamp="152352" />
+  <Command __id="45" _type="SelectTextCommand" caretOffset="3614" date="Wed Mar 09 17:16:13 EST 2022" end="3614" start="3603" starttimestamp="1646864021090" timestamp="152525" />
+  <Command __id="46" _type="MoveCaretCommand" caretOffset="3621" date="Wed Mar 09 17:16:14 EST 2022" docOffset="3653" starttimestamp="1646864021090" timestamp="153610" />
+  <Command __id="47" _type="SelectTextCommand" caretOffset="3622" date="Wed Mar 09 17:16:14 EST 2022" end="3622" start="3618" starttimestamp="1646864021090" timestamp="153808" />
+  <Command __id="48" _type="SelectTextCommand" caretOffset="3645" date="Wed Mar 09 17:16:17 EST 2022" end="3645" start="3623" starttimestamp="1646864021090" timestamp="156016" />
+  <Command __id="49" _type="MoveCaretCommand" caretOffset="3645" date="Wed Mar 09 17:16:17 EST 2022" docOffset="3677" starttimestamp="1646864021090" timestamp="156252" />
+  <Command __id="32" _type="DiffBasedFileOpenCommand" date="Wed Mar 09 17:15:55 EST 2022" docASTNodeCount="1221" docActiveCodeLength="6552" docExpressionCount="845" docLength="6899" projectName="ValgrindWrappingTool" starttimestamp="1646864021090" timestamp="134557">
+    <filePath><![CDATA[/Users/nalingaddis/Documents/COMP691H/ValgrindWrappingTool/src/parser/Function.java]]></filePath>
+    <diff><![CDATA[null]]></diff>
+    <snapshot><![CDATA[package parser;
+
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
+public class Function {
+	String soName, fnName, returnType;
+	String[] arguments;
+	
+	public class InvalidFunctionException extends Exception {
+		private static final long serialVersionUID = 1L;
+
+		public InvalidFunctionException(String message) {
+			super(message);
+		}
+	}
+	
+	public Function(String encoded) throws InvalidFunctionException {
+		String[] data = encoded.split(":");
+		String[] name = data[0].split(",");
+		String[] signature = data[1].split("->");
+		
+		this.arguments = signature[0].split(",");
+		this.returnType = signature[1];
+		
+		if(name.length == 1) {
+			this.soName = "NONE";
+			this.fnName = name[0];
+		} else if(name.length == 2) {
+			this.soName = name[0];
+			this.fnName = name[1];
+		} else {
+			throw new InvalidFunctionException("Invalid Name");
+		}
+		
+		soName = soName.trim();
+		fnName = fnName.trim();
+		returnType = returnType.trim();
+		
+		for(int i=0; i<arguments.length; i++) {
+			arguments[i] = arguments[i].trim();
+		}
+	}
+	
+	public String toCString() throws InvalidFunctionException {
+		StringBuilder sb = new StringBuilder();
+		
+		sb.append(returnType);
+		sb.append(" ");
+		sb.append("I_WRAP_SONAME_FNNAME_ZZ(");
+		sb.append(zEncodeName(soName));
+		sb.append(", ");
+		sb.append(zEncodeName(fnName));
+		sb.append(")\n");
+		
+		sb.append("(");
+		for(int i=0; i<arguments.length; i++) {
+			sb.append(arguments[i]);
+			if(i<arguments.length-1) {
+				sb.append(", ");
+			}
+		}
+		sb.append(")\n");
+		
+		sb.append("{");
+		
+		sb.append("\n\t");
+		
+		sb.append("OrigFn fn;");
+		sb.append("\n\t");
+
+		sb.append("VALGRIND_GET_ORIG_FN(fn);");
+		sb.append("\n\t");
+
+		
+		if(!isVoid()) {
+			sb.append(returnType);
+			sb.append(" result;");
+			sb.append("\n\t");
+
+		}
+		
+		sb.append("CALL_FN_");
+		
+		if(isVoid()) {
+			sb.append("v_");
+		} else {
+			sb.append("W_");
+		}
+		
+		switch(arguments.length) {
+		case 0: 
+			sb.append("v"); break;
+		case 1: case 2: case 3: case 4: 
+			for(int i=0; i<arguments.length; i++) sb.append("W");
+			break;
+		case 5: case 6: case 7: case 8: case 9: case 10: case 11: case 12:
+			sb.append(arguments.length);
+			sb.append("W");
+			break;
+		default: 
+			throw new InvalidFunctionException("Function contains more than 12 arguments");
+		}
+		
+		sb.append("(");
+		
+		if(!isVoid()) {
+			sb.append("result, ");
+		}
+		
+		sb.append("fn, ");
+		
+		for(int i=0; i<arguments.length; i++) {
+			sb.append(parseArgName(arguments[i]));
+			
+			if(i < arguments.length-1) {
+				sb.append(", ");
+			}
+		}
+		
+		sb.append(");");
+		sb.append("\n\t");
+
+		
+		sb.append("trace(\""+fnName+": ");
+		for(int i=0; i<arguments.length; i++) {
+			sb.append("%");
+			sb.append(argStringFormatter(arguments[i]));
+			
+			if(i < arguments.length-1) {
+				sb.append(", ");
+			}
+		}
+		
+		if(!isVoid()) {
+			sb.append(" -> ");
+			sb.append("%");
+			sb.append(argStringFormatter(returnType));
+		}
+		
+		sb.append("\",");
+		for(int i=0; i<arguments.length; i++) {
+			if(argType(arguments[i]) == StringType.OTHER) {
+				sb.append("&");
+			}
+			
+			sb.append(parseArgName(arguments[i]));
+			
+			if(i < arguments.length-1) {
+				sb.append(", ");
+			}
+		}
+		
+		if(!isVoid()) {
+			sb.append(", ");
+			
+			if(argType(returnType) == StringType.OTHER) {
+				sb.append("&");
+			}
+			
+			sb.append("result");
+		}
+		sb.append(");");
+		sb.append("\n");
+
+		
+		if(!isVoid()) {
+			sb.append("\t");
+			sb.append("return result;");
+			sb.append("\n");
+		}
+		
+		sb.append("}");
+		
+		return sb.toString();
+	}
+	
+	private enum StringType {
+		INT, UNSIGNED_INT, SIZE_T,
+		LONG, UNSIGNED_LONG, LONG_LONG, UNSIGNED_LONG_LONG,
+		SHORT,UNSIGNED_SHORT,
+		FLOAT, DOUBLE, LONG_DOUBLE,
+		CHAR, POINTER, ARRAY, OTHER
+	}
+	
+	private StringType argType(String arg) {
+		if(arg.contains("*")) return StringType.POINTER;
+		if(arg.contains("[]")) return StringType.ARRAY;
+		
+		if(arg.contains("long double")) return StringType.LONG_DOUBLE;
+		if(arg.contains("double")) return StringType.DOUBLE;
+		if(arg.contains("float")) return StringType.FLOAT;
+		
+		if(arg.contains("unsigned long long")) return StringType.UNSIGNED_LONG_LONG;
+		if(arg.contains("unsigned long")) return StringType.UNSIGNED_LONG;
+		if(arg.contains("long long")) return StringType.LONG_LONG;
+		if(arg.contains("long")) return StringType.LONG;
+		
+		if(arg.contains("unsigned short")) return StringType.UNSIGNED_SHORT;
+		if(arg.contains("short")) return StringType.SHORT;
+		
+		if(arg.contains("unsigned int")) return StringType.UNSIGNED_INT;
+		if(arg.contains("int")) return StringType.INT;
+		
+		if(arg.contains("char")) return StringType.CHAR;
+		
+		if(arg.contains("size_t")) return StringType.SIZE_T;
+			
+		return StringType.OTHER;
+	}
+	
+	private String argStringFormatter(String arg) {
+		switch(argType(arg)) {
+		case POINTER: return "p";
+		case ARRAY: return "p";
+		
+		case LONG_DOUBLE: return "Lg";
+		case DOUBLE: case FLOAT: return "g";
+		
+		case UNSIGNED_LONG_LONG: return "llu";
+		case UNSIGNED_LONG: return "lu";
+		case LONG_LONG: return "lli";
+		case LONG: return "li";
+		
+		case UNSIGNED_SHORT: return "hu";
+		case SHORT: return "hi";
+		
+		case UNSIGNED_INT: return "u";
+		case INT: return "i";
+		
+		case CHAR: return "c";
+		
+		case SIZE_T: return "zu";	
+		
+		case OTHER: default: return "p";
+		}
+	}
+	
+	private String parseArgName(String arg) throws InvalidFunctionException {
+		// funarg
+		if(arg.charAt(arg.length()-1) == ')') {
+			Pattern pattern = Pattern.compile(".+\\(\\*(.+)\\)\\(.+\\)");
+			Matcher m = pattern.matcher(arg);
+			if(m.matches()) {
+				return m.group(1);
+			} else {
+				throw new InvalidFunctionException("Invalid argument syntax: "+arg);
+			}
+		} else {
+			String[] comps = arg.split(" |\\*");
+			return comps[comps.length-1];
+		}
+	}
+	
+	private String zEncodeName(String name) throws InvalidFunctionException {
+		/*
+			 Za   encodes    *
+			 Zp              +
+			 Zc              :
+			 Zd              .
+			 Zu              _
+			 Zh              -
+			 Zs              (space)
+			 ZA              @
+			 ZZ              Z
+			 ZL              (       # only in valgrind 3.3.0 and later
+			 ZR              )       # only in valgrind 3.3.0 and later
+		 */
+		
+		StringBuilder sb = new StringBuilder();
+		for(char c: name.toCharArray()) {
+			switch(c) {
+			case('*'): sb.append("Za"); break;
+			case('+'): sb.append("Zp"); break;
+			case(':'): sb.append("Zc"); break;
+			case('.'): sb.append("Zd"); break;
+			case('_'): sb.append("Zu"); break;
+			case('-'): sb.append("Zh"); break;
+			case(' '): sb.append("Zs"); break;
+			case('@'): sb.append("ZA"); break;
+			case('Z'): sb.append("ZZ"); break;
+			case('('): sb.append("ZL"); break;
+			case(')'): sb.append("ZR"); break;
+			default: 
+				if(Character.isLetterOrDigit(c)) {
+					sb.append(c);
+				} else {
+					throw new InvalidFunctionException("Invalid character in function name");
+				}
+			}
+		}
+		
+		return sb.toString();
+	}
+	
+	private boolean isVoid() {
+		return returnType.equals("void");
+	}
+}
+]]></snapshot>
+  </Command>
+  <Command __id="50" _type="SelectTextCommand" caretOffset="3618" date="Wed Mar 09 17:16:19 EST 2022" end="3645" start="3618" starttimestamp="1646864021090" timestamp="158004" />
+  <Command __id="51" _type="MoveCaretCommand" caretOffset="3624" date="Wed Mar 09 17:16:19 EST 2022" docOffset="3656" starttimestamp="1646864021090" timestamp="158427" />
+  <Command __id="53" _type="SelectTextCommand" caretOffset="139" date="Wed Mar 09 17:16:31 EST 2022" end="139" start="130" starttimestamp="1646864021090" timestamp="170756" />
+  <Command __id="54" _type="SelectTextCommand" caretOffset="458" date="Wed Mar 09 17:16:38 EST 2022" end="458" start="372" starttimestamp="1646864021090" timestamp="177075" />
+  <Command __id="55" _type="MoveCaretCommand" caretOffset="407" date="Wed Mar 09 17:16:43 EST 2022" docOffset="439" starttimestamp="1646864021090" timestamp="182701" />
+  <Command __id="56" _type="SelectTextCommand" caretOffset="458" date="Wed Mar 09 17:16:46 EST 2022" end="458" start="388" starttimestamp="1646864021090" timestamp="185752" />
+  <Command __id="57" _type="SelectTextCommand" caretOffset="835" date="Wed Mar 09 17:16:54 EST 2022" end="835" start="501" starttimestamp="1646864021090" timestamp="193850" />
+  <Command __id="58" _type="MoveCaretCommand" caretOffset="346" date="Wed Mar 09 17:16:57 EST 2022" docOffset="378" starttimestamp="1646864021090" timestamp="195979" />
+  <Command __id="59" _type="SelectTextCommand" caretOffset="349" date="Wed Mar 09 17:16:57 EST 2022" end="349" start="344" starttimestamp="1646864021090" timestamp="196133" />
+  <Command __id="52" _type="DiffBasedFileOpenCommand" date="Wed Mar 09 17:16:31 EST 2022" docASTNodeCount="170" docActiveCodeLength="873" docExpressionCount="111" docLength="873" projectName="ValgrindWrappingTool" starttimestamp="1646864021090" timestamp="170572">
+    <filePath><![CDATA[/Users/nalingaddis/Documents/COMP691H/ValgrindWrappingTool/src/grader/Trace.java]]></filePath>
+    <diff><![CDATA[[Diff(EQUAL,"package grader;¶¶import java.util.regex.Matcher;¶import java.util.regex.Pattern;¶¶public class Trace {¶	long timestamp, thread;¶	String fnname, result;¶	String[] arguments;¶	¶	public class TraceParsingException extends Exception {¶		public TraceParsingException(String trace) {¶			super(trace);¶		}¶¶		private static final long serialVersionUID = 1;¶	}¶	¶	public Trace(String trace) throws Exception {¶		Pattern pattern = Pattern.compile("([0-9]+) - Thread: ([0-9]+) - (.*): (.*) -> (.*)");¶		Matcher m = pattern.matcher(trace);¶		¶		if(m.matches()) {¶			timestamp = Long.parseLong(m.group(1));¶			thread = Long.parseLong(m.group(2));¶			fnname = m.group(3);¶			arguments = m.group(4).split(",");¶			result = m.group(5);¶¶			for(int i=0; i<arguments.length; i++) {¶				arguments[i] = arguments[i].trim();¶			}¶		} else {¶			throw new TraceParsingException(trace);¶		}¶	}¶}¶")]]]></diff>
+  </Command>
+  <Command __id="60" _type="SelectTextCommand" caretOffset="140" date="Wed Mar 09 17:17:02 EST 2022" end="140" start="72" starttimestamp="1646864021090" timestamp="201467" />
+  <Command __id="61" _type="DiffBasedFileOpenCommand" date="Wed Mar 09 17:17:04 EST 2022" docASTNodeCount="154" docActiveCodeLength="757" docExpressionCount="89" docLength="757" projectName="ValgrindWrappingTool" starttimestamp="1646864021090" timestamp="203797">
+    <filePath><![CDATA[/Users/nalingaddis/Documents/COMP691H/ValgrindWrappingTool/src/grader/AbstractGrader.java]]></filePath>
+    <diff><![CDATA[[Diff(EQUAL,"package grader;¶¶import java.io.File;¶import java.util.ArrayList;¶import java.util.List;¶import java.util.Scanner;¶¶import grader.Trace.TraceParsingException;¶¶public abstract class AbstractGrader implements Grader {¶	List<Trace> traces;¶	List<String> stdout;¶	¶	public AbstractGrader(String studentDir, String filename) throws Exception {¶		traces = new ArrayList<Trace>();¶		stdout = new ArrayList<String>();¶		¶		File file = new File(studentDir + "/" + filename);¶		Scanner scanner = new Scanner(file);¶		¶		while(scanner.hasNextLine()) {¶			String line = scanner.nextLine();¶			try {¶				traces.add(new Trace(line));¶			} catch (TraceParsingException e) {¶				stdout.add(line);¶			}¶		}¶		¶		scanner.close();¶	}¶	¶	public abstract List<Test> grade();¶}¶")]]]></diff>
+  </Command>
+  <Command __id="62" _type="SelectTextCommand" caretOffset="107" date="Wed Mar 09 17:17:05 EST 2022" end="107" start="102" starttimestamp="1646864021090" timestamp="204013" />
+  <Command __id="64" _type="MoveCaretCommand" caretOffset="0" date="Wed Mar 09 17:17:07 EST 2022" docOffset="0" starttimestamp="1646864021090" timestamp="205987" />
+  <Command __id="65" _type="SelectTextCommand" caretOffset="377" date="Wed Mar 09 17:17:09 EST 2022" end="377" start="41" starttimestamp="1646864021090" timestamp="208449" />
+  <Command __id="66" _type="MoveCaretCommand" caretOffset="162" date="Wed Mar 09 17:17:09 EST 2022" docOffset="217" starttimestamp="1646864021090" timestamp="208894" />
+  <Command __id="67" _type="MoveCaretCommand" caretOffset="79" date="Wed Mar 09 17:17:11 EST 2022" docOffset="134" starttimestamp="1646864021090" timestamp="210483" />
+  <Command __id="68" _type="SelectTextCommand" caretOffset="80" date="Wed Mar 09 17:17:11 EST 2022" end="80" start="76" starttimestamp="1646864021090" timestamp="210634" />
+  <Command __id="69" _type="MoveCaretCommand" caretOffset="100" date="Wed Mar 09 17:17:13 EST 2022" docOffset="155" starttimestamp="1646864021090" timestamp="212320" />
+  <Command __id="70" _type="SelectTextCommand" caretOffset="104" date="Wed Mar 09 17:17:13 EST 2022" end="104" start="98" starttimestamp="1646864021090" timestamp="212509" />
+  <Command __id="71" _type="MoveCaretCommand" caretOffset="81" date="Wed Mar 09 17:17:15 EST 2022" docOffset="136" starttimestamp="1646864021090" timestamp="214378" />
+  <Command __id="72" _type="SelectTextCommand" caretOffset="374" date="Wed Mar 09 17:17:17 EST 2022" end="374" start="202" starttimestamp="1646864021090" timestamp="216852" />
+  <Command __id="73" _type="MoveCaretCommand" caretOffset="374" date="Wed Mar 09 17:17:19 EST 2022" docOffset="429" starttimestamp="1646864021090" timestamp="218645" />
+  <Command __id="74" _type="SelectTextCommand" caretOffset="201" date="Wed Mar 09 17:17:22 EST 2022" end="374" start="201" starttimestamp="1646864021090" timestamp="221035" />
+  <Command __id="63" _type="DiffBasedFileOpenCommand" date="Wed Mar 09 17:17:06 EST 2022" docASTNodeCount="93" docActiveCodeLength="432" docExpressionCount="59" docLength="432" projectName="ValgrindWrappingTool" starttimestamp="1646864021090" timestamp="205444">
+    <filePath><![CDATA[/Users/nalingaddis/Documents/COMP691H/ValgrindWrappingTool/src/grader/Test.java]]></filePath>
+    <diff><![CDATA[[Diff(EQUAL,"package grader;¶¶import java.awt.Color;¶import java.awt.Component;¶¶import javax.swing.JLabel;¶¶public class Test {¶	public String name;¶	public boolean passed;¶	¶	public Test(String name, boolean passed) {¶		this.name = name;¶		this.passed = passed;¶	}¶	¶	public Component view() {¶		JLabel view = new JLabel((passed ? "PASSED - " : "FAILED - ") + name);¶		view.setForeground(passed ? Color.GREEN : Color.RED);¶		return view;¶	}¶}¶")]]]></diff>
+  </Command>
+  <Command __id="75" _type="MoveCaretCommand" caretOffset="374" date="Wed Mar 09 17:17:23 EST 2022" docOffset="429" starttimestamp="1646864021090" timestamp="222222" />
+  <Command __id="76" _type="DiffBasedFileOpenCommand" date="Wed Mar 09 17:17:32 EST 2022" docASTNodeCount="154" docActiveCodeLength="757" docExpressionCount="89" docLength="757" projectName="ValgrindWrappingTool" starttimestamp="1646864021090" timestamp="231566">
+    <filePath><![CDATA[/Users/nalingaddis/Documents/COMP691H/ValgrindWrappingTool/src/grader/AbstractGrader.java]]></filePath>
+    <diff><![CDATA[[Diff(EQUAL,"package grader;¶¶import java.io.File;¶import java.util.ArrayList;¶import java.util.List;¶import java.util.Scanner;¶¶import grader.Trace.TraceParsingException;¶¶public abstract class AbstractGrader implements Grader {¶	List<Trace> traces;¶	List<String> stdout;¶	¶	public AbstractGrader(String studentDir, String filename) throws Exception {¶		traces = new ArrayList<Trace>();¶		stdout = new ArrayList<String>();¶		¶		File file = new File(studentDir + "/" + filename);¶		Scanner scanner = new Scanner(file);¶		¶		while(scanner.hasNextLine()) {¶			String line = scanner.nextLine();¶			try {¶				traces.add(new Trace(line));¶			} catch (TraceParsingException e) {¶				stdout.add(line);¶			}¶		}¶		¶		scanner.close();¶	}¶	¶	public abstract List<Test> grade();¶}¶")]]]></diff>
+  </Command>
+  <Command __id="77" _type="SelectTextCommand" caretOffset="107" date="Wed Mar 09 17:17:32 EST 2022" end="107" start="102" starttimestamp="1646864021090" timestamp="231795" />
+  <Command __id="79" _type="MoveCaretCommand" caretOffset="0" date="Wed Mar 09 17:17:34 EST 2022" docOffset="0" starttimestamp="1646864021090" timestamp="233892" />
+  <Command __id="80" _type="MoveCaretCommand" caretOffset="61" date="Wed Mar 09 17:17:36 EST 2022" docOffset="61" starttimestamp="1646864021090" timestamp="235057" />
+  <Command __id="81" _type="SelectTextCommand" caretOffset="64" date="Wed Mar 09 17:17:36 EST 2022" end="64" start="58" starttimestamp="1646864021090" timestamp="235207" />
+  <Command __id="82" _type="MoveCaretCommand" caretOffset="90" date="Wed Mar 09 17:17:36 EST 2022" docOffset="90" starttimestamp="1646864021090" timestamp="235898" />
+  <Command __id="83" _type="SelectTextCommand" caretOffset="91" date="Wed Mar 09 17:17:37 EST 2022" end="91" start="86" starttimestamp="1646864021090" timestamp="236070" />
+  <Command __id="78" _type="DiffBasedFileOpenCommand" date="Wed Mar 09 17:17:34 EST 2022" docASTNodeCount="20" docActiveCodeLength="97" docExpressionCount="10" docLength="97" projectName="ValgrindWrappingTool" starttimestamp="1646864021090" timestamp="233592">
+    <filePath><![CDATA[/Users/nalingaddis/Documents/COMP691H/ValgrindWrappingTool/src/grader/Grader.java]]></filePath>
+    <diff><![CDATA[null]]></diff>
+    <snapshot><![CDATA[package grader;
+
+import java.util.List;
+
+public interface Grader {
+	public List<Test> grade();
+}
+]]></snapshot>
+  </Command>
+  <Command __id="84" _type="SelectTextCommand" caretOffset="85" date="Wed Mar 09 17:17:39 EST 2022" end="85" start="75" starttimestamp="1646864021090" timestamp="238879" />
+  <Command __id="85" _type="DiffBasedFileOpenCommand" date="Wed Mar 09 17:17:52 EST 2022" docASTNodeCount="154" docActiveCodeLength="757" docExpressionCount="89" docLength="757" projectName="ValgrindWrappingTool" starttimestamp="1646864021090" timestamp="251576">
+    <filePath><![CDATA[/Users/nalingaddis/Documents/COMP691H/ValgrindWrappingTool/src/grader/AbstractGrader.java]]></filePath>
+    <diff><![CDATA[[Diff(EQUAL,"package grader;¶¶import java.io.File;¶import java.util.ArrayList;¶import java.util.List;¶import java.util.Scanner;¶¶import grader.Trace.TraceParsingException;¶¶public abstract class AbstractGrader implements Grader {¶	List<Trace> traces;¶	List<String> stdout;¶	¶	public AbstractGrader(String studentDir, String filename) throws Exception {¶		traces = new ArrayList<Trace>();¶		stdout = new ArrayList<String>();¶		¶		File file = new File(studentDir + "/" + filename);¶		Scanner scanner = new Scanner(file);¶		¶		while(scanner.hasNextLine()) {¶			String line = scanner.nextLine();¶			try {¶				traces.add(new Trace(line));¶			} catch (TraceParsingException e) {¶				stdout.add(line);¶			}¶		}¶		¶		scanner.close();¶	}¶	¶	public abstract List<Test> grade();¶}¶")]]]></diff>
+  </Command>
+  <Command __id="86" _type="SelectTextCommand" caretOffset="107" date="Wed Mar 09 17:17:52 EST 2022" end="107" start="102" starttimestamp="1646864021090" timestamp="251751" />
+  <Command __id="88" _type="MoveCaretCommand" caretOffset="0" date="Wed Mar 09 17:18:15 EST 2022" docOffset="0" starttimestamp="1646864021090" timestamp="274898" />
+  <Command __id="89" _type="MoveCaretCommand" caretOffset="64" date="Wed Mar 09 17:18:18 EST 2022" docOffset="87" starttimestamp="1646864021090" timestamp="277653" />
+  <Command __id="90" _type="SelectTextCommand" caretOffset="71" date="Wed Mar 09 17:18:18 EST 2022" end="71" start="59" starttimestamp="1646864021090" timestamp="277874" />
+  <Command __id="91" _type="MoveCaretCommand" caretOffset="66" date="Wed Mar 09 17:18:21 EST 2022" docOffset="89" starttimestamp="1646864021090" timestamp="280298" />
+  <Command __id="92" _type="SelectTextCommand" caretOffset="541" date="Wed Mar 09 17:18:26 EST 2022" end="541" start="529" starttimestamp="1646864021090" timestamp="284934" />
+  <Command __id="93" _type="SelectTextCommand" caretOffset="556" date="Wed Mar 09 17:18:29 EST 2022" end="556" start="543" starttimestamp="1646864021090" timestamp="288607" />
+  <Command __id="94" _type="SelectTextCommand" caretOffset="575" date="Wed Mar 09 17:18:31 EST 2022" end="575" start="562" starttimestamp="1646864021090" timestamp="290612" />
+  <Command __id="95" _type="SelectTextCommand" caretOffset="333" date="Wed Mar 09 17:18:40 EST 2022" end="333" start="287" starttimestamp="1646864021090" timestamp="299351" />
+  <Command __id="96" _type="MoveCaretCommand" caretOffset="760" date="Wed Mar 09 17:18:41 EST 2022" docOffset="783" starttimestamp="1646864021090" timestamp="300170" />
+  <Command __id="97" _type="SelectTextCommand" caretOffset="750" date="Wed Mar 09 17:18:43 EST 2022" end="750" start="731" starttimestamp="1646864021090" timestamp="302539" />
+  <Command __id="98" _type="MoveCaretCommand" caretOffset="751" date="Wed Mar 09 17:18:44 EST 2022" docOffset="774" starttimestamp="1646864021090" timestamp="303287" />
+  <Command __id="99" _type="SelectTextCommand" caretOffset="729" date="Wed Mar 09 17:18:45 EST 2022" end="752" start="729" starttimestamp="1646864021090" timestamp="304403" />
+  <Command __id="100" _type="MoveCaretCommand" caretOffset="731" date="Wed Mar 09 17:18:45 EST 2022" docOffset="754" starttimestamp="1646864021090" timestamp="304793" />
+  <Command __id="101" _type="SelectTextCommand" caretOffset="735" date="Wed Mar 09 17:18:46 EST 2022" end="735" start="730" starttimestamp="1646864021090" timestamp="304989" />
+  <Command __id="102" _type="SelectTextCommand" caretOffset="739" date="Wed Mar 09 17:18:49 EST 2022" end="739" start="736" starttimestamp="1646864021090" timestamp="308109" />
+  <Command __id="103" _type="SelectTextCommand" caretOffset="751" date="Wed Mar 09 17:18:50 EST 2022" end="751" start="740" starttimestamp="1646864021090" timestamp="309168" />
+  <Command __id="104" _type="SelectTextCommand" caretOffset="380" date="Wed Mar 09 17:18:52 EST 2022" end="380" start="312" starttimestamp="1646864021090" timestamp="311742" />
+  <Command __id="105" _type="SelectTextCommand" caretOffset="490" date="Wed Mar 09 17:19:02 EST 2022" end="490" start="393" starttimestamp="1646864021090" timestamp="321700" />
+  <Command __id="106" _type="MoveCaretCommand" caretOffset="212" date="Wed Mar 09 17:19:17 EST 2022" docOffset="235" starttimestamp="1646864021090" timestamp="336059" />
+  <Command __id="107" _type="SelectTextCommand" caretOffset="512" date="Wed Mar 09 17:19:18 EST 2022" end="512" start="210" starttimestamp="1646864021090" timestamp="337819" />
+  <Command __id="108" _type="MoveCaretCommand" caretOffset="284" date="Wed Mar 09 17:19:19 EST 2022" docOffset="307" starttimestamp="1646864021090" timestamp="338360" />
+  <Command __id="109" _type="MoveCaretCommand" caretOffset="229" date="Wed Mar 09 17:19:20 EST 2022" docOffset="252" starttimestamp="1646864021090" timestamp="339241" />
+  <Command __id="110" _type="SelectTextCommand" caretOffset="233" date="Wed Mar 09 17:19:20 EST 2022" end="233" start="228" starttimestamp="1646864021090" timestamp="339444" />
+  <Command __id="111" _type="SelectTextCommand" caretOffset="136" date="Wed Mar 09 17:19:25 EST 2022" end="136" start="119" starttimestamp="1646864021090" timestamp="344630" />
+  <Command __id="112" _type="MoveCaretCommand" caretOffset="147" date="Wed Mar 09 17:19:26 EST 2022" docOffset="170" starttimestamp="1646864021090" timestamp="345445" />
+  <Command __id="113" _type="SelectTextCommand" caretOffset="153" date="Wed Mar 09 17:19:26 EST 2022" end="153" start="145" starttimestamp="1646864021090" timestamp="345625" />
+  <Command __id="87" _type="DiffBasedFileOpenCommand" date="Wed Mar 09 17:18:15 EST 2022" docASTNodeCount="139" docActiveCodeLength="783" docExpressionCount="85" docLength="783" projectName="ValgrindWrappingTool" starttimestamp="1646864021090" timestamp="274476">
+    <filePath><![CDATA[/Users/nalingaddis/Documents/COMP691H/ValgrindWrappingTool/src/grader/SimpleGrader.java]]></filePath>
+    <diff><![CDATA[[Diff(EQUAL,"package grader;¶¶import java.util.ArrayList;¶import java.util.List;¶¶public class SimpleGrader extends AbstractGrader {¶¶	public SimpleGrader(String studentDir, String filename) throws Exception {¶		super(studentDir, filename);¶	}¶¶	public List<Test> grade() {¶		List<Test> tests = new ArrayList<Test>();¶		¶		tests.add(countFuncCall("pthread_create", 2));¶		tests.add(countFuncCall("pthread_join", 2));¶		tests.add(countFuncCall("pthread_mutex_lock", 20));¶		tests.add(countFuncCall("pthread_mutex_unlock", 20));¶		¶		return tests;¶	}¶	¶	private Test countFuncCall(String fnname, int requiredCount) {¶		int count = 0; ¶		¶		for(Trace trace: traces) {¶			if(trace.fnname.equals(fnname)) {¶				count ++;¶			}¶		}¶		¶		return new Test("Called " + fnname, count >= requiredCount);¶	}¶}¶")]]]></diff>
+  </Command>
+  <Command __id="114" _type="MoveCaretCommand" caretOffset="147" date="Wed Mar 09 17:19:28 EST 2022" docOffset="170" starttimestamp="1646864021090" timestamp="346940" />
+  <Command __id="115" _type="SelectTextCommand" caretOffset="153" date="Wed Mar 09 17:19:28 EST 2022" end="153" start="145" starttimestamp="1646864021090" timestamp="347360" />
+  <Command __id="117" _type="MoveCaretCommand" caretOffset="0" date="Wed Mar 09 17:19:35 EST 2022" docOffset="0" starttimestamp="1646864021090" timestamp="354431" />
+  <Command __id="118" _type="MoveCaretCommand" caretOffset="168" date="Wed Mar 09 17:19:40 EST 2022" docOffset="398" starttimestamp="1646864021090" timestamp="359755" />
+  <Command __id="119" _type="SelectTextCommand" caretOffset="175" date="Wed Mar 09 17:19:41 EST 2022" end="175" start="164" starttimestamp="1646864021090" timestamp="359923" />
+  <Command __id="120" _type="SelectTextCommand" caretOffset="149" date="Wed Mar 09 17:19:46 EST 2022" end="177" start="149" starttimestamp="1646864021090" timestamp="365215" />
+  <Command __id="121" _type="MoveCaretCommand" caretOffset="167" date="Wed Mar 09 17:19:47 EST 2022" docOffset="397" starttimestamp="1646864021090" timestamp="366384" />
+  <Command __id="122" _type="SelectTextCommand" caretOffset="175" date="Wed Mar 09 17:19:47 EST 2022" end="175" start="164" starttimestamp="1646864021090" timestamp="366593" />
+  <Command __id="123" _type="MoveCaretCommand" caretOffset="223" date="Wed Mar 09 17:19:54 EST 2022" docOffset="453" starttimestamp="1646864021090" timestamp="373049" />
+  <Command __id="124" _type="SelectTextCommand" caretOffset="226" date="Wed Mar 09 17:19:54 EST 2022" end="226" start="220" starttimestamp="1646864021090" timestamp="373179" />
+  <Command __id="125" _type="MoveCaretCommand" caretOffset="113" date="Wed Mar 09 17:19:55 EST 2022" docOffset="343" starttimestamp="1646864021090" timestamp="374393" />
+  <Command __id="126" _type="SelectTextCommand" caretOffset="118" date="Wed Mar 09 17:19:55 EST 2022" end="118" start="111" starttimestamp="1646864021090" timestamp="374549" />
+  <Command __id="127" _type="SelectTextCommand" caretOffset="118" date="Wed Mar 09 17:19:57 EST 2022" end="118" start="110" starttimestamp="1646864021090" timestamp="376645" />
+  <Command __id="128" _type="MoveCaretCommand" caretOffset="224" date="Wed Mar 09 17:20:03 EST 2022" docOffset="454" starttimestamp="1646864021090" timestamp="382809" />
+  <Command __id="129" _type="SelectTextCommand" caretOffset="226" date="Wed Mar 09 17:20:04 EST 2022" end="226" start="220" starttimestamp="1646864021090" timestamp="382970" />
+  <Command __id="130" _type="SelectTextCommand" caretOffset="1041" date="Wed Mar 09 17:20:12 EST 2022" end="1041" start="321" starttimestamp="1646864021090" timestamp="390965" />
+  <Command __id="131" _type="MoveCaretCommand" caretOffset="1041" date="Wed Mar 09 17:20:13 EST 2022" docOffset="1271" starttimestamp="1646864021090" timestamp="392011" />
+  <Command __id="132" _type="SelectTextCommand" caretOffset="872" date="Wed Mar 09 17:20:14 EST 2022" end="1056" start="872" starttimestamp="1646864021090" timestamp="393136" />
+  <Command __id="133" _type="MoveCaretCommand" caretOffset="699" date="Wed Mar 09 17:20:14 EST 2022" docOffset="929" starttimestamp="1646864021090" timestamp="393609" />
+  <Command __id="134" _type="SelectTextCommand" caretOffset="344" date="Wed Mar 09 17:20:21 EST 2022" end="344" start="334" starttimestamp="1646864021090" timestamp="400484" />
+  <Command __id="135" _type="SelectTextCommand" caretOffset="932" date="Wed Mar 09 17:20:27 EST 2022" end="932" start="893" starttimestamp="1646864021090" timestamp="406794" />
+  <Command __id="136" _type="SelectTextCommand" caretOffset="1059" date="Wed Mar 09 17:20:32 EST 2022" end="1059" start="320" starttimestamp="1646864021090" timestamp="411548" />
+  <Command __id="137" _type="MoveCaretCommand" caretOffset="1038" date="Wed Mar 09 17:20:33 EST 2022" docOffset="1268" starttimestamp="1646864021090" timestamp="412678" />
+  <Command __id="138" _type="SelectTextCommand" caretOffset="465" date="Wed Mar 09 17:20:37 EST 2022" end="465" start="383" starttimestamp="1646864021090" timestamp="416295" />
+  <Command __id="139" _type="SelectTextCommand" caretOffset="597" date="Wed Mar 09 17:20:39 EST 2022" end="597" start="474" starttimestamp="1646864021090" timestamp="418685" />
+  <Command __id="140" _type="MoveCaretCommand" caretOffset="597" date="Wed Mar 09 17:20:40 EST 2022" docOffset="827" starttimestamp="1646864021090" timestamp="419547" />
+  <Command __id="141" _type="SelectTextCommand" caretOffset="521" date="Wed Mar 09 17:20:41 EST 2022" end="597" start="521" starttimestamp="1646864021090" timestamp="420867" />
+  <Command __id="142" _type="MoveCaretCommand" caretOffset="796" date="Wed Mar 09 17:20:43 EST 2022" docOffset="1026" starttimestamp="1646864021090" timestamp="422682" />
+  <Command __id="143" _type="SelectTextCommand" caretOffset="831" date="Wed Mar 09 17:20:45 EST 2022" end="831" start="605" starttimestamp="1646864021090" timestamp="424320" />
+  <Command __id="144" _type="MoveCaretCommand" caretOffset="840" date="Wed Mar 09 17:20:48 EST 2022" docOffset="1070" starttimestamp="1646864021090" timestamp="427020" />
+  <Command __id="145" _type="SelectTextCommand" caretOffset="868" date="Wed Mar 09 17:20:48 EST 2022" end="868" start="839" starttimestamp="1646864021090" timestamp="427874" />
+  <Command __id="146" _type="MoveCaretCommand" caretOffset="868" date="Wed Mar 09 17:20:49 EST 2022" docOffset="1098" starttimestamp="1646864021090" timestamp="428181" />
+  <Command __id="147" _type="SelectTextCommand" caretOffset="954" date="Wed Mar 09 17:20:51 EST 2022" end="954" start="876" starttimestamp="1646864021090" timestamp="430727" />
+  <Command __id="148" _type="MoveCaretCommand" caretOffset="954" date="Wed Mar 09 17:20:53 EST 2022" docOffset="1184" starttimestamp="1646864021090" timestamp="431987" />
+  <Command __id="149" _type="SelectTextCommand" caretOffset="954" date="Wed Mar 09 17:20:56 EST 2022" end="954" start="936" starttimestamp="1646864021090" timestamp="435081" />
+  <Command __id="150" _type="MoveCaretCommand" caretOffset="980" date="Wed Mar 09 17:20:57 EST 2022" docOffset="1210" starttimestamp="1646864021090" timestamp="436021" />
+  <Command __id="151" _type="SelectTextCommand" caretOffset="390" date="Wed Mar 09 17:20:59 EST 2022" end="980" start="390" starttimestamp="1646864021090" timestamp="438225" />
+  <Command __id="152" _type="MoveCaretCommand" caretOffset="390" date="Wed Mar 09 17:20:59 EST 2022" docOffset="620" starttimestamp="1646864021090" timestamp="438704" />
+  <Command __id="116" _type="DiffBasedFileOpenCommand" date="Wed Mar 09 17:19:35 EST 2022" docASTNodeCount="212" docActiveCodeLength="1292" docExpressionCount="126" docLength="1292" projectName="ValgrindWrappingTool" starttimestamp="1646864021090" timestamp="353919">
+    <filePath><![CDATA[/Users/nalingaddis/Documents/COMP691H/ValgrindWrappingTool/src/main/Main.java]]></filePath>
+    <diff><![CDATA[null]]></diff>
+    <snapshot><![CDATA[package main;
+
+import java.util.List;
+
+import javax.swing.SwingUtilities;
+
+import compiler.CompilerHelper;
+import compiler.DockerHelper;
+import grader.Grader;
+import grader.SimpleGrader;
+import grader.Test;
+import gui.App;
+import parser.Parser;
+import parser.Wrapper;
+
+public class Main {
+	public static final String WRAPPER_FILE_SUFFIX = "-wrapper";
+	public static final String CONFIG_FILE = "TraceConfig";
+	public static final String TRACE_FILE = "Traces";
+	
+	public static void main(String[] args) {
+		SwingUtilities.invokeLater(new App());
+	}
+	
+	public static List<Test> testDirectory(String directory) {
+		try {
+			DockerHelper.deleteContainer();
+			DockerHelper.createContainer(directory);
+			
+			Parser parser = new Parser(CONFIG_FILE);
+			
+			Wrapper wrapper = parser.parse();
+			wrapper.toFile(CONFIG_FILE, directory);
+			
+			CompilerHelper ch = new CompilerHelper(CONFIG_FILE, directory, TRACE_FILE);
+			
+			ch.compileWrapper();
+			ch.deleteWrapperCFile();
+			ch.compileStudentCode();
+			ch.deleteWrapperObjFile();
+			ch.trace();
+			ch.deleteBinary();
+			
+			DockerHelper.stopContainer();
+			
+			Grader grader = new SimpleGrader(directory, TRACE_FILE);
+			ch.deleteTraces();
+			return grader.grade();
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		return null;
+	}
+}
+]]></snapshot>
+  </Command>
+  <Command __id="153" _type="MoveCaretCommand" caretOffset="386" date="Wed Mar 09 17:21:01 EST 2022" docOffset="616" starttimestamp="1646864021090" timestamp="440257" />
+  <Command __id="155" _type="MoveCaretCommand" caretOffset="0" date="Wed Mar 09 17:21:04 EST 2022" docOffset="0" starttimestamp="1646864021090" timestamp="443587" />
+  <Command __id="154" _type="DiffBasedFileOpenCommand" date="Wed Mar 09 17:21:04 EST 2022" docASTNodeCount="367" docActiveCodeLength="2224" docExpressionCount="257" docLength="2224" projectName="ValgrindWrappingTool" starttimestamp="1646864021090" timestamp="442994">
+    <filePath><![CDATA[/Users/nalingaddis/Documents/COMP691H/ValgrindWrappingTool/src/gui/App.java]]></filePath>
+    <diff><![CDATA[[Diff(EQUAL,"package gui;¶¶import java.awt.Dimension;¶import java.awt.FlowLayout;¶import java.awt.event.ActionEvent;¶import java.awt.event.ActionListener;¶import java.nio.file.FileSystemNotFoundException;¶import java.nio.file.Paths;¶import java.util.List;¶¶import javax.swing.BoxLayout;¶import javax.swing.JButton;¶import javax.swing.JFileChooser;¶import javax.swing.JFrame;¶import javax.swing.JLabel;¶import javax.swing.JPanel;¶import javax.swing.JTextField;¶import javax.swing.SwingUtilities;¶¶import grader.Test;¶¶public class App implements Runnable {¶¶	public void run() {¶		JFrame frame = new JFrame("Valgrind Auto Grader");¶		¶		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);¶		frame.setPreferredSize(new Dimension(500, 300));¶		frame.setLocationRelativeTo(null);¶		frame.setLayout(new FlowLayout());¶		¶		JFileChooser fc = new JFileChooser();¶		fc.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);¶		¶		JTextField pathTextField = new JTextField(30);¶		¶		JButton browseButton = new JButton("Browse");		¶		browseButton.addActionListener(new ActionListener() {¶			public void actionPerformed(ActionEvent event) {¶				int option = fc.showOpenDialog(frame);¶				if(option == JFileChooser.APPROVE_OPTION) {¶					pathTextField.setText(fc.getSelectedFile().getAbsolutePath());¶				}¶			}¶		});¶		¶		JPanel results = new JPanel();¶		results.setLayout(new BoxLayout(results, BoxLayout.PAGE_AXIS));¶		¶		JButton testButton = new JButton("Test");¶		testButton.addActionListener(new ActionListener() {¶			public void actionPerformed(ActionEvent event) {¶				try {¶					Paths.get(pathTextField.getText());¶					List<Test> tests = main.Main.testDirectory(pathTextField.getText());¶					¶					results.removeAll();¶					¶					for(Test test: tests) {¶						results.add(test.view());¶					}¶					¶					SwingUtilities.updateComponentTreeUI(results);¶				} catch (IllegalArgumentException ¶						| FileSystemNotFoundException ¶						| SecurityException exception) {¶					pathTextField.setText("Invalid Path");¶				}¶			}¶		});¶		¶		frame.add(new JLabel("Select assignment directory:"));¶		frame.add(pathTextField);¶		frame.add(browseButton);¶		frame.add(testButton);¶		frame.add(results);¶		¶		frame.pack();¶		frame.setVisible(true);¶	}¶}¶")]]]></diff>
+  </Command>
+  <Command __id="156" _type="MoveCaretCommand" caretOffset="73" date="Wed Mar 09 17:21:07 EST 2022" docOffset="535" starttimestamp="1646864021090" timestamp="446120" />
+  <Command __id="157" _type="SelectTextCommand" caretOffset="78" date="Wed Mar 09 17:21:07 EST 2022" end="78" start="70" starttimestamp="1646864021090" timestamp="446272" />
+  <Command __id="159" _type="MoveCaretCommand" caretOffset="386" date="Wed Mar 09 17:21:13 EST 2022" docOffset="616" starttimestamp="1646864021090" timestamp="452181" />
+  <Command __id="160" _type="MoveCaretCommand" caretOffset="318" date="Wed Mar 09 17:21:15 EST 2022" docOffset="548" starttimestamp="1646864021090" timestamp="454191" />
+  <Command __id="158" _type="DiffBasedFileOpenCommand" date="Wed Mar 09 17:21:13 EST 2022" docASTNodeCount="212" docActiveCodeLength="1292" docExpressionCount="126" docLength="1292" projectName="ValgrindWrappingTool" starttimestamp="1646864021090" timestamp="452075">
+    <filePath><![CDATA[/Users/nalingaddis/Documents/COMP691H/ValgrindWrappingTool/src/main/Main.java]]></filePath>
+    <diff><![CDATA[[Diff(EQUAL,"package main;¶¶import java.util.List;¶¶import javax.swing.SwingUtilities;¶¶import compiler.CompilerHelper;¶import compiler.DockerHelper;¶import grader.Grader;¶import grader.SimpleGrader;¶import grader.Test;¶import gui.App;¶import parser.Parser;¶import parser.Wrapper;¶¶public class Main {¶	public static final String WRAPPER_FILE_SUFFIX = "-wrapper";¶	public static final String CONFIG_FILE = "TraceConfig";¶	public static final String TRACE_FILE = "Traces";¶	¶	public static void main(String[] args) {¶		SwingUtilities.invokeLater(new App());¶	}¶	¶	public static List<Test> testDirectory(String directory) {¶		try {¶			DockerHelper.deleteContainer();¶			DockerHelper.createContainer(directory);¶			¶			Parser parser = new Parser(CONFIG_FILE);¶			¶			Wrapper wrapper = parser.parse();¶			wrapper.toFile(CONFIG_FILE, directory);¶			¶			CompilerHelper ch = new CompilerHelper(CONFIG_FILE, directory, TRACE_FILE);¶			¶			ch.compileWrapper();¶			ch.deleteWrapperCFile();¶			ch.compileStudentCode();¶			ch.deleteWrapperObjFile();¶			ch.trace();¶			ch.deleteBinary();¶			¶			DockerHelper.stopContainer();¶			¶			Grader grader = new SimpleGrader(directory, TRACE_FILE);¶			ch.deleteTraces();¶			return grader.grade();¶			¶		} catch (Exception e) {¶			e.printStackTrace();¶		}¶		¶		return null;¶	}¶}¶")]]]></diff>
+  </Command>
+  <Command __id="161" _type="SelectTextCommand" caretOffset="1059" date="Wed Mar 09 17:21:16 EST 2022" end="1059" start="318" starttimestamp="1646864021090" timestamp="455280" />
+  <Command __id="162" _type="MoveCaretCommand" caretOffset="1059" date="Wed Mar 09 17:21:16 EST 2022" docOffset="1289" starttimestamp="1646864021090" timestamp="455604" />
+  <Command __id="164" _type="SelectTextCommand" caretOffset="107" date="Wed Mar 09 17:21:21 EST 2022" end="107" start="102" starttimestamp="1646864021090" timestamp="460806" />
+  <Command __id="165" _type="ShellCommand" date="Wed Mar 09 17:21:32 EST 2022" starttimestamp="1646864021090" timestamp="471738" type="ECLIPSE_LOST_FOCUS" />
+</Events>
