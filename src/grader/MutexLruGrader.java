@@ -1,8 +1,10 @@
 package grader;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 public class MutexLruGrader extends AbstractGrader {
@@ -35,11 +37,13 @@ public class MutexLruGrader extends AbstractGrader {
 	private boolean blockOnConditionVariables() {
 				
 		Set<String> seen = new HashSet<String>(), inits = new HashSet<String>();
+		boolean called = false;
 		
 		for(Trace trace: traces) {
 			if(trace.fnname.equals("pthread_cond_init")) {
 				seen.add(trace.arguments[0]);
 				inits.add(trace.arguments[0]);
+				called = true;
 			}
 			
 			if(trace.fnname.equals("pthread_cond_wait")) {
@@ -48,7 +52,7 @@ public class MutexLruGrader extends AbstractGrader {
 			}
 		}
 		
-		return seen.size() == 0;
+		return seen.size() == 0 && called;
 	}
 	
 	private boolean releaseConditionedWaiters() {
@@ -72,33 +76,41 @@ public class MutexLruGrader extends AbstractGrader {
 	
 	private boolean broadcastVsSignal() {
 		
+		Map<Long, String> threadState = new HashMap<Long, String>();
+		
 		for(Trace trace: traces) {
-			if(trace.fnname.equals("pthread_cond_signal")) {
-				return false;
+			switch(trace.fnname) {
+			case "reference": case "clean": case "shutdown_threads":
+				threadState.put(trace.thread, trace.fnname);
+				break;
+			case "pthread_cond_signal":
+				if(threadState.get(trace.thread).equals("clean")) {
+					return false;
+				}
 			}
 		}
 		
 		return true;
 	}
 	
-	private boolean lockAfterShutdown() {		
-		Long shutdownThread = (long) -1;
-		String lock = "";
-		
-		for(Trace trace: traces) {
-			if(trace.fnname.equals("pthread_mutex_init")) {
-				lock = trace.arguments[0];
-			}
-			if(trace.fnname.equals("shutdown_threads")) {
-				shutdownThread = trace.thread;
-			}
-			if(trace.fnname.equals("pthread_mutex_lock") 
-					&& shutdownThread == trace.thread 
-					&& lock.equals(trace.arguments[0])) {
-				return true;
-			}
-		}
-		
-		return false;
-	}
+//	private boolean lockAfterShutdown() {		
+//		Long shutdownThread = (long) -1;
+//		String lock = "";
+//		
+//		for(Trace trace: traces) {
+//			if(trace.fnname.equals("pthread_mutex_init")) {
+//				lock = trace.arguments[0];
+//			}
+//			if(trace.fnname.equals("shutdown_threads")) {
+//				shutdownThread = trace.thread;
+//			}
+//			if(trace.fnname.equals("pthread_mutex_lock") 
+//					&& shutdownThread == trace.thread 
+//					&& lock.equals(trace.arguments[0])) {
+//				return true;
+//			}
+//		}
+//		
+//		return false;
+//	}
 }

@@ -1,6 +1,7 @@
 package grader;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 
 public class SimpleGrader extends AbstractGrader {
@@ -16,7 +17,7 @@ public class SimpleGrader extends AbstractGrader {
 		tests.add(countFuncCall("pthread_join", 2));
 		tests.add(countFuncCall("pthread_mutex_lock", 20));
 		tests.add(countFuncCall("pthread_mutex_unlock", 20));
-		
+				
 		return tests;
 	}
 	

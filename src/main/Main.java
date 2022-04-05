@@ -7,9 +7,9 @@ import javax.swing.SwingUtilities;
 
 import compiler.CompilerHelper;
 import compiler.DockerHelper;
-import grader.BoundedBufferGrader;
 import grader.Grader;
 import grader.MutexLruGrader;
+import grader.SimpleGrader;
 import grader.Test;
 import gui.App;
 import parser.Parser;
@@ -73,12 +73,12 @@ public class Main {
 			ch.deleteWrapperCFile();
 			ch.compileStudentCode();
 			ch.deleteWrapperObjFile();
-			ch.trace("test1");
+			ch.trace();
 			ch.deleteBinary();
 			
 			DockerHelper.stopContainer();
 			
-			Grader grader = new BoundedBufferGrader(directory, TRACE_FILE);
+			Grader grader = new SimpleGrader(directory, TRACE_FILE);
 			ch.deleteTraces();
 			return grader.grade();
 			

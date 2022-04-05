@@ -1,0 +1,149 @@
+<Events startTimestamp="1648834706101" logVersion="1.0.0.202101171653">
+  <Command __id="1" _type="SelectTextCommand" caretOffset="1114" date="Fri Apr 01 13:38:26 EDT 2022" end="1114" start="1055" starttimestamp="1648834706101" timestamp="234" />
+  <Command __id="2" _type="MoveCaretCommand" caretOffset="1205" date="Fri Apr 01 13:38:32 EDT 2022" docOffset="1257" starttimestamp="1648834706101" timestamp="6391" />
+  <Command __id="3" _type="SelectTextCommand" caretOffset="1239" date="Fri Apr 01 13:38:35 EDT 2022" end="1239" start="829" starttimestamp="1648834706101" timestamp="9422" />
+  <Command __id="5" _type="EclipseCommand" commandID="eventLogger.styledTextCommand.DELETE_PREVIOUS" date="Fri Apr 01 13:38:35 EDT 2022" starttimestamp="1648834706101" timestamp="9711" />
+  <Command __id="7" _type="EclipseCommand" commandID="eventLogger.styledTextCommand.DELETE_PREVIOUS" date="Fri Apr 01 13:38:36 EDT 2022" starttimestamp="1648834706101" timestamp="10313" />
+  <Command __id="9" _type="EclipseCommand" commandID="eventLogger.styledTextCommand.DELETE_PREVIOUS" date="Fri Apr 01 13:38:36 EDT 2022" starttimestamp="1648834706101" timestamp="10480" />
+  <Command __id="0" _type="DiffBasedFileOpenCommand" date="Fri Apr 01 13:38:26 EDT 2022" docASTNodeCount="238" docActiveCodeLength="1294" docExpressionCount="142" docLength="1294" projectName="ValgrindWrappingTool" starttimestamp="1648834706101" timestamp="103">
+    <filePath><![CDATA[/Users/nalingaddis/Documents/COMP691H/ValgrindWrappingTool/src/grader/SimpleGrader.java]]></filePath>
+    <diff><![CDATA[null]]></diff>
+    <snapshot><![CDATA[package grader;
+
+import java.util.ArrayList;
+import java.util.Comparator;
+import java.util.List;
+
+public class SimpleGrader extends AbstractGrader {
+
+	public SimpleGrader(String studentDir, String filename) throws Exception {
+		super(studentDir, filename);
+	}
+
+	public List<Test> grade() {
+		List<Test> tests = new ArrayList<Test>();
+		
+		tests.add(countFuncCall("pthread_create", 2));
+		tests.add(countFuncCall("pthread_join", 2));
+		tests.add(countFuncCall("pthread_mutex_lock", 20));
+		tests.add(countFuncCall("pthread_mutex_unlock", 20));
+		
+		tests.add(new Test("Lock Step Execution", lockstepExecution()));
+		
+		return tests;
+	}
+	
+	private Test countFuncCall(String fnname, int requiredCount) {
+		int count = 0; 
+		
+		for(Trace trace: traces) {
+			if(trace.fnname.equals(fnname)) {
+				count ++;
+			}
+		}
+		
+		return new Test("Called " + fnname, count >= requiredCount);
+	}
+	
+	private boolean lockstepExecution() {
+		String name = "Lock Step Execution";
+		
+		traces.sort(new Comparator<Trace>() {
+			public int compare(Trace a, Trace b) {
+				return (int) (a.timestamp - b.timestamp);
+			}
+		});
+		
+		String[] locks = new String[2];
+		int read = -1, index = 0;
+		
+		for(Trace trace: traces) {
+			if(trace.fnname.equals("pthread_mutex_init")) {
+				if()
+			}
+		}
+		
+		
+		return true;
+	}
+}
+]]></snapshot>
+  </Command>
+  <DocumentChange __id="4" _type="Delete" date="Fri Apr 01 13:38:35 EDT 2022" docASTNodeCount="155" docActiveCodeLength="882" docExpressionCount="98" docLength="882" endLine="57" length="412" offset="879" repeat="3" startLine="35" starttimestamp="1648834706101" timestamp="9684" timestamp2="10474">
+    <text><![CDATA[
+	
+	private boolean lockstepExecution() {
+		String name = "Lock Step Execution";
+		
+		traces.sort(new Comparator<Trace>() {
+			public int compare(Trace a, Trace b) {
+				return (int) (a.timestamp - b.timestamp);
+			}
+		});
+		
+		String[] locks = new String[2];
+		int read = -1, index = 0;
+		
+		for(Trace trace: traces) {
+			if(trace.fnname.equals("pthread_mutex_init")) {
+				if()
+			}
+		}
+		
+		
+		return true;
+	}]]></text>
+  </DocumentChange>
+  <DocumentChange __id="16" _type="Delete" date="Fri Apr 01 13:38:39 EDT 2022" docASTNodeCount="145" docActiveCodeLength="814" docExpressionCount="90" docLength="814" endLine="21" length="68" offset="545" repeat="2" startLine="19" starttimestamp="1648834706101" timestamp="13614" timestamp2="13745">
+    <text><![CDATA[
+		tests.add(new Test("Lock Step Execution", lockstepExecution()));
+]]></text>
+  </DocumentChange>
+  <Command __id="10" _type="MoveCaretCommand" caretOffset="563" date="Fri Apr 01 13:38:38 EDT 2022" docOffset="615" starttimestamp="1648834706101" timestamp="12209" />
+  <Command __id="11" _type="SelectTextCommand" caretOffset="572" date="Fri Apr 01 13:38:38 EDT 2022" end="572" start="563" starttimestamp="1648834706101" timestamp="12382" />
+  <Command __id="12" _type="SelectTextCommand" caretOffset="564" date="Fri Apr 01 13:38:38 EDT 2022" end="564" start="561" starttimestamp="1648834706101" timestamp="12536" />
+  <Command __id="13" _type="MoveCaretCommand" caretOffset="512" date="Fri Apr 01 13:38:39 EDT 2022" docOffset="564" starttimestamp="1648834706101" timestamp="12902" />
+  <Command __id="14" _type="SelectTextCommand" caretOffset="514" date="Fri Apr 01 13:38:39 EDT 2022" end="514" start="510" starttimestamp="1648834706101" timestamp="13072" />
+  <Command __id="15" _type="SelectTextCommand" caretOffset="561" date="Fri Apr 01 13:38:39 EDT 2022" end="561" start="494" starttimestamp="1648834706101" timestamp="13195" />
+  <Command __id="17" _type="EclipseCommand" commandID="eventLogger.styledTextCommand.DELETE_PREVIOUS" date="Fri Apr 01 13:38:39 EDT 2022" starttimestamp="1648834706101" timestamp="13623" />
+  <Command __id="19" _type="EclipseCommand" commandID="eventLogger.styledTextCommand.DELETE_PREVIOUS" date="Fri Apr 01 13:38:39 EDT 2022" starttimestamp="1648834706101" timestamp="13749" />
+  <Command __id="20" _type="EclipseCommand" commandID="org.eclipse.ui.file.save" date="Fri Apr 01 13:38:40 EDT 2022" starttimestamp="1648834706101" timestamp="14170" />
+  <Command __id="21" _type="EclipseCommand" commandID="" date="Fri Apr 01 13:38:40 EDT 2022" starttimestamp="1648834706101" timestamp="14273" />
+  <Command __id="22" _type="EclipseCommand" commandID="" date="Fri Apr 01 13:38:40 EDT 2022" starttimestamp="1648834706101" timestamp="14576" />
+  <Command __id="24" _type="ShellCommand" date="Fri Apr 01 13:38:48 EDT 2022" starttimestamp="1648834706101" timestamp="22758" type="ECLIPSE_LOST_FOCUS" />
+  <Command __id="25" _type="ShellCommand" date="Fri Apr 01 13:43:00 EDT 2022" starttimestamp="1648834706101" timestamp="274811" type="ECLIPSE_GAINED_FOCUS" />
+  <Command __id="26" _type="ShellCommand" date="Fri Apr 01 13:43:01 EDT 2022" starttimestamp="1648834706101" timestamp="275053" type="ECLIPSE_LOST_FOCUS" />
+  <Command __id="27" _type="ShellCommand" date="Fri Apr 01 13:43:02 EDT 2022" starttimestamp="1648834706101" timestamp="276367" type="ECLIPSE_GAINED_FOCUS" />
+  <Command __id="28" _type="ShellCommand" date="Fri Apr 01 13:43:03 EDT 2022" starttimestamp="1648834706101" timestamp="277639" type="ECLIPSE_LOST_FOCUS" />
+  <Command __id="29" _type="ShellCommand" date="Fri Apr 01 15:17:55 EDT 2022" starttimestamp="1648834706101" timestamp="5969016" type="ECLIPSE_GAINED_FOCUS" />
+  <Command __id="30" _type="ShellCommand" date="Fri Apr 01 15:18:01 EDT 2022" starttimestamp="1648834706101" timestamp="5975471" type="ECLIPSE_LOST_FOCUS" />
+  <Command __id="31" _type="ShellCommand" date="Fri Apr 01 15:18:21 EDT 2022" starttimestamp="1648834706101" timestamp="5995735" type="ECLIPSE_GAINED_FOCUS" />
+  <Command __id="23" _type="DiffBasedFileOpenCommand" date="Fri Apr 01 13:38:44 EDT 2022" docASTNodeCount="1" docActiveCodeLength="732" docExpressionCount="0" docLength="732" projectName="ValgrindWrappingTool" starttimestamp="1648834706101" timestamp="17973">
+    <filePath><![CDATA[/Users/nalingaddis/Documents/COMP691H/ValgrindWrappingTool/src/MutexLruConfig]]></filePath>
+    <diff><![CDATA[null]]></diff>
+    <snapshot><![CDATA[#include <stddef.h>
+#include <stdlib.h>
+#include <stdio.h>
+#include <pthread.h>
+#include "lru.h"
+
+init:			  int numthreads -> int
+reference:		  int key -> int
+clean: 			  int check_water_mark -> void
+shutdown_threads: void -> void
+print: 			  void -> void
+
+*, pthread_mutex_init: pthread_mutex_t *mutex, const pthread_mutexattr_t *attr -> int
+*, pthread_mutex_lock: pthread_mutex_t *mutex -> int
+*, pthread_mutex_unlock: pthread_mutex_t *mutex -> int
+
+*, pthread_cond_wait: pthread_cond_t *cond, pthread_mutex_t *mutex -> int
+*, pthread_cond_signal: pthread_cond_t *cond -> int
+*, pthread_cond_broadcast: pthread_cond_t *cond -> int
+*, pthread_cond_init: pthread_cond_t *restrict cond, const pthread_condattr_t *restrict attr -> int]]></snapshot>
+  </Command>
+  <Command __id="39" _type="ShellCommand" date="Fri Apr 01 15:19:55 EDT 2022" starttimestamp="1648834706101" timestamp="6089625" type="ECLIPSE_GAINED_FOCUS" />
+  <Command __id="41" _type="ShellCommand" date="Fri Apr 01 15:20:04 EDT 2022" starttimestamp="1648834706101" timestamp="6098219" type="ECLIPSE_LOST_FOCUS" />
+  <Command __id="42" _type="ShellCommand" date="Fri Apr 01 15:20:06 EDT 2022" starttimestamp="1648834706101" timestamp="6100622" type="ECLIPSE_GAINED_FOCUS" />
+  <Command __id="43" _type="ShellCommand" date="Fri Apr 01 15:20:10 EDT 2022" starttimestamp="1648834706101" timestamp="6104122" type="ECLIPSE_LOST_FOCUS" />
+  <Command __id="44" _type="ShellCommand" date="Fri Apr 01 15:47:07 EDT 2022" starttimestamp="1648834706101" timestamp="7721717" type="ECLIPSE_GAINED_FOCUS" />

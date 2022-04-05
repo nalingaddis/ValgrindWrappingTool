@@ -1,0 +1,1024 @@
+<Events startTimestamp="1649176546476" logVersion="1.0.0.202101171653">
+  <Command __id="3" _type="MoveCaretCommand" caretOffset="1255" date="Tue Apr 05 12:35:46 EDT 2022" docOffset="1717" starttimestamp="1649176546476" timestamp="448" />
+  <Command __id="4" _type="ShellCommand" date="Tue Apr 05 12:35:47 EDT 2022" starttimestamp="1649176546476" timestamp="1108" type="ECLIPSE_LOST_FOCUS" />
+  <Command __id="2" _type="DiffBasedFileOpenCommand" date="Tue Apr 05 12:35:46 EDT 2022" docASTNodeCount="367" docActiveCodeLength="2232" docExpressionCount="257" docLength="2232" projectName="ValgrindWrappingTool" starttimestamp="1649176546476" timestamp="260">
+    <filePath><![CDATA[/Users/nalingaddis/Documents/COMP691H/ValgrindWrappingTool/src/gui/App.java]]></filePath>
+    <diff><![CDATA[null]]></diff>
+    <snapshot><![CDATA[package gui;
+
+import java.awt.Dimension;
+import java.awt.FlowLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.nio.file.FileSystemNotFoundException;
+import java.nio.file.Paths;
+import java.util.List;
+
+import javax.swing.BoxLayout;
+import javax.swing.JButton;
+import javax.swing.JFileChooser;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
+import javax.swing.SwingUtilities;
+
+import grader.Test;
+
+public class App implements Runnable {
+
+	public void run() {
+		JFrame frame = new JFrame("Valgrind Auto Grader");
+		
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.setPreferredSize(new Dimension(500, 300));
+		frame.setLocationRelativeTo(null);
+		frame.setLayout(new FlowLayout());
+		
+		JFileChooser fc = new JFileChooser();
+		fc.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
+		
+		JTextField pathTextField = new JTextField(30);
+		
+		JButton browseButton = new JButton("Browse");		
+		browseButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent event) {
+				int option = fc.showOpenDialog(frame);
+				if(option == JFileChooser.APPROVE_OPTION) {
+					pathTextField.setText(fc.getSelectedFile().getAbsolutePath());
+				}
+			}
+		});
+		
+		JPanel results = new JPanel();
+		results.setLayout(new BoxLayout(results, BoxLayout.PAGE_AXIS));
+		
+		JButton testButton = new JButton("Test");
+		testButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent event) {
+				try {
+					Paths.get(pathTextField.getText());
+					List<Test> tests = main.Main.testMakefileDirectory(pathTextField.getText());
+					
+					results.removeAll();
+					
+					for(Test test: tests) {
+						results.add(test.view());
+					}
+					
+					SwingUtilities.updateComponentTreeUI(results);
+				} catch (IllegalArgumentException 
+						| FileSystemNotFoundException 
+						| SecurityException exception) {
+					pathTextField.setText("Invalid Path");
+				}
+			}
+		});
+		
+		frame.add(new JLabel("Select assignment directory:"));
+		frame.add(pathTextField);
+		frame.add(browseButton);
+		frame.add(testButton);
+		frame.add(results);
+		
+		frame.pack();
+		frame.setVisible(true);
+	}
+}
+]]></snapshot>
+  </Command>
+  <Command __id="5" _type="ShellCommand" date="Tue Apr 05 12:37:43 EDT 2022" starttimestamp="1649176546476" timestamp="117179" type="ECLIPSE_GAINED_FOCUS" />
+  <Command __id="6" _type="MoveCaretCommand" caretOffset="1284" date="Tue Apr 05 12:37:43 EDT 2022" docOffset="1746" starttimestamp="1649176546476" timestamp="117335" />
+  <Command __id="7" _type="DiffBasedFileOpenCommand" date="Tue Apr 05 12:37:47 EDT 2022" docASTNodeCount="131" docActiveCodeLength="1066" docExpressionCount="69" docLength="1066" projectName="ValgrindWrappingTool" starttimestamp="1649176546476" timestamp="121410">
+    <filePath><![CDATA[/Users/nalingaddis/Documents/COMP691H/ValgrindWrappingTool/src/compiler/DockerHelper.java]]></filePath>
+    <diff><![CDATA[null]]></diff>
+    <snapshot><![CDATA[package compiler;
+
+public class DockerHelper {
+	public static final String IMAGE_NAME = "nalingaddis/valgrind";
+	public static final String CONTAINER_NAME = "grader-container";
+	public static final String DOCKER_PATH = "/usr/local/bin/docker";
+	
+	public static int startContainer() throws Exception {
+		return createContainer(System.getProperty("user.dir"));
+	}
+	
+	public static int createContainer(String mountDir) throws Exception {
+		String[] command = new String[]{
+				DOCKER_PATH, 
+				"run",
+				"-it",
+				"-d",
+				"--mount", 
+				"type=bind,src="+mountDir+",target=/home",
+				"--name",
+				CONTAINER_NAME,
+				IMAGE_NAME
+		};
+		
+		return CommandLineHelper.execute(command);
+	}
+	
+	public static int stopContainer() throws Exception {
+		String[] command = {
+				DOCKER_PATH,
+				"stop",
+				CONTAINER_NAME
+		};
+		
+		return CommandLineHelper.execute(command);
+	}
+	
+	public static int deleteContainer() throws Exception {
+		String[] command = {
+				DOCKER_PATH,
+				"rm",
+				"-f",
+				CONTAINER_NAME
+		};
+		
+		return CommandLineHelper.execute(command);
+	}
+}
+]]></snapshot>
+  </Command>
+  <Command __id="9" _type="DiffBasedFileOpenCommand" date="Tue Apr 05 12:37:49 EDT 2022" docASTNodeCount="367" docActiveCodeLength="2232" docExpressionCount="257" docLength="2232" projectName="ValgrindWrappingTool" starttimestamp="1649176546476" timestamp="122876">
+    <filePath><![CDATA[/Users/nalingaddis/Documents/COMP691H/ValgrindWrappingTool/src/gui/App.java]]></filePath>
+    <diff><![CDATA[[Diff(EQUAL,"package gui;¶¶import java.awt.Dimension;¶import java.awt.FlowLayout;¶import java.awt.event.ActionEvent;¶import java.awt.event.ActionListener;¶import java.nio.file.FileSystemNotFoundException;¶import java.nio.file.Paths;¶import java.util.List;¶¶import javax.swing.BoxLayout;¶import javax.swing.JButton;¶import javax.swing.JFileChooser;¶import javax.swing.JFrame;¶import javax.swing.JLabel;¶import javax.swing.JPanel;¶import javax.swing.JTextField;¶import javax.swing.SwingUtilities;¶¶import grader.Test;¶¶public class App implements Runnable {¶¶	public void run() {¶		JFrame frame = new JFrame("Valgrind Auto Grader");¶		¶		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);¶		frame.setPreferredSize(new Dimension(500, 300));¶		frame.setLocationRelativeTo(null);¶		frame.setLayout(new FlowLayout());¶		¶		JFileChooser fc = new JFileChooser();¶		fc.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);¶		¶		JTextField pathTextField = new JTextField(30);¶		¶		JButton browseButton = new JButton("Browse");		¶		browseButton.addActionListener(new ActionListener() {¶			public void actionPerformed(ActionEvent event) {¶				int option = fc.showOpenDialog(frame);¶				if(option == JFileChooser.APPROVE_OPTION) {¶					pathTextField.setText(fc.getSelectedFile().getAbsolutePath());¶				}¶			}¶		});¶		¶		JPanel results = new JPanel();¶		results.setLayout(new BoxLayout(results, BoxLayout.PAGE_AXIS));¶		¶		JButton testButton = new JButton("Test");¶		testButton.addActionListener(new ActionListener() {¶			public void actionPerformed(ActionEvent event) {¶				try {¶					Paths.get(pathTextField.getText());¶					List<Test> tests = main.Main.testMakefileDirectory(pathTextField.getText());¶					¶					results.removeAll();¶					¶					for(Test test: tests) {¶						results.add(test.view());¶					}¶					¶					SwingUtilities.updateComponentTreeUI(results);¶				} catch (IllegalArgumentException ¶						| FileSystemNotFoundException ¶						| SecurityException exception) {¶					pathTextField.setText("Invalid Path");¶				}¶			}¶		});¶		¶		frame.add(new JLabel("Select assignment directory:"));¶		frame.add(pathTextField);¶		frame.add(browseButton);¶		frame.add(testButton);¶		frame.add(results);¶		¶		frame.pack();¶		frame.setVisible(true);¶	}¶}¶")]]]></diff>
+  </Command>
+  <Command __id="10" _type="DiffBasedFileOpenCommand" date="Tue Apr 05 12:37:49 EDT 2022" docASTNodeCount="389" docActiveCodeLength="2300" docExpressionCount="236" docLength="2317" projectName="ValgrindWrappingTool" starttimestamp="1649176546476" timestamp="123419">
+    <filePath><![CDATA[/Users/nalingaddis/Documents/COMP691H/ValgrindWrappingTool/src/main/Main.java]]></filePath>
+    <diff><![CDATA[null]]></diff>
+    <snapshot><![CDATA[package main;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.swing.SwingUtilities;
+
+import compiler.CompilerHelper;
+import compiler.DockerHelper;
+import grader.Grader;
+import grader.MutexLruGrader;
+import grader.SimpleGrader;
+import grader.Test;
+import gui.App;
+import parser.Parser;
+import parser.Wrapper;
+
+public class Main {
+	public static final String WRAPPER_FILE_SUFFIX = "-wrapper";
+	public static final String CONFIG_FILE = "MutexLruConfig";
+	public static final String TRACE_FILE = "Traces";
+	
+	public static void main(String[] args) {
+		SwingUtilities.invokeLater(new App());
+	}
+	
+	public static List<Test> testMakefileDirectory(String directory) {
+		try {
+			DockerHelper.deleteContainer();
+			DockerHelper.createContainer(directory);
+			
+			Parser parser = new Parser(CONFIG_FILE);
+			
+			Wrapper wrapper = parser.parse();
+			wrapper.toFile(CONFIG_FILE, directory);
+			
+			CompilerHelper ch = new CompilerHelper(CONFIG_FILE, directory, TRACE_FILE);
+			
+			ch.compileWrapper();
+			ch.deleteWrapperCFile();
+			// call make here
+			ch.make();
+			ch.deleteWrapperObjFile();
+			ch.trace(new String[]{"./lru-mutex-wrapped", "-c", "2"});
+			ch.makeClean();
+			
+			Grader grader = new MutexLruGrader(directory, TRACE_FILE);
+			ch.deleteTraces();
+			return grader.grade();
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		List<Test> error = new ArrayList<Test>();
+		error.add(new Test("Error: Check console", false));
+		return error;
+	}
+	
+	public static List<Test> testDirectory(String directory) {
+		try {
+			DockerHelper.deleteContainer();
+			DockerHelper.createContainer(directory);
+			
+			Parser parser = new Parser(CONFIG_FILE);
+			
+			Wrapper wrapper = parser.parse();
+			wrapper.toFile(CONFIG_FILE, directory);
+			
+			CompilerHelper ch = new CompilerHelper(CONFIG_FILE, directory, TRACE_FILE);
+			
+			ch.compileWrapper();
+			ch.deleteWrapperCFile();
+			ch.compileStudentCode();
+			ch.deleteWrapperObjFile();
+			ch.trace();
+			ch.deleteBinary();
+			
+			DockerHelper.stopContainer();
+			
+			Grader grader = new SimpleGrader(directory, TRACE_FILE);
+			ch.deleteTraces();
+			return grader.grade();
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		List<Test> error = new ArrayList<Test>();
+		error.add(new Test("Error: Check console", false));
+		return error;
+	}
+}
+]]></snapshot>
+  </Command>
+  <Command __id="11" _type="DiffBasedFileOpenCommand" date="Tue Apr 05 12:37:50 EDT 2022" docASTNodeCount="532" docActiveCodeLength="3143" docExpressionCount="354" docLength="3143" projectName="ValgrindWrappingTool" starttimestamp="1649176546476" timestamp="124011">
+    <filePath><![CDATA[/Users/nalingaddis/Documents/COMP691H/ValgrindWrappingTool/src/compiler/CompilerHelper.java]]></filePath>
+    <diff><![CDATA[null]]></diff>
+    <snapshot><![CDATA[package compiler;
+
+import java.io.File;
+import java.io.InputStream;
+import java.nio.file.Paths;
+import java.util.ArrayList;
+import java.util.List;
+
+public class CompilerHelper {
+	static final String CC = "gcc";
+	static final String FLAGS = "-pthread";
+	static final String EXEC_NAME = "WrappedStudentCode";
+	
+	private String studentDir, objFile, cFile, traceFile;
+	
+	public CompilerHelper(String configFile, String studentDir, String traceFile) {
+		this.studentDir = studentDir;
+		this.objFile = configFile + main.Main.WRAPPER_FILE_SUFFIX + ".o";
+		this.cFile = configFile + main.Main.WRAPPER_FILE_SUFFIX + ".c";
+		this.traceFile = traceFile;
+	}
+	
+	public int compileWrapper() throws Exception {		
+		String[] command = {CC, "-c", FLAGS, cFile, "-o", objFile};
+		
+		return CommandLineHelper.executeInDocker(command);
+	}
+	
+	public int compileStudentCode() throws Exception {
+		File dir = new File(studentDir);
+		
+		List<String> srcFiles = new ArrayList<String>();
+		
+		for(String filename: dir.list()) {
+			if(filename.endsWith(".c")) {
+				srcFiles.add(filename);
+			}
+		}
+		
+		String[] command = new String[srcFiles.size() + 5];
+		
+		command[0] = CC;
+		command[1] = FLAGS;
+		command[2] = objFile;
+		command[3] = "-o";
+		command[4] = EXEC_NAME;
+		
+		for(int i=0; i<srcFiles.size(); i++) {
+			command[i+5] = srcFiles.get(i);
+		}
+
+		return CommandLineHelper.executeInDocker(command);
+	}
+	
+	public int deleteWrapperCFile() throws Exception {
+		return CommandLineHelper.delete(Paths.get(studentDir, cFile));
+	}
+	
+	public int deleteWrapperObjFile() throws Exception {
+		return CommandLineHelper.delete(Paths.get(studentDir, objFile));
+	}
+	
+	public int deleteBinary() throws Exception {
+		return CommandLineHelper.delete(Paths.get(studentDir, EXEC_NAME));
+	}
+	
+	public int deleteTraces() throws Exception {
+		return CommandLineHelper.delete(Paths.get(studentDir, traceFile));
+	}
+	
+	public int trace() throws Exception {
+		String[] command = {
+				"valgrind",
+				"--trace-children=yes",
+				"./"+EXEC_NAME,
+				">",
+				traceFile
+		};
+		
+		return CommandLineHelper.executeInDocker(command);
+	}
+	
+	public int trace(String testfile) throws Exception {
+		InputStream stream = CompilerHelper.class.getResourceAsStream("/"+testfile);
+		
+		String[] command = {
+				"valgrind",
+				"--trace-children=yes",
+				"./"+EXEC_NAME,
+				">",
+				traceFile
+		};
+		
+		return CommandLineHelper.executeInDocker(command, false, stream);
+	}
+	
+	public int trace(String[] command) throws Exception {
+		String[] fullCommand = new String[command.length + 4];
+		
+		fullCommand[0] = "valgrind";
+		fullCommand[1] = "--trace-children=yes";
+		for(int i=0; i<command.length; i++) {
+			fullCommand[i+2] = command[i];
+		}
+		fullCommand[command.length+2] = ">";
+		fullCommand[command.length+3] = traceFile;
+		
+		return CommandLineHelper.executeInDocker(fullCommand);
+	}
+	
+	public int make() throws Exception {
+		String[] command = {
+				"make",
+				"wrapped"
+		};
+		
+		return CommandLineHelper.executeInDocker(command);
+	}
+	
+	public int makeClean() throws Exception {
+		String[] command = {
+				"make",
+				"clean"
+		};
+		
+		return CommandLineHelper.executeInDocker(command);
+	}
+}
+	
+]]></snapshot>
+  </Command>
+  <Command __id="12" _type="DiffBasedFileOpenCommand" date="Tue Apr 05 12:37:51 EDT 2022" docASTNodeCount="1" docActiveCodeLength="732" docExpressionCount="0" docLength="732" projectName="ValgrindWrappingTool" starttimestamp="1649176546476" timestamp="124601">
+    <filePath><![CDATA[/Users/nalingaddis/Documents/COMP691H/ValgrindWrappingTool/src/MutexLruConfig]]></filePath>
+    <diff><![CDATA[null]]></diff>
+    <snapshot><![CDATA[#include <stddef.h>
+#include <stdlib.h>
+#include <stdio.h>
+#include <pthread.h>
+#include "lru.h"
+
+init:			  int numthreads -> int
+reference:		  int key -> int
+clean: 			  int check_water_mark -> void
+shutdown_threads: void -> void
+print: 			  void -> void
+
+*, pthread_mutex_init: pthread_mutex_t *mutex, const pthread_mutexattr_t *attr -> int
+*, pthread_mutex_lock: pthread_mutex_t *mutex -> int
+*, pthread_mutex_unlock: pthread_mutex_t *mutex -> int
+
+*, pthread_cond_wait: pthread_cond_t *cond, pthread_mutex_t *mutex -> int
+*, pthread_cond_signal: pthread_cond_t *cond -> int
+*, pthread_cond_broadcast: pthread_cond_t *cond -> int
+*, pthread_cond_init: pthread_cond_t *restrict cond, const pthread_condattr_t *restrict attr -> int]]></snapshot>
+  </Command>
+  <Command __id="13" _type="DiffBasedFileOpenCommand" date="Tue Apr 05 12:37:51 EDT 2022" docASTNodeCount="128" docActiveCodeLength="700" docExpressionCount="81" docLength="700" projectName="ValgrindWrappingTool" starttimestamp="1649176546476" timestamp="125145">
+    <filePath><![CDATA[/Users/nalingaddis/Documents/COMP691H/ValgrindWrappingTool/src/parser/Parser.java]]></filePath>
+    <diff><![CDATA[null]]></diff>
+    <snapshot><![CDATA[package parser;
+
+import java.io.InputStream;
+import java.util.Scanner;
+
+public class Parser {
+	private String filename;
+	
+	public Parser(String filename) {
+		this.filename = filename;
+	}
+	
+	public Wrapper parse() throws Exception {
+		InputStream stream = Parser.class.getResourceAsStream("/"+filename);
+		Scanner scanner = new Scanner(stream);
+		
+		Wrapper wrapper = new Wrapper();
+		
+		while(scanner.hasNextLine()) {
+			String line = scanner.nextLine();
+			if(line.startsWith("//") || line.isBlank()) continue;
+			
+			if(line.startsWith("#include")) {
+				wrapper.imports.add(line);
+			} else {
+				wrapper.functions.add(new Function(line));
+			}
+		}
+		
+		scanner.close();
+		
+		return wrapper;
+	}
+}
+]]></snapshot>
+  </Command>
+  <Command __id="14" _type="DiffBasedFileOpenCommand" date="Tue Apr 05 12:37:52 EDT 2022" docASTNodeCount="1279" docActiveCodeLength="6829" docExpressionCount="887" docLength="7176" projectName="ValgrindWrappingTool" starttimestamp="1649176546476" timestamp="125636">
+    <filePath><![CDATA[/Users/nalingaddis/Documents/COMP691H/ValgrindWrappingTool/src/parser/Function.java]]></filePath>
+    <diff><![CDATA[null]]></diff>
+    <snapshot><![CDATA[package parser;
+
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
+public class Function {
+	String soName, fnName, returnType;
+	String[] arguments;
+	
+	public class InvalidFunctionException extends Exception {
+		private static final long serialVersionUID = 1L;
+
+		public InvalidFunctionException(String message) {
+			super(message);
+		}
+	}
+	
+	public Function(String encoded) throws InvalidFunctionException {
+		String[] data = encoded.split(":");
+		String[] name = data[0].split(",");
+		String[] signature = data[1].split("->");
+		
+		if(signature[0].trim().equals("void")) {
+			this.arguments = new String[0];
+		} else {
+			this.arguments = signature[0].split(",");
+			for(int i=0; i<arguments.length; i++) {
+				arguments[i] = arguments[i].trim();
+			}
+		}
+		
+		this.returnType = signature[1];
+		returnType = returnType.trim();
+
+		if(name.length == 1) {
+			this.soName = "NONE";
+			this.fnName = name[0];
+		} else if(name.length == 2) {
+			this.soName = name[0];
+			this.fnName = name[1];
+		} else {
+			throw new InvalidFunctionException("Invalid Name");
+		}
+		
+		soName = soName.trim();
+		fnName = fnName.trim();
+	}
+	
+	public String toCString() throws InvalidFunctionException {
+		StringBuilder sb = new StringBuilder();
+		
+		sb.append(returnType);
+		sb.append(" ");
+		sb.append("I_WRAP_SONAME_FNNAME_ZZ(");
+		sb.append(zEncodeName(soName));
+		sb.append(", ");
+		sb.append(zEncodeName(fnName));
+		sb.append(")\n");
+		
+		sb.append("(");
+		for(int i=0; i<arguments.length; i++) {
+			sb.append(arguments[i]);
+			if(i<arguments.length-1) {
+				sb.append(", ");
+			}
+		}
+		sb.append(")\n");
+		
+		sb.append("{");
+		
+		sb.append("\n\t");
+		
+		sb.append("OrigFn fn;");
+		sb.append("\n\t");
+
+		sb.append("VALGRIND_GET_ORIG_FN(fn);");
+		sb.append("\n\t");
+
+		
+		if(!isVoid()) {
+			sb.append(returnType);
+			sb.append(" result;");
+			sb.append("\n\t");
+
+		}
+		
+		sb.append("CALL_FN_");
+		
+		if(isVoid()) {
+			sb.append("v_");
+		} else {
+			sb.append("W_");
+		}
+		
+		switch(arguments.length) {
+		case 0: 
+			sb.append("v"); break;
+		case 1: case 2: case 3: case 4: 
+			for(int i=0; i<arguments.length; i++) sb.append("W");
+			break;
+		case 5: case 6: case 7: case 8: case 9: case 10: case 11: case 12:
+			sb.append(arguments.length);
+			sb.append("W");
+			break;
+		default: 
+			throw new InvalidFunctionException("Function contains more than 12 arguments");
+		}
+		
+		sb.append("(");
+		
+		if(!isVoid()) {
+			sb.append("result, ");
+		}
+		
+		sb.append("fn");
+		
+		for(int i=0; i<arguments.length; i++) {
+			if(i == 0) {
+				sb.append(", ");
+			}
+			
+			sb.append(parseArgName(arguments[i]));
+			
+			if(i < arguments.length-1) {
+				sb.append(", ");
+			}
+		}
+		
+		sb.append(");");
+		sb.append("\n\t");
+
+		
+		sb.append("trace(\""+fnName+": ");
+		
+		if(arguments.length == 0) sb.append("void");
+		
+		for(int i=0; i<arguments.length; i++) {			
+			sb.append("%");
+			sb.append(argStringFormatter(arguments[i]));
+			
+			if(i < arguments.length-1) {
+				sb.append(", ");
+			}
+		}
+		
+
+		sb.append(" -> ");
+		
+		if(!isVoid()) {
+			sb.append("%");
+			sb.append(argStringFormatter(returnType));
+		} else {
+			sb.append("void");
+		}
+		
+		sb.append("\"");		
+		for(int i=0; i<arguments.length; i++) {
+			if(i == 0) {
+				sb.append(",");
+			}
+			
+			if(argType(arguments[i]) == StringType.OTHER) {
+				sb.append("&");
+			}
+			
+			sb.append(parseArgName(arguments[i]));
+			
+			if(i < arguments.length-1) {
+				sb.append(", ");
+			}
+		}
+		
+		if(!isVoid()) {
+			sb.append(", ");
+			
+			if(argType(returnType) == StringType.OTHER) {
+				sb.append("&");
+			}
+			
+			sb.append("result");
+		}
+		sb.append(");");
+		sb.append("\n");
+
+		
+		if(!isVoid()) {
+			sb.append("\t");
+			sb.append("return result;");
+			sb.append("\n");
+		}
+		
+		sb.append("}");
+		
+		return sb.toString();
+	}
+	
+	private enum StringType {
+		INT, UNSIGNED_INT, SIZE_T,
+		LONG, UNSIGNED_LONG, LONG_LONG, UNSIGNED_LONG_LONG,
+		SHORT,UNSIGNED_SHORT,
+		FLOAT, DOUBLE, LONG_DOUBLE,
+		CHAR, POINTER, ARRAY, OTHER
+	}
+	
+	private StringType argType(String arg) {
+		if(arg.contains("*")) return StringType.POINTER;
+		if(arg.contains("[]")) return StringType.ARRAY;
+		
+		if(arg.contains("long double")) return StringType.LONG_DOUBLE;
+		if(arg.contains("double")) return StringType.DOUBLE;
+		if(arg.contains("float")) return StringType.FLOAT;
+		
+		if(arg.contains("unsigned long long")) return StringType.UNSIGNED_LONG_LONG;
+		if(arg.contains("unsigned long")) return StringType.UNSIGNED_LONG;
+		if(arg.contains("long long")) return StringType.LONG_LONG;
+		if(arg.contains("long")) return StringType.LONG;
+		
+		if(arg.contains("unsigned short")) return StringType.UNSIGNED_SHORT;
+		if(arg.contains("short")) return StringType.SHORT;
+		
+		if(arg.contains("unsigned int")) return StringType.UNSIGNED_INT;
+		if(arg.contains("int")) return StringType.INT;
+		
+		if(arg.contains("char")) return StringType.CHAR;
+		
+		if(arg.contains("size_t")) return StringType.SIZE_T;
+			
+		return StringType.OTHER;
+	}
+	
+	private String argStringFormatter(String arg) {
+		switch(argType(arg)) {
+		case POINTER: return "p";
+		case ARRAY: return "p";
+		
+		case LONG_DOUBLE: return "Lg";
+		case DOUBLE: case FLOAT: return "g";
+		
+		case UNSIGNED_LONG_LONG: return "llu";
+		case UNSIGNED_LONG: return "lu";
+		case LONG_LONG: return "lli";
+		case LONG: return "li";
+		
+		case UNSIGNED_SHORT: return "hu";
+		case SHORT: return "hi";
+		
+		case UNSIGNED_INT: return "u";
+		case INT: return "i";
+		
+		case CHAR: return "c";
+		
+		case SIZE_T: return "zu";	
+		
+		case OTHER: default: return "p";
+		}
+	}
+	
+	private String parseArgName(String arg) throws InvalidFunctionException {
+		// funarg
+		if(arg.charAt(arg.length()-1) == ')') {
+			Pattern pattern = Pattern.compile(".+\\(\\*(.+)\\)\\(.+\\)");
+			Matcher m = pattern.matcher(arg);
+			if(m.matches()) {
+				return m.group(1);
+			} else {
+				throw new InvalidFunctionException("Invalid argument syntax: "+arg);
+			}
+		} else {
+			String[] comps = arg.split(" |\\*");
+			return comps[comps.length-1];
+		}
+	}
+	
+	private String zEncodeName(String name) throws InvalidFunctionException {
+		/*
+			 Za   encodes    *
+			 Zp              +
+			 Zc              :
+			 Zd              .
+			 Zu              _
+			 Zh              -
+			 Zs              (space)
+			 ZA              @
+			 ZZ              Z
+			 ZL              (       # only in valgrind 3.3.0 and later
+			 ZR              )       # only in valgrind 3.3.0 and later
+		 */
+		
+		StringBuilder sb = new StringBuilder();
+		for(char c: name.toCharArray()) {
+			switch(c) {
+			case('*'): sb.append("Za"); break;
+			case('+'): sb.append("Zp"); break;
+			case(':'): sb.append("Zc"); break;
+			case('.'): sb.append("Zd"); break;
+			case('_'): sb.append("Zu"); break;
+			case('-'): sb.append("Zh"); break;
+			case(' '): sb.append("Zs"); break;
+			case('@'): sb.append("ZA"); break;
+			case('Z'): sb.append("ZZ"); break;
+			case('('): sb.append("ZL"); break;
+			case(')'): sb.append("ZR"); break;
+			default: 
+				if(Character.isLetterOrDigit(c)) {
+					sb.append(c);
+				} else {
+					throw new InvalidFunctionException("Invalid character in function name");
+				}
+			}
+		}
+		
+		return sb.toString();
+	}
+	
+	private boolean isVoid() {
+		return returnType.equals("void");
+	}
+}
+]]></snapshot>
+  </Command>
+  <Command __id="15" _type="DiffBasedFileOpenCommand" date="Tue Apr 05 12:37:52 EDT 2022" docASTNodeCount="165" docActiveCodeLength="808" docExpressionCount="99" docLength="952" projectName="ValgrindWrappingTool" starttimestamp="1649176546476" timestamp="126122">
+    <filePath><![CDATA[/Users/nalingaddis/Documents/COMP691H/ValgrindWrappingTool/src/grader/AbstractGrader.java]]></filePath>
+    <diff><![CDATA[null]]></diff>
+    <snapshot><![CDATA[package grader;
+
+import java.io.File;
+import java.nio.file.Paths;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+
+import grader.Trace.TraceParsingException;
+
+public abstract class AbstractGrader implements Grader {
+	List<Trace> traces;
+	List<String> stdout;
+	
+	public AbstractGrader(String studentDir, String filename) throws Exception {
+		traces = new ArrayList<Trace>();
+		stdout = new ArrayList<String>();
+		
+		File file = new File(Paths.get(studentDir, filename).toString());
+		Scanner scanner = new Scanner(file);
+		
+		while(scanner.hasNextLine()) {
+			String line = scanner.nextLine();
+			try {
+				traces.add(new Trace(line));
+			} catch (TraceParsingException e) {
+				stdout.add(line);
+			}
+		}
+		
+//		traces.sort(new Comparator<Trace>() {
+//			public int compare(Trace a, Trace b) {
+//				return (int) (a.timestamp - b.timestamp);
+//			}
+//		});
+		
+		scanner.close();
+	}
+	
+	public abstract List<Test> grade();
+}
+]]></snapshot>
+  </Command>
+  <Command __id="16" _type="DiffBasedFileOpenCommand" date="Tue Apr 05 12:37:53 EDT 2022" docASTNodeCount="498" docActiveCodeLength="2885" docExpressionCount="334" docLength="2944" projectName="ValgrindWrappingTool" starttimestamp="1649176546476" timestamp="126560">
+    <filePath><![CDATA[/Users/nalingaddis/Documents/COMP691H/ValgrindWrappingTool/src/grader/MutexLruGrader.java]]></filePath>
+    <diff><![CDATA[null]]></diff>
+    <snapshot><![CDATA[package grader;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+
+public class MutexLruGrader extends AbstractGrader {
+
+	public MutexLruGrader(String studentDir, String filename) throws Exception {
+		super(studentDir, filename);
+	}
+
+	@Override
+	public List<Test> grade() {
+		List<Test> tests = new ArrayList<Test>();
+		
+		String[] testnames = {
+				"Blocks on valid condition variables",
+				"Conditional variable waiters awoken",
+				"Broadcast (not signal) condition variables",
+				"Lock acquired after shutdown"
+		};
+		
+		boolean usingCondVars = blockOnConditionVariables();
+		tests.add(new Test(testnames[0], usingCondVars));
+		tests.add(new Test(testnames[1], !usingCondVars ? false : releaseConditionedWaiters()));
+		tests.add(new Test(testnames[2], !usingCondVars ? false : broadcastVsSignal()));
+		
+//		tests.add(new Test(testnames[3], lockAfterShutdown()));
+		
+		return tests;
+	}
+	
+	private boolean blockOnConditionVariables() {
+				
+		Set<String> seen = new HashSet<String>(), inits = new HashSet<String>();
+		boolean called = false;
+		
+		for(Trace trace: traces) {
+			if(trace.fnname.equals("pthread_cond_init")) {
+				seen.add(trace.arguments[0]);
+				inits.add(trace.arguments[0]);
+				called = true;
+			}
+			
+			if(trace.fnname.equals("pthread_cond_wait")) {
+				if(!inits.contains(trace.arguments[0])) return false;
+				return true;
+			}
+		}
+		
+		return seen.size() == 0 && called;
+	}
+	
+	private boolean releaseConditionedWaiters() {
+		
+		Set<String> waiters = new HashSet<String>(), seen = new HashSet<String>();
+		for(Trace trace: traces) {
+			if(trace.fnname.equals("pthread_cond_wait")) {				
+				if(!seen.contains(trace.arguments[0])) 
+						waiters.add(trace.arguments[0]);
+				seen.add(trace.arguments[0]);
+			} 
+			
+			if(trace.fnname.equals("pthread_cond_broadcast") 
+				|| trace.fnname.equals("pthread_cond_signal")){
+				waiters.remove(trace.arguments[0]);
+			}
+		}
+		
+		return waiters.size() == 0;
+	}
+	
+	private boolean broadcastVsSignal() {
+		
+		Map<Long, String> threadState = new HashMap<Long, String>();
+		
+		for(Trace trace: traces) {
+			switch(trace.fnname) {
+			case "reference": case "clean": case "shutdown_threads":
+				threadState.put(trace.thread, trace.fnname);
+				break;
+			case "pthread_cond_signal":
+				if(threadState.get(trace.thread).equals("clean")) {
+					return false;
+				}
+			}
+		}
+		
+		return true;
+	}
+	
+	private boolean lockAfterShutdown() {		
+		Long shutdownThread = (long) -1;
+		String lock = "";
+		
+		for(Trace trace: traces) {
+			if(trace.fnname.equals("pthread_mutex_init")) {
+				lock = trace.arguments[0];
+			}
+			if(trace.fnname.equals("shutdown_threads")) {
+				shutdownThread = trace.thread;
+			}
+			if(trace.fnname.equals("pthread_mutex_lock") 
+					&& shutdownThread == trace.thread 
+					&& lock.equals(trace.arguments[0])) {
+				return true;
+			}
+		}
+		
+		return false;
+	}
+}
+]]></snapshot>
+  </Command>
+  <Command __id="17" _type="DiffBasedFileOpenCommand" date="Tue Apr 05 12:37:53 EDT 2022" docASTNodeCount="170" docActiveCodeLength="873" docExpressionCount="111" docLength="873" projectName="ValgrindWrappingTool" starttimestamp="1649176546476" timestamp="126978">
+    <filePath><![CDATA[/Users/nalingaddis/Documents/COMP691H/ValgrindWrappingTool/src/grader/Trace.java]]></filePath>
+    <diff><![CDATA[null]]></diff>
+    <snapshot><![CDATA[package grader;
+
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
+public class Trace {
+	long timestamp, thread;
+	String fnname, result;
+	String[] arguments;
+	
+	public class TraceParsingException extends Exception {
+		public TraceParsingException(String trace) {
+			super(trace);
+		}
+
+		private static final long serialVersionUID = 1;
+	}
+	
+	public Trace(String trace) throws Exception {
+		Pattern pattern = Pattern.compile("([0-9]+) - Thread: ([0-9]+) - (.*): (.*) -> (.*)");
+		Matcher m = pattern.matcher(trace);
+		
+		if(m.matches()) {
+			timestamp = Long.parseLong(m.group(1));
+			thread = Long.parseLong(m.group(2));
+			fnname = m.group(3);
+			arguments = m.group(4).split(",");
+			result = m.group(5);
+
+			for(int i=0; i<arguments.length; i++) {
+				arguments[i] = arguments[i].trim();
+			}
+		} else {
+			throw new TraceParsingException(trace);
+		}
+	}
+}
+]]></snapshot>
+  </Command>
+  <Command __id="18" _type="DiffBasedFileOpenCommand" date="Tue Apr 05 12:37:53 EDT 2022" docASTNodeCount="145" docActiveCodeLength="814" docExpressionCount="90" docLength="814" projectName="ValgrindWrappingTool" starttimestamp="1649176546476" timestamp="127368">
+    <filePath><![CDATA[/Users/nalingaddis/Documents/COMP691H/ValgrindWrappingTool/src/grader/SimpleGrader.java]]></filePath>
+    <diff><![CDATA[null]]></diff>
+    <snapshot><![CDATA[package grader;
+
+import java.util.ArrayList;
+import java.util.Comparator;
+import java.util.List;
+
+public class SimpleGrader extends AbstractGrader {
+
+	public SimpleGrader(String studentDir, String filename) throws Exception {
+		super(studentDir, filename);
+	}
+
+	public List<Test> grade() {
+		List<Test> tests = new ArrayList<Test>();
+		
+		tests.add(countFuncCall("pthread_create", 2));
+		tests.add(countFuncCall("pthread_join", 2));
+		tests.add(countFuncCall("pthread_mutex_lock", 20));
+		tests.add(countFuncCall("pthread_mutex_unlock", 20));
+				
+		return tests;
+	}
+	
+	private Test countFuncCall(String fnname, int requiredCount) {
+		int count = 0; 
+		
+		for(Trace trace: traces) {
+			if(trace.fnname.equals(fnname)) {
+				count ++;
+			}
+		}
+		
+		return new Test("Called " + fnname, count >= requiredCount);
+	}
+}
+]]></snapshot>
+  </Command>
+  <Command __id="8" _type="SelectTextCommand" caretOffset="398" date="Tue Apr 05 12:37:48 EDT 2022" end="398" start="383" starttimestamp="1649176546476" timestamp="121865" />
+  <Command __id="20" _type="MoveCaretCommand" caretOffset="0" date="Tue Apr 05 12:38:00 EDT 2022" docOffset="0" starttimestamp="1649176546476" timestamp="134028" />
+  <Command __id="43" _type="EclipseCommand" commandID="" date="Tue Apr 05 12:38:07 EDT 2022" starttimestamp="1649176546476" timestamp="140909" />
+  <Command __id="44" _type="EclipseCommand" commandID="org.eclipse.ui.file.save" date="Tue Apr 05 12:38:07 EDT 2022" starttimestamp="1649176546476" timestamp="140924" />
+  <Command __id="45" _type="EclipseCommand" commandID="" date="Tue Apr 05 12:38:07 EDT 2022" starttimestamp="1649176546476" timestamp="140963" />
+  <Command __id="46" _type="InsertStringCommand" date="Tue Apr 05 12:38:08 EDT 2022" starttimestamp="1649176546476" timestamp="142178" timestamp2="142178">
+    <data><![CDATA[s]]></data>
+  </Command>
+  <Command __id="47" _type="ShellCommand" date="Tue Apr 05 12:38:10 EDT 2022" starttimestamp="1649176546476" timestamp="143602" type="ECLIPSE_LOST_FOCUS" />
