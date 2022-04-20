@@ -7,6 +7,10 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
+import valgrindpp.grader.AbstractGrader;
+import valgrindpp.grader.Test;
+import valgrindpp.grader.Trace;
+
 public class BoundedBufferGrader extends AbstractGrader {
 
 	public BoundedBufferGrader(String studentDir, String filename) throws Exception {

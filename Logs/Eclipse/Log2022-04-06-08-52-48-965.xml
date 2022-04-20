@@ -1,0 +1,5 @@
+<Events startTimestamp="1649249568965" logVersion="1.0.0.202101171653">
+  <Command __id="1" _type="SelectTextCommand" caretOffset="2336" date="Wed Apr 06 08:52:49 EDT 2022" end="2336" start="1833" starttimestamp="1649249568965" timestamp="344" />
+  <Command __id="2" _type="ShellCommand" date="Wed Apr 06 08:52:50 EDT 2022" starttimestamp="1649249568965" timestamp="1488" type="ECLIPSE_LOST_FOCUS" />
+  <Command __id="3" _type="ShellCommand" date="Wed Apr 06 08:52:50 EDT 2022" starttimestamp="1649249568965" timestamp="1491" type="ECLIPSE_MINIMIZED" />
+</Events>

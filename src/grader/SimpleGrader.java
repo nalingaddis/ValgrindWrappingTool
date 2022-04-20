@@ -1,8 +1,11 @@
 package grader;
 
 import java.util.ArrayList;
-import java.util.Comparator;
 import java.util.List;
+
+import valgrindpp.grader.AbstractGrader;
+import valgrindpp.grader.Test;
+import valgrindpp.grader.Trace;
 
 public class SimpleGrader extends AbstractGrader {
 

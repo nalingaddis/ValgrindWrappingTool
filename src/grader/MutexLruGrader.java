@@ -7,6 +7,10 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
+import valgrindpp.grader.AbstractGrader;
+import valgrindpp.grader.Test;
+import valgrindpp.grader.Trace;
+
 public class MutexLruGrader extends AbstractGrader {
 
 	public MutexLruGrader(String studentDir, String filename) throws Exception {
@@ -25,9 +29,10 @@ public class MutexLruGrader extends AbstractGrader {
 		};
 		
 		boolean usingCondVars = blockOnConditionVariables();
+		boolean unblockingConds = releaseConditionedWaiters();
 		tests.add(new Test(testnames[0], usingCondVars));
-		tests.add(new Test(testnames[1], !usingCondVars ? false : releaseConditionedWaiters()));
-		tests.add(new Test(testnames[2], !usingCondVars ? false : broadcastVsSignal()));
+		tests.add(new Test(testnames[1], usingCondVars && unblockingConds));
+		tests.add(new Test(testnames[2], usingCondVars && unblockingConds && broadcastVsSignal()));
 		
 //		tests.add(new Test(testnames[3], lockAfterShutdown()));
 		
@@ -76,17 +81,22 @@ public class MutexLruGrader extends AbstractGrader {
 	
 	private boolean broadcastVsSignal() {
 		
-		Map<Long, String> threadState = new HashMap<Long, String>();
+		Map<Long, Boolean> threadState = new HashMap<Long, Boolean>();
 		
 		for(Trace trace: traces) {
 			switch(trace.fnname) {
-			case "reference": case "clean": case "shutdown_threads":
-				threadState.put(trace.thread, trace.fnname);
-				break;
-			case "pthread_cond_signal":
-				if(threadState.get(trace.thread).equals("clean")) {
+			case "clean": 
+				Boolean calledSignal = threadState.get(trace.thread);
+				if(calledSignal != null && calledSignal) {
 					return false;
 				}
+				break;
+			case "reference": case "shutdown_threads":
+				threadState.put(trace.thread, false);
+				break;
+			case "pthread_cond_signal":
+				threadState.put(trace.thread, true);
+				break;
 			}
 		}
 		

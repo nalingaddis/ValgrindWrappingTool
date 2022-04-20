@@ -17,7 +17,7 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.SwingUtilities;
 
-import grader.Test;
+import valgrindpp.grader.Test;
 
 public class App implements Runnable {
 
@@ -52,7 +52,7 @@ public class App implements Runnable {
 			public void actionPerformed(ActionEvent event) {
 				try {
 					Paths.get(pathTextField.getText());
-					List<Test> tests = main.Main.testMakefileDirectory(pathTextField.getText());
+					List<Test> tests = valgrindpp.main.Main.testMakefileDirectory(pathTextField.getText());
 					
 					results.removeAll();
 					
