@@ -1,4 +1,4 @@
-package grader;
+package valgrindpp.grader;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -6,10 +6,6 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
-
-import valgrindpp.grader.AbstractGrader;
-import valgrindpp.grader.Test;
-import valgrindpp.grader.Trace;
 
 public class MutexLruGrader extends AbstractGrader {
 

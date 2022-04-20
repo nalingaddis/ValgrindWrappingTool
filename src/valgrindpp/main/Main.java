@@ -5,13 +5,13 @@ import java.util.List;
 
 import javax.swing.SwingUtilities;
 
-import grader.MutexLruGrader;
-import grader.SimpleGrader;
-import gui.App;
 import valgrindpp.codegen.Parser;
 import valgrindpp.codegen.Wrapper;
 import valgrindpp.grader.Grader;
+import valgrindpp.grader.MutexLruGrader;
+import valgrindpp.grader.SimpleGrader;
 import valgrindpp.grader.Test;
+import valgrindpp.gui.App;
 import valgrindpp.helpers.CompilerHelper;
 import valgrindpp.helpers.DockerHelper;
 

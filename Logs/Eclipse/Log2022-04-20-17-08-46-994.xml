@@ -1,0 +1,92 @@
+<Events startTimestamp="1650488926994" logVersion="1.0.0.202101171653">
+  <Command __id="0" _type="ShellCommand" date="Wed Apr 20 17:08:48 EDT 2022" starttimestamp="1650488926994" timestamp="1851" type="ECLIPSE_GAINED_FOCUS" />
+  <Command __id="1" _type="ShellCommand" date="Wed Apr 20 17:09:03 EDT 2022" starttimestamp="1650488926994" timestamp="16105" type="ECLIPSE_LOST_FOCUS" />
+  <Command __id="2" _type="ShellCommand" date="Wed Apr 20 17:09:50 EDT 2022" starttimestamp="1650488926994" timestamp="63918" type="ECLIPSE_GAINED_FOCUS" />
+  <Command __id="3" _type="ShellCommand" date="Wed Apr 20 17:09:55 EDT 2022" starttimestamp="1650488926994" timestamp="68675" type="ECLIPSE_LOST_FOCUS" />
+  <Command __id="4" _type="ShellCommand" date="Wed Apr 20 17:11:33 EDT 2022" starttimestamp="1650488926994" timestamp="166622" type="ECLIPSE_GAINED_FOCUS" />
+  <Command __id="5" _type="ShellCommand" date="Wed Apr 20 17:11:41 EDT 2022" starttimestamp="1650488926994" timestamp="174756" type="ECLIPSE_LOST_FOCUS" />
+  <Command __id="6" _type="ShellCommand" date="Wed Apr 20 17:11:45 EDT 2022" starttimestamp="1650488926994" timestamp="178103" type="ECLIPSE_GAINED_FOCUS" />
+  <Command __id="7" _type="ShellCommand" date="Wed Apr 20 17:11:45 EDT 2022" starttimestamp="1650488926994" timestamp="178220" type="ECLIPSE_LOST_FOCUS" />
+  <Command __id="8" _type="ShellCommand" date="Wed Apr 20 17:11:45 EDT 2022" starttimestamp="1650488926994" timestamp="178317" type="ECLIPSE_GAINED_FOCUS" />
+  <Command __id="9" _type="DiffBasedFileOpenCommand" date="Wed Apr 20 17:12:06 EDT 2022" docASTNodeCount="308" docActiveCodeLength="1433" docExpressionCount="192" docLength="1433" projectName="ValgrindWrappingTool" starttimestamp="1650488926994" timestamp="199775">
+    <filePath><![CDATA[/Users/nalingaddis/Documents/COMP691H/ValgrindWrappingTool/src/grader/BoundedBufferGrader.java]]></filePath>
+    <diff><![CDATA[null]]></diff>
+    <snapshot><![CDATA[package grader;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+
+import valgrindpp.grader.AbstractGrader;
+import valgrindpp.grader.Test;
+import valgrindpp.grader.Trace;
+
+public class BoundedBufferGrader extends AbstractGrader {
+
+	public BoundedBufferGrader(String studentDir, String filename) throws Exception {
+		super(studentDir, filename);
+	}
+
+	public List<Test> grade() {
+		Map<Long, Set<String>> waits = new HashMap<Long, Set<String>>();
+		Map<Long, Set<String>> posts = new HashMap<Long, Set<String>>();
+		
+		List<Test> tests = new ArrayList<Test>();
+		
+		for(Trace trace: traces) {
+			Map<Long, Set<String>> map;
+			
+			if(trace.fnname.equals("sem_wait")) {
+				map = waits;
+			} else if(trace.fnname.equals("sem_post")) {
+				map = posts;
+			} else {
+				continue;
+			}
+			
+			Set<String> sems = map.get(trace.thread);
+			if(sems == null) {
+				sems = new HashSet<String>();
+			}
+			sems.add(trace.arguments[0]);
+			map.put(trace.thread, sems);
+		}
+		
+		for(Long thread: waits.keySet()) {
+			String testName = thread + " waits on correct number of sems.";
+			tests.add(new Test(testName, waits.get(thread).size() < 2));
+		}
+		
+		for(Long thread: waits.keySet()) {
+			String testName = thread + " posts on correct number of sems.";
+			tests.add(new Test(testName, posts.get(thread).size() < 2));
+		}
+		
+		return tests;
+	}
+	
+}
+]]></snapshot>
+  </Command>
+  <Command __id="10" _type="MoveCaretCommand" caretOffset="0" date="Wed Apr 20 17:12:07 EDT 2022" docOffset="0" starttimestamp="1650488926994" timestamp="200950" />
+  <Command __id="12" _type="MoveCaretCommand" caretOffset="0" date="Wed Apr 20 17:13:02 EDT 2022" docOffset="0" starttimestamp="1650488926994" timestamp="255359" />
+  <Command __id="11" _type="DiffBasedFileOpenCommand" date="Wed Apr 20 17:13:01 EDT 2022" docASTNodeCount="308" docActiveCodeLength="1433" docExpressionCount="192" docLength="1433" projectName="ValgrindWrappingTool" starttimestamp="1650488926994" timestamp="254534">
+    <filePath><![CDATA[/Users/nalingaddis/Documents/COMP691H/ValgrindWrappingTool/src/grader/BoundedBufferGrader.java]]></filePath>
+    <diff><![CDATA[[Diff(EQUAL,"package grader;¶¶import java.util.ArrayList;¶import java.util.HashMap;¶import java.util.HashSet;¶import java.util.List;¶import java.util.Map;¶import java.util.Set;¶¶import valgrindpp.grader.AbstractGrader;¶import valgrindpp.grader.Test;¶import valgrindpp.grader.Trace;¶¶public class BoundedBufferGrader extends AbstractGrader {¶¶	public BoundedBufferGrader(String studentDir, String filename) throws Exception {¶		super(studentDir, filename);¶	}¶¶	public List<Test> grade() {¶		Map<Long, Set<String>> waits = new HashMap<Long, Set<String>>();¶		Map<Long, Set<String>> posts = new HashMap<Long, Set<String>>();¶		¶		List<Test> tests = new ArrayList<Test>();¶		¶		for(Trace trace: traces) {¶			Map<Long, Set<String>> map;¶			¶			if(trace.fnname.equals("sem_wait")) {¶				map = waits;¶			} else if(trace.fnname.equals("sem_post")) {¶				map = posts;¶			} else {¶				continue;¶			}¶			¶			Set<String> sems = map.get(trace.thread);¶			if(sems == null) {¶				sems = new HashSet<String>();¶			}¶			sems.add(trace.arguments[0]);¶			map.put(trace.thread, sems);¶		}¶		¶		for(Long thread: waits.keySet()) {¶			String testName = thread + " waits on correct number of sems.";¶			tests.add(new Test(testName, waits.get(thread).size() < 2));¶		}¶		¶		for(Long thread: waits.keySet()) {¶			String testName = thread + " posts on correct number of sems.";¶			tests.add(new Test(testName, posts.get(thread).size() < 2));¶		}¶		¶		return tests;¶	}¶	¶}¶")]]]></diff>
+  </Command>
+  <Command __id="14" _type="BreakPointCommand" date="Wed Apr 20 17:13:12 EDT 2022" lineNumber="55" starttimestamp="1650488926994" timestamp="265486" type="BreakPointAdded" />
+  <Command __id="15" _type="BreakPointCommand" date="Wed Apr 20 17:13:12 EDT 2022" lineNumber="87" starttimestamp="1650488926994" timestamp="265512" type="BreakPointAdded" />
+  <Command __id="16" _type="ShellCommand" date="Wed Apr 20 17:13:12 EDT 2022" starttimestamp="1650488926994" timestamp="265656" type="ECLIPSE_GAINED_FOCUS" />
+  <Command __id="17" _type="EclipseCommand" commandID="" date="Wed Apr 20 17:13:12 EDT 2022" starttimestamp="1650488926994" timestamp="265731" />
+  <Command __id="18" _type="EclipseCommand" commandID="" date="Wed Apr 20 17:13:13 EDT 2022" starttimestamp="1650488926994" timestamp="266147" />
+  <Command __id="20" _type="MoveCaretCommand" caretOffset="0" date="Wed Apr 20 17:13:16 EDT 2022" docOffset="0" starttimestamp="1650488926994" timestamp="269746" />
+  <Command __id="22" _type="ShellCommand" date="Wed Apr 20 17:13:57 EDT 2022" starttimestamp="1650488926994" timestamp="310085" type="ECLIPSE_GAINED_FOCUS" />
+  <Command __id="23" _type="EclipseCommand" commandID="" date="Wed Apr 20 17:13:57 EDT 2022" starttimestamp="1650488926994" timestamp="310097" />
+  <Command __id="24" _type="EclipseCommand" commandID="" date="Wed Apr 20 17:13:57 EDT 2022" starttimestamp="1650488926994" timestamp="310101" />
+  <Command __id="26" _type="BreakPointCommand" date="Wed Apr 20 17:14:11 EDT 2022" lineNumber="57" starttimestamp="1650488926994" timestamp="324581" type="BreakPointAdded" />
+  <Command __id="27" _type="ShellCommand" date="Wed Apr 20 17:14:11 EDT 2022" starttimestamp="1650488926994" timestamp="324794" type="ECLIPSE_GAINED_FOCUS" />
+  <Command __id="28" _type="EclipseCommand" commandID="" date="Wed Apr 20 17:14:11 EDT 2022" starttimestamp="1650488926994" timestamp="324807" />
+  <Command __id="29" _type="EclipseCommand" commandID="" date="Wed Apr 20 17:14:11 EDT 2022" starttimestamp="1650488926994" timestamp="324941" />
