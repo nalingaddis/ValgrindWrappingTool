@@ -1,0 +1,16 @@
+---
+:id: 55718996
+:submitters:
+- :name: Qiaosen Lin
+  :email: qiaosenl@live.unc.edu
+- :name: Evan Sun
+  :email: evanyy@live.unc.edu
+- :name: Iris Liu
+  :email: jiayiliu@live.unc.edu
+:created_at: !ruby/object:ActiveSupport::TimeWithZone
+  utc: 2020-11-17 02:07:44.482647000 Z
+  zone: !ruby/object:ActiveSupport::TimeZone
+    name: America/Los_Angeles
+  time: 2020-11-16 18:07:44.482647000 Z
+:status: processed
+:score: 24.5

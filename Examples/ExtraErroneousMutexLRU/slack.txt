@@ -1,0 +1,3 @@
+Slack hours used on this lab: 28
+Slack hours used on previous labs: 42
+Slack hours remaining: 0
