@@ -38,14 +38,13 @@ public class Main {
 			
 			ch.compileWrapper();
 			ch.deleteWrapperCFile();
-			// call make here
 			ch.make();
 			ch.deleteWrapperObjFile();
 			ch.trace(new String[]{"./lru-mutex-wrapped", "-c", "2"});
 			ch.makeClean();
 			
 			Grader grader = new MutexLruGrader(directory, TRACE_FILE);
-//			ch.deleteTraces();
+			ch.deleteTraces();
 			return grader.grade();
 			
 		} catch (Exception e) {

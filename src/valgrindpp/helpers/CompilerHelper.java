@@ -52,20 +52,20 @@ public class CompilerHelper {
 		return CommandLineHelper.executeInDocker(command);
 	}
 	
-	public int deleteWrapperCFile() throws Exception {
-		return CommandLineHelper.delete(Paths.get(studentDir, cFile));
+	public void deleteWrapperCFile() throws Exception {
+		CommandLineHelper.delete(Paths.get(studentDir, cFile));
 	}
 	
-	public int deleteWrapperObjFile() throws Exception {
-		return CommandLineHelper.delete(Paths.get(studentDir, objFile));
+	public void deleteWrapperObjFile() throws Exception {
+		CommandLineHelper.delete(Paths.get(studentDir, objFile));
 	}
 	
-	public int deleteBinary() throws Exception {
-		return CommandLineHelper.delete(Paths.get(studentDir, EXEC_NAME));
+	public void deleteBinary() throws Exception {
+		CommandLineHelper.delete(Paths.get(studentDir, EXEC_NAME));
 	}
 	
-	public int deleteTraces() throws Exception {
-		return CommandLineHelper.delete(Paths.get(studentDir, traceFile));
+	public void deleteTraces() throws Exception {
+		CommandLineHelper.delete(Paths.get(studentDir, traceFile));
 	}
 	
 	public int trace() throws Exception {
