@@ -26,3 +26,7 @@ The steps to setup Valgrind++ on your machine are as follows:
 5. When the GUI appears, press `Browse` Navigate to `(GIT_ROOT)/Examples/` and select of the `*MutexLRU` directories.
     * The three `MutexLRU` directories represent three example solutions to the UNC Comp530 MutexLru assigment, each with varying degress of correctness.
 6. Press `Test` and let Valgrind++ grade the assignment you selected. In the console you should see tracing information from the run. When the grading is complete the GUI will update to display which testcases passed or failed.
+
+## Explore
+
+One cool advantage of using docker containers is the ability for students to experiment with their assignment in the docker terminal. To do this, simply run Valgrind++ once on an assignment and this will automatically setup the docker container with the assignments source code. Then go to Docker Desktop, find the container which should still be running, and press the CLI button to enter the container.
