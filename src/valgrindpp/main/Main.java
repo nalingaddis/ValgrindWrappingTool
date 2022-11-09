@@ -3,88 +3,74 @@ package valgrindpp.main;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.swing.SwingUtilities;
+import valgrindpp.codegen.WrapperGenerator;
+import valgrindpp.main.ValgrindConfiguration.Environment;
+import valgrindpp.tester.*;
 
-import valgrindpp.codegen.Parser;
-import valgrindpp.codegen.Wrapper;
-import valgrindpp.grader.Grader;
-import valgrindpp.grader.MutexLruGrader;
-import valgrindpp.grader.SimpleGrader;
-import valgrindpp.grader.Test;
-import valgrindpp.gui.App;
-import valgrindpp.helpers.CompilerHelper;
-import valgrindpp.helpers.DockerHelper;
-
-public class Main {
-	public static final String WRAPPER_FILE_SUFFIX = "-wrapper";
-	public static final String CONFIG_FILE = "MutexLruConfig";
-	public static final String TRACE_FILE = "Traces";
-	
+public class Main {	
 	public static void main(String[] args) {
-		SwingUtilities.invokeLater(new App());
+		// SwingUtilities.invokeLater(new App());
+		
+		try {
+			String projectDirectory = args[0];
+			String dockerExec = null;
+			
+			if (args.length > 1) {
+				dockerExec = args[1];
+			}
+			
+			ValgrindConfiguration configuration = new ValgrindConfiguration(projectDirectory, dockerExec);
+			List<Test> tests = testProject(configuration);
+			
+			for (Test test: tests) {
+				System.out.println("Test " + test.name + ": " + (test.passed ? "Passed" : "Failed"));
+			}
+		} catch (Exception ex) {
+			ex.printStackTrace();
+		}
 	}
 	
-	public static List<Test> testMakefileDirectory(String directory) {
+	public static List<Test> testProject(ValgrindConfiguration configuration) {
 		try {
-			DockerHelper.deleteContainer();
-			DockerHelper.createContainer(directory);
+			CommandExecutor executor = new CommandExecutor(configuration);
 			
-			Parser parser = new Parser(CONFIG_FILE);
+			if (configuration.TestingEnvironment == Environment.Local) {
+				executor.deleteContainer();
+				executor.createContainer();
+			}
 			
-			Wrapper wrapper = parser.parse();
-			wrapper.toFile(CONFIG_FILE, directory);
+			WrapperGenerator wrapperGenerator = new WrapperGenerator(configuration);
+			wrapperGenerator.generateWrapperFile();
 			
-			CompilerHelper ch = new CompilerHelper(CONFIG_FILE, directory, TRACE_FILE);
+			executor.compileWrapper();
 			
-			ch.compileWrapper();
-			ch.deleteWrapperCFile();
-			ch.make();
-			ch.deleteWrapperObjFile();
-			ch.trace(new String[]{"./lru-mutex-wrapped", "-c", "2"});
-			ch.makeClean();
+			if (configuration.UseMakefile()){
+				executor.make();
+			} else {
+				executor.compileStudentCode();
+			}
 			
-			Grader grader = new MutexLruGrader(directory, TRACE_FILE);
-			ch.deleteTraces();
-			return grader.grade();
+			executor.executeWrappedProject();
 			
-		} catch (Exception e) {
-			e.printStackTrace();
+			List<Test> results = configuration.GetTester().test();
+			
+			if (configuration.PostTestClean) {
+				executor.deleteWrapperCFile();
+				executor.deleteWrapperObjFile();
+				executor.deleteTraces();
+
+				if (configuration.UseMakefile()) {
+					executor.makeClean();
+				} else {
+					executor.deleteBinary();
+				}
+			}
+			
+			return results;
+		} catch (Exception ex) {
+			ex.printStackTrace();
 		}
-		
-		List<Test> error = new ArrayList<Test>();
-		error.add(new Test("Error: Check console", false));
-		return error;
-	}
-	
-	public static List<Test> testDirectory(String directory) {
-		try {
-			DockerHelper.deleteContainer();
-			DockerHelper.createContainer(directory);
-			
-			Parser parser = new Parser(CONFIG_FILE);
-			
-			Wrapper wrapper = parser.parse();
-			wrapper.toFile(CONFIG_FILE, directory);
-			
-			CompilerHelper ch = new CompilerHelper(CONFIG_FILE, directory, TRACE_FILE);
-			
-			ch.compileWrapper();
-			ch.deleteWrapperCFile();
-			ch.compileStudentCode();
-			ch.deleteWrapperObjFile();
-			ch.trace();
-			ch.deleteBinary();
-			
-			DockerHelper.stopContainer();
-			
-			Grader grader = new SimpleGrader(directory, TRACE_FILE);
-			ch.deleteTraces();
-			return grader.grade();
-			
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		
+
 		List<Test> error = new ArrayList<Test>();
 		error.add(new Test("Error: Check console", false));
 		return error;

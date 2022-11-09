@@ -1,15 +1,16 @@
-package valgrindpp.grader;
+package valgrindpp.tester;
 
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 
-public class SimpleGrader extends AbstractGrader {
+public class SimpleTester extends AbstractTester {
 
-	public SimpleGrader(String studentDir, String filename) throws Exception {
-		super(studentDir, filename);
+	public SimpleTester(InputStream traceStream) throws Exception {
+		super(traceStream);
 	}
 
-	public List<Test> grade() {
+	public List<Test> test() {
 		List<Test> tests = new ArrayList<Test>();
 		
 		tests.add(countFuncCall("pthread_create", 2));

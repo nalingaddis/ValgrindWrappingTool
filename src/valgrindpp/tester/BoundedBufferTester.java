@@ -1,5 +1,6 @@
-package valgrindpp.grader;
+package valgrindpp.tester;
 
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -7,13 +8,13 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-public class BoundedBufferGrader extends AbstractGrader {
+public class BoundedBufferTester extends AbstractTester {
 
-	public BoundedBufferGrader(String studentDir, String filename) throws Exception {
-		super(studentDir, filename);
+	public BoundedBufferTester(InputStream traceStream) throws Exception {
+		super(traceStream);
 	}
 
-	public List<Test> grade() {
+	public List<Test> test() {
 		Map<Long, Set<String>> waits = new HashMap<Long, Set<String>>();
 		Map<Long, Set<String>> posts = new HashMap<Long, Set<String>>();
 		
@@ -50,5 +51,4 @@ public class BoundedBufferGrader extends AbstractGrader {
 		
 		return tests;
 	}
-	
 }

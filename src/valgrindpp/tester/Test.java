@@ -1,4 +1,4 @@
-package valgrindpp.grader;
+package valgrindpp.tester;
 
 import java.awt.Color;
 import java.awt.Component;

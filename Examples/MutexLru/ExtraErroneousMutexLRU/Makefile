@@ -23,8 +23,8 @@ clean:
 
 wrapped: lru-mutex-wrapped lru-fine-wrapped
 
-lru-mutex-wrapped: main.c mutex-lru.o MutexLruConfig-wrapper.o
-	gcc $(CFLAGS) -o lru-mutex-wrapped mutex-lru.o MutexLruConfig-wrapper.o main.c
+lru-mutex-wrapped: main.c mutex-lru.o ValgrindWrapper.o
+	gcc $(CFLAGS) -o lru-mutex-wrapped mutex-lru.o ValgrindWrapper.o main.c
 
-lru-fine-wrapped: main.c fine-lru.o MutexLruConfig-wrapper.o
-	gcc $(CFLAGS) -o lru-fine-wrapped fine-lru.o MutexLruConfig-wrapper.o main.c
+lru-fine-wrapped: main.c fine-lru.o ValgrindWrapper.o
+	gcc $(CFLAGS) -o lru-fine-wrapped fine-lru.o ValgrindWrapper.o main.c

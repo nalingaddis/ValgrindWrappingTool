@@ -1,5 +1,6 @@
-package valgrindpp.grader;
+package valgrindpp.tester;
 
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -7,14 +8,14 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-public class MutexLruGrader extends AbstractGrader {
+public class MutexLruTester extends AbstractTester {
 
-	public MutexLruGrader(String studentDir, String filename) throws Exception {
-		super(studentDir, filename);
+	public MutexLruTester(InputStream traceStream) throws Exception {
+		super(traceStream);
 	}
 
 	@Override
-	public List<Test> grade() {
+	public List<Test> test() {
 		List<Test> tests = new ArrayList<Test>();
 		
 		String[] testnames = {
