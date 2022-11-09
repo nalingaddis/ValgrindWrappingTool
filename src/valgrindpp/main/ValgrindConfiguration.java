@@ -7,15 +7,22 @@ import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 
-import valgrindpp.tester.MutexLruTester;
-import valgrindpp.tester.Tester;
+import valgrindpp.tester.*;
 
 public class ValgrindConfiguration {
 	/** Change the following **/
-	public String DefinitionsDirectory = "MutexLru";
-	public Tester GetTester() throws Exception { return new MutexLruTester(new FileInputStream(GetTraceFilePath())); }
-	public String[] ExecutionCommand = new String[]{"./lru-mutex-wrapped", "-c", "2"};
+	
+	/* BoundedBuffer Example */
+	public String DefinitionsDirectory = "BoundedBuffer";
+	public Tester GetTester() throws Exception { return new BoundedBufferTester(new FileInputStream(GetTraceFilePath())); }
+	public String[] ExecutionCommand = new String[0];
 	public Environment TestingEnvironment = Environment.Local;
+	
+	/* MutexLru Example */
+//	public String DefinitionsDirectory = "MutexLru";
+//	public Tester GetTester() throws Exception { return new MutexLruTester(new FileInputStream(GetTraceFilePath())); }
+//	public String[] ExecutionCommand = new String[]{"./lru-mutex-wrapped", "-c", "2"};
+//	public Environment TestingEnvironment = Environment.Local;
 	
 	/** Avoid Changing Below **/
 	public String DefinitionsRootDirectory = "/Definitions";
