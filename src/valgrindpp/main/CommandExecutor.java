@@ -120,7 +120,7 @@ public class CommandExecutor {
 		List<String> srcFiles = new ArrayList<String>();
 		
 		for(String filename: dir.list()) {
-			if(filename.endsWith(".c")) {
+			if(filename.endsWith(".c") && !filename.equals(configuration.WrapperCFile)) {
 				srcFiles.add(filename);
 			}
 		}
@@ -155,7 +155,7 @@ public class CommandExecutor {
 	}
 	
 	public void deleteWrapperObjFile() throws Exception {
-		delete(configuration.GetWrapperCFilePath());
+		delete(configuration.GetWrapperObjFilePath());
 	}
 	
 	public void deleteBinary() throws Exception {

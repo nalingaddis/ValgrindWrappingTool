@@ -43,7 +43,7 @@ public class WrapperGenerator {
 		
 		writer.write("\n");
 		
-		writer.write("void trace(const char* format, ...) {\n"
+		writer.write("void traceFunctionCall(const char* format, ...) {\n"
 				+ "    printf(\"%ld - Thread: %lu - \",\n"
 				+ "        time(NULL),\n"
 				+ "        pthread_self()\n"

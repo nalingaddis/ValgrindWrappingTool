@@ -130,7 +130,7 @@ public class Function {
 		sb.append("\n\t");
 
 		
-		sb.append("trace(\""+fnName+": ");
+		sb.append("traceFunctionCall(\""+fnName+": ");
 		
 		if(arguments.length == 0) sb.append("void");
 		

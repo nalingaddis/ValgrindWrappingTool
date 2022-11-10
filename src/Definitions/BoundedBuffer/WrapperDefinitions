@@ -1,8 +1,0 @@
-#include <stdio.h>
-#include <pthread.h>
-#include <unistd.h>
-#include <semaphore.h>
-
-*, sem_init: sem_t *sem, int pshared, unsigned int value -> int
-*, sem_wait: sem_t *sem -> int
-*, sem_post: sem_t *sem -> int

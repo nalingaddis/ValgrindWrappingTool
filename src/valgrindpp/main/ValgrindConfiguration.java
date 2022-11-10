@@ -1,8 +1,11 @@
 package valgrindpp.main;
 
+import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.IOException;
 import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
@@ -10,18 +13,22 @@ import java.util.List;
 import valgrindpp.tester.*;
 
 public class ValgrindConfiguration {
-	/** Change the following **/
-	
-	/* BoundedBuffer Example */
-	public String DefinitionsDirectory = "BoundedBuffer";
-	public Tester GetTester() throws Exception { return new BoundedBufferTester(new FileInputStream(GetTraceFilePath())); }
-	public String[] ExecutionCommand = new String[0];
-	public Environment TestingEnvironment = Environment.Local;
+	/** Uncomment one example below to see different testing scenarios **/
 	
 	/* MutexLru Example */
-//	public String DefinitionsDirectory = "MutexLru";
-//	public Tester GetTester() throws Exception { return new MutexLruTester(new FileInputStream(GetTraceFilePath())); }
-//	public String[] ExecutionCommand = new String[]{"./lru-mutex-wrapped", "-c", "2"};
+	// Demonstrates how to assess projects with a Makefile and custom execution command
+	
+	public String DefinitionsDirectory = "MutexLru";
+	public Tester GetTester() throws Exception { return new MutexLruTester(new FileInputStream(GetTraceFilePath())); }
+	public String[] ExecutionCommand = new String[]{"./lru-mutex-wrapped", "-c", "2"};
+	public Environment TestingEnvironment = Environment.Local;
+	
+	/* ProducerConsumer Example */
+	// Demonstrates how to provide input to a function (see Definitions/Inputs directory) and use default project compilation
+	
+//	public String DefinitionsDirectory = "ProducerConsumer";
+//	public Tester GetTester() throws Exception { return new ProducerConsumerTester(new FileInputStream(GetTraceFilePath())); }
+//	public String[] ExecutionCommand = new String[0];
 //	public Environment TestingEnvironment = Environment.Local;
 	
 	/** Avoid Changing Below **/
@@ -59,8 +66,7 @@ public class ValgrindConfiguration {
 	}
 
 	public String InputsDirectory = "Inputs"; 
-	
-	public boolean PostTestClean = true;
+	public boolean PostTestClean = false;
 	
 	public String ProjectDirectory;
 	public String DockerExec;
@@ -105,16 +111,18 @@ public class ValgrindConfiguration {
 
 	public InputStream GetDefinitionsStream() {
 		String definitionsPath = Paths.get(DefinitionsRootDirectory, DefinitionsDirectory, DefinitionsFile).toString();
-		return ValgrindConfiguration.class.getResourceAsStream(definitionsPath.replace('\\', '/'));
+		return getResourceAsStream(definitionsPath);
 	}
 
 	public InputStream[] GetTestInputs() {
 		try {
-			File inputsDirectory = new File(Paths.get(DefinitionsRootDirectory, DefinitionsDirectory, "Inputs").toString());
 			List<InputStream> streams = new ArrayList<InputStream>();
+	
+			String inputsDirectory = Paths.get(DefinitionsRootDirectory, DefinitionsDirectory, "Inputs").toString();
 			
-			for (File input: inputsDirectory.listFiles()) {
-				streams.add(new FileInputStream(input));
+			for (String inputFile: getResourceFiles(inputsDirectory)) {
+				String inputFilePath = Paths.get(inputsDirectory, inputFile).toString();
+				streams.add(getResourceAsStream(inputFilePath));
 			}
 			
 			return streams.toArray(new InputStream[0]);
@@ -126,5 +134,27 @@ public class ValgrindConfiguration {
 	public enum Environment {
 		Local,
 		GradeScope
+	}
+	
+	private List<String> getResourceFiles(String path) throws IOException {
+		
+	    List<String> filenames = new ArrayList<>();
+
+	    try (
+	            InputStream in = getResourceAsStream(path);
+	            BufferedReader br = new BufferedReader(new InputStreamReader(in))) {
+	        String resource;
+
+	        while ((resource = br.readLine()) != null) {
+	            filenames.add(resource);
+	        }
+	    }
+
+	    return filenames;
+	}
+	
+	private InputStream getResourceAsStream(String resource) {
+		resource = resource.replace('\\', '/');
+		return ValgrindConfiguration.class.getResourceAsStream(resource);
 	}
 }
