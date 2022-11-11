@@ -3,3 +3,4 @@ Logs
 .metadata
 .classpath
 results.json
+.DS_Store
