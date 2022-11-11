@@ -1,12 +1,14 @@
 package valgrindpp.main;
 
 import java.io.File;
+import java.io.FileWriter;
 import java.io.InputStream;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 
 import valgrindpp.main.ValgrindConfiguration.Environment;
+import valgrindpp.tester.Test;
 
 public class CommandExecutor {
 	
@@ -215,5 +217,57 @@ public class CommandExecutor {
 				executeInDocker(command, false, stream);
 			}
 		}
+	}
+	
+	// Generate Results
+	public void WriteResults(List<Test> tests) throws Exception {
+		switch (configuration.TestingEnvironment) {
+		case Local: 
+			WriteResultsToConsole(tests);
+			WriteResultsToFile(tests, configuration.GetLocalResultsFilePath());
+			break;
+		case GradeScope:
+			WriteResultsToFile(tests, configuration.GradeScopeResultsFilePath);
+			break;
+		}
+	}
+	
+	private void WriteResultsToConsole(List<Test> tests) {
+		System.out.println("/********** Test Results **********/");
+		for (Test test: tests) {
+			System.out.println(test.consoleView());
+		}
+	}
+	
+	private void WriteResultsToFile(List<Test> tests, String filePath) throws Exception {
+		FileWriter writer = getNewFileWriter(filePath);
+		
+		writer.write(" { \"tests\" : [ ");
+		
+		for (int i = 0; i < tests.size(); i++) {
+			writer.write(tests.get(i).gradescopeView());
+			
+			if (i != tests.size()-1) {
+				writer.write(", ");
+			}
+		}
+		
+		writer.write(" ] } ");
+		
+		writer.close();
+	}
+	
+	public static FileWriter getNewFileWriter(String filePath) throws Exception {
+		File file = new File(filePath);
+		
+		if(file.exists()) {
+			file.delete();
+		}
+		
+		if(!file.createNewFile()) {
+			throw new Exception("File name '" + file.getName() + "' already exists");
+		}
+		
+		return new FileWriter(file);
 	}
 }

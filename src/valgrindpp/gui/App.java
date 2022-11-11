@@ -4,9 +4,6 @@ import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.nio.file.FileSystemNotFoundException;
-import java.nio.file.Paths;
-import java.util.List;
 
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
@@ -15,9 +12,6 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
-import javax.swing.SwingUtilities;
-
-import valgrindpp.tester.Test;
 
 public class App implements Runnable {
 
@@ -50,23 +44,23 @@ public class App implements Runnable {
 		JButton testButton = new JButton("Test");
 		testButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent event) {
-				try {
-					Paths.get(pathTextField.getText());
-					
-					List<Test> tests = valgrindpp.main.Main.testProject(null);
-					
-					results.removeAll();
-					
-					for(Test test: tests) {
-						results.add(test.view());
-					}
-					
-					SwingUtilities.updateComponentTreeUI(results);
-				} catch (IllegalArgumentException 
-						| FileSystemNotFoundException 
-						| SecurityException exception) {
-					pathTextField.setText("Invalid Path");
-				}
+//				try {
+//					Paths.get(pathTextField.getText());
+//					
+//					List<Test> tests = valgrindpp.main.Main.testProject(null);
+//					
+//					results.removeAll();
+//					
+//					for(Test test: tests) {
+//						results.add(test.appView());
+//					}
+//					
+//					SwingUtilities.updateComponentTreeUI(results);
+//				} catch (IllegalArgumentException 
+//						| FileSystemNotFoundException 
+//						| SecurityException exception) {
+//					pathTextField.setText("Invalid Path");
+//				}
 			}
 		});
 		
