@@ -6,6 +6,7 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
@@ -24,16 +25,16 @@ public class ValgrindConfiguration {
 	/* MutexLru Example */
 	// Demonstrates how to assess projects with a Makefile and custom execution command
 	
-//	public String DefinitionsDirectory = "MutexLru";
-//	public Tester GetTester() throws Exception { return new MutexLruTester(new FileInputStream(GetTraceFilePath())); }
-//	public String[] ExecutionCommand = new String[]{"./lru-mutex-wrapped", "-c", "2"};
+	public String DefinitionsDirectory = "MutexLru";
+	public Tester GetTester() throws Exception { return new MutexLruTester(new FileInputStream(GetTraceFilePath())); }
+	public String[] ExecutionCommand = new String[]{"./lru-mutex-wrapped", "-c", "2"};
 	
 	/* ProducerConsumer Example */
 	// Demonstrates how to provide input to a function (see Definitions/Inputs directory) and use default project compilation
 	
-	public String DefinitionsDirectory = "ProducerConsumer";
-	public Tester GetTester() throws Exception { return new ProducerConsumerTester(new FileInputStream(GetTraceFilePath())); }
-	public String[] ExecutionCommand = new String[0];
+//	public String DefinitionsDirectory = "ProducerConsumer";
+//	public Tester GetTester() throws Exception { return new ProducerConsumerTester(new FileInputStream(GetTraceFilePath())); }
+//	public String[] ExecutionCommand = new String[0];
 	
 	/** Avoid Changing Below **/
 	public String DefinitionsRootDirectory = "/Definitions";
@@ -71,7 +72,13 @@ public class ValgrindConfiguration {
 	public Environment TestingEnvironment;
 	
 	public ValgrindConfiguration(String projectDirectory, String dockerExec) throws Exception {
-		this.ProjectDirectory = projectDirectory;
+		if (Files.exists(Paths.get(projectDirectory))) {
+			this.ProjectDirectory = new File(projectDirectory).getAbsolutePath();
+		} else if(Files.exists(Paths.get(System.getProperty("user.dir"), projectDirectory))) {
+			this.ProjectDirectory = Paths.get(System.getProperty("user.dir"), projectDirectory).toString();
+		} else {
+			throw new Exception("Invalid project directory: " + projectDirectory);
+		}		
 		
 		if (dockerExec == null || dockerExec.isEmpty()) {
 			this.DockerExec = FindDockerExec();
