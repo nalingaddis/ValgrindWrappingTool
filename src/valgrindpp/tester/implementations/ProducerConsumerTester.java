@@ -1,8 +1,12 @@
-package valgrindpp.tester;
+package valgrindpp.tester.implementations;
 
 import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
+
+import valgrindpp.tester.AbstractTester;
+import valgrindpp.tester.Test;
+import valgrindpp.tester.Trace;
 
 public class ProducerConsumerTester extends AbstractTester {
 

@@ -1,4 +1,4 @@
-package valgrindpp.tester;
+package valgrindpp.tester.implementations;
 
 import java.io.InputStream;
 import java.util.ArrayList;
@@ -7,6 +7,10 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+
+import valgrindpp.tester.AbstractTester;
+import valgrindpp.tester.Test;
+import valgrindpp.tester.Trace;
 
 public class MutexLruTester extends AbstractTester {
 

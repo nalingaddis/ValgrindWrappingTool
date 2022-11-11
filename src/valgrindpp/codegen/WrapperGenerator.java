@@ -1,11 +1,11 @@
 package valgrindpp.codegen;
 
-import java.io.File;
 import java.io.FileWriter;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
+import valgrindpp.main.CommandExecutor;
 import valgrindpp.main.ValgrindConfiguration;
 
 public class WrapperGenerator {
@@ -22,17 +22,7 @@ public class WrapperGenerator {
 	public void generateWrapperFile() throws Exception {
 		this.parse();
 		
-		File file = new File(configuration.GetWrapperCFilePath());
-		
-		if(file.exists()) {
-			file.delete();
-		}
-		
-		if(!file.createNewFile()) {
-			throw new WrapperGeneratorException("File name '" + file.getName() + "' already exists");
-		}
-		
-		FileWriter writer = new FileWriter(file);
+		FileWriter writer = CommandExecutor.getNewFileWriter(configuration.GetWrapperCFilePath());
 		
 		writer.write("#include \"" + configuration.ValgrindDockerPath + "\"\n");
 		

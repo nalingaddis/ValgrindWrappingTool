@@ -11,25 +11,29 @@ import java.util.ArrayList;
 import java.util.List;
 
 import valgrindpp.tester.*;
+import valgrindpp.tester.implementations.*;
 
 public class ValgrindConfiguration {
+	public enum Environment {
+		Local,
+		GradeScope
+	}
+	
 	/** Uncomment one example below to see different testing scenarios **/
 	
 	/* MutexLru Example */
 	// Demonstrates how to assess projects with a Makefile and custom execution command
 	
-	public String DefinitionsDirectory = "MutexLru";
-	public Tester GetTester() throws Exception { return new MutexLruTester(new FileInputStream(GetTraceFilePath())); }
-	public String[] ExecutionCommand = new String[]{"./lru-mutex-wrapped", "-c", "2"};
-	public Environment TestingEnvironment = Environment.Local;
+//	public String DefinitionsDirectory = "MutexLru";
+//	public Tester GetTester() throws Exception { return new MutexLruTester(new FileInputStream(GetTraceFilePath())); }
+//	public String[] ExecutionCommand = new String[]{"./lru-mutex-wrapped", "-c", "2"};
 	
 	/* ProducerConsumer Example */
 	// Demonstrates how to provide input to a function (see Definitions/Inputs directory) and use default project compilation
 	
-//	public String DefinitionsDirectory = "ProducerConsumer";
-//	public Tester GetTester() throws Exception { return new ProducerConsumerTester(new FileInputStream(GetTraceFilePath())); }
-//	public String[] ExecutionCommand = new String[0];
-//	public Environment TestingEnvironment = Environment.Local;
+	public String DefinitionsDirectory = "ProducerConsumer";
+	public Tester GetTester() throws Exception { return new ProducerConsumerTester(new FileInputStream(GetTraceFilePath())); }
+	public String[] ExecutionCommand = new String[0];
 	
 	/** Avoid Changing Below **/
 	public String DefinitionsRootDirectory = "/Definitions";
@@ -52,24 +56,20 @@ public class ValgrindConfiguration {
 
 	public String TraceFile = "Traces";
 	public String GetTraceFilePath() { return Paths.get(ProjectDirectory, TraceFile).toString(); }
-	
-	public boolean UseMakefile() {
-		File[] files = new File(ProjectDirectory).listFiles();
-		
-		for (File file: files) {
-			if (file.getName().equals("Makefile")) {
-				return true;
-			}
-		}
-		
-		return false;
-	}
 
 	public String InputsDirectory = "Inputs"; 
-	public boolean PostTestClean = false;
+	public boolean PostTestClean = true;
+	
+	public String GradeScopeSubmissionDirectory = "/autograder/submission";
+	public String GradeScopeResultsFilePath = "/autograder/results/results.json";
+	
+	public String ResultsFile = "results.json";
+	public String GetLocalResultsFilePath() { return Paths.get(ProjectDirectory, ResultsFile).toString(); }
 	
 	public String ProjectDirectory;
 	public String DockerExec;
+	public Environment TestingEnvironment;
+	
 	public ValgrindConfiguration(String projectDirectory, String dockerExec) throws Exception {
 		this.ProjectDirectory = projectDirectory;
 		
@@ -78,6 +78,13 @@ public class ValgrindConfiguration {
 		} else {
 			this.DockerExec = dockerExec;
 		}
+		
+		this.TestingEnvironment = Environment.Local;
+	}
+	
+	public ValgrindConfiguration() {
+		this.TestingEnvironment = Environment.GradeScope;
+		this.ProjectDirectory = GradeScopeSubmissionDirectory;
 	}
 	
 	private String FindDockerExec() throws Exception {
@@ -131,11 +138,6 @@ public class ValgrindConfiguration {
 		}
 	}
 	
-	public enum Environment {
-		Local,
-		GradeScope
-	}
-	
 	private List<String> getResourceFiles(String path) throws IOException {
 		
 	    List<String> filenames = new ArrayList<>();
@@ -156,5 +158,19 @@ public class ValgrindConfiguration {
 	private InputStream getResourceAsStream(String resource) {
 		resource = resource.replace('\\', '/');
 		return ValgrindConfiguration.class.getResourceAsStream(resource);
+	}
+	
+
+	
+	public boolean UseMakefile() {
+		File[] files = new File(ProjectDirectory).listFiles();
+		
+		for (File file: files) {
+			if (file.getName().equals("Makefile")) {
+				return true;
+			}
+		}
+		
+		return false;
 	}
 }

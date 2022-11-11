@@ -2,3 +2,4 @@ bin
 Logs
 .metadata
 .classpath
+results.json

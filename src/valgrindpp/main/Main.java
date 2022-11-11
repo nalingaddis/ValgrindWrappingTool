@@ -1,78 +1,77 @@
 package valgrindpp.main;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import valgrindpp.codegen.WrapperGenerator;
 import valgrindpp.main.ValgrindConfiguration.Environment;
-import valgrindpp.tester.*;
+import valgrindpp.tester.Test;
 
 public class Main {	
 	public static void main(String[] args) {
 		// SwingUtilities.invokeLater(new App());
 		
 		try {
-			String projectDirectory = args[0];
+			String projectDirectory = null;
 			String dockerExec = null;
+			ValgrindConfiguration configuration = null;
 			
-			if (args.length > 1) {
-				dockerExec = args[1];
+			if (args.length == 0) {
+				configuration = new ValgrindConfiguration();
+			} else {
+				projectDirectory = args[0];
+				
+				if (args.length >= 2) {
+					dockerExec = args[1];
+				}
+				
+				configuration = new ValgrindConfiguration(projectDirectory, dockerExec);
 			}
 			
-			ValgrindConfiguration configuration = new ValgrindConfiguration(projectDirectory, dockerExec);
 			List<Test> tests = testProject(configuration);
 			
-			for (Test test: tests) {
-				System.out.println("Test " + test.name + ": " + (test.passed ? "Passed" : "Failed"));
-			}
+			CommandExecutor executor = new CommandExecutor(configuration);
+			executor.WriteResults(tests);
+			
 		} catch (Exception ex) {
 			ex.printStackTrace();
 		}
 	}
 	
-	public static List<Test> testProject(ValgrindConfiguration configuration) {
-		try {
-			CommandExecutor executor = new CommandExecutor(configuration);
-			
-			if (configuration.TestingEnvironment == Environment.Local) {
-				executor.deleteContainer();
-				executor.createContainer();
-			}
-			
-			WrapperGenerator wrapperGenerator = new WrapperGenerator(configuration);
-			wrapperGenerator.generateWrapperFile();
-			
-			executor.compileWrapper();
-			
-			if (configuration.UseMakefile()){
-				executor.make();
-			} else {
-				executor.compileStudentCode();
-			}
-			
-			executor.executeWrappedProject();
-			
-			List<Test> results = configuration.GetTester().test();
-			
-			if (configuration.PostTestClean) {
-				executor.deleteWrapperCFile();
-				executor.deleteWrapperObjFile();
-				executor.deleteTraces();
-
-				if (configuration.UseMakefile()) {
-					executor.makeClean();
-				} else {
-					executor.deleteBinary();
-				}
-			}
-			
-			return results;
-		} catch (Exception ex) {
-			ex.printStackTrace();
+	public static List<Test> testProject(ValgrindConfiguration configuration) throws Exception {
+		CommandExecutor executor = new CommandExecutor(configuration);
+		
+		if (configuration.TestingEnvironment == Environment.Local) {
+			executor.deleteContainer();
+			executor.createContainer();
 		}
+		
+		WrapperGenerator wrapperGenerator = new WrapperGenerator(configuration);
+		wrapperGenerator.generateWrapperFile();
+		
+		executor.compileWrapper();
+		
+		if (configuration.UseMakefile()){
+			executor.make();
+		} else {
+			executor.compileStudentCode();
+		}
+		
+		executor.executeWrappedProject();
+		
+		List<Test> results = configuration.GetTester().test();
+		
+		if (configuration.PostTestClean) {
+			executor.deleteWrapperCFile();
+			executor.deleteWrapperObjFile();
+			executor.deleteTraces();
 
-		List<Test> error = new ArrayList<Test>();
-		error.add(new Test("Error: Check console", false));
-		return error;
+			if (configuration.UseMakefile()) {
+				executor.makeClean();
+			} else {
+				executor.deleteBinary();
+			}
+		}
+		
+		return results;
 	}
 }
