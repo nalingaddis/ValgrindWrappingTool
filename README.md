@@ -48,6 +48,14 @@ After configuring Valgrind++ for your project, you can easily distrbute this gra
 
 `java -jar RUNNABLE_JAR_FILENAME.jar path/to/project/directory/...`
 
+A precompiled JAR has been provided at `(GIT_ROOT)/GradeScope/valgrindpp.jar`, to run this JAR on an example assignment execute the following the command at `(GIT_ROOT)`:
+
+`java -jar GradeScope/valgrindpp.jar Examples/MutexLru/CorrectMutexLru`
+
+## Makefile
+
+A Makefile has been provided for your convince to easily compile the source code and create a runnable jar located at `GradeScope/valgrindpp.jar`
+
 ## GradeScope
 
 This project has been specially modified to run in the GradeScope autograder environment. The steps to set up a Valgrind++ autograder are as follows:
