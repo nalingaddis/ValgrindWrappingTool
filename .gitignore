@@ -4,3 +4,4 @@ Logs
 .classpath
 results.json
 .DS_Store
+src/.DS_Store
