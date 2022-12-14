@@ -94,6 +94,15 @@ public class ValgrindConfiguration {
 		this.ProjectDirectory = GradeScopeSubmissionDirectory;
 	}
 	
+	@Override
+	public String toString() {
+		StringBuilder sb = new StringBuilder();
+		
+		sb.append("Testing Environment: " + this.TestingEnvironment.toString());
+		
+		return sb.toString();
+	}
+	
 	private String FindDockerExec() throws Exception {
 		boolean isWindows = System.getProperty("os.name").contains("Windows");
 		
@@ -166,8 +175,6 @@ public class ValgrindConfiguration {
 		resource = resource.replace('\\', '/');
 		return ValgrindConfiguration.class.getResourceAsStream(resource);
 	}
-	
-
 	
 	public boolean UseMakefile() {
 		File[] files = new File(ProjectDirectory).listFiles();

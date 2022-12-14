@@ -7,9 +7,7 @@ import valgrindpp.main.ValgrindConfiguration.Environment;
 import valgrindpp.tester.Test;
 
 public class Main {	
-	public static void main(String[] args) {
-		// SwingUtilities.invokeLater(new App());
-		
+	public static void main(String[] args) {		
 		try {
 			String projectDirectory = null;
 			String dockerExec = null;

@@ -3,6 +3,7 @@ package valgrindpp.main;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.InputStream;
+import java.lang.ProcessBuilder.Redirect;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
@@ -19,7 +20,7 @@ public class CommandExecutor {
 	}
 	
 	// Command Execution
-	public static int execute(String[] command, boolean silent, InputStream input) throws Exception{
+	public static int execute(String[] command, boolean silent, InputStream input, File output) throws Exception{
 		if(!silent) System.out.println("Executing: " + String.join(" ", command));
 		
 		ProcessBuilder pb = new ProcessBuilder();
@@ -29,21 +30,24 @@ public class CommandExecutor {
 			pb.command(command).inheritIO();
 		}
 		
+		if(output != null) {
+			pb.redirectOutput(Redirect.appendTo(output));
+		}
+		
 		Process process = pb.start();
 		
 		if(input != null) {
 			System.setIn(input);
 			input.close();
 		}
-		
 		return process.waitFor();
 	}
 	
 	public int execute(String[] command) throws Exception {
-		return execute(command, false, null);
+		return execute(command, false, null, null);
 	}
 	
-	public int executeInDocker(String[] command, boolean silent, InputStream input) throws Exception {
+	public int executeInDocker(String[] command, boolean silent, InputStream input, File output) throws Exception {
 		if (configuration.TestingEnvironment == Environment.Local) {
 			String[] dockerCommand = {
 					configuration.DockerExec,
@@ -54,14 +58,14 @@ public class CommandExecutor {
 					String.join(" ", command)
 			};
 			
-			return execute(dockerCommand, silent, input);
+			return execute(dockerCommand, silent, input, output);
 		}
 		
-		return execute(command, silent, input);
+		return execute(command, silent, input, output);
 	}
 	
 	public int executeInDocker(String[] command) throws Exception {
-		return executeInDocker(command, false, null);
+		return executeInDocker(command, false, null, null);
 	}
 	
 	
@@ -198,23 +202,25 @@ public class CommandExecutor {
 					configuration.TraceFile
 			};
 		} else {
-			command = new String[configuration.ExecutionCommand.length + 4];
+			command = new String[configuration.ExecutionCommand.length + 2];
 			
 			command[0] = "valgrind";
 			command[1] = "--trace-children=yes";
 			for(int i=0; i<configuration.ExecutionCommand.length; i++) {
 				command[i+2] = configuration.ExecutionCommand[i];
 			}
-			command[configuration.ExecutionCommand.length+2] = ">";
-			command[configuration.ExecutionCommand.length+3] = configuration.TraceFile;
 		}
 		
+		File output = new File(configuration.GetTraceFilePath());
+		output.createNewFile();
+		
 		InputStream[] testInputs = configuration.GetTestInputs();
+		
 		if (testInputs.length == 0) {
-			executeInDocker(command);
+			executeInDocker(command, false, null, output);
 		} else {
 			for (InputStream stream: testInputs) {
-				executeInDocker(command, false, stream);
+				executeInDocker(command, false, stream, output);
 			}
 		}
 	}

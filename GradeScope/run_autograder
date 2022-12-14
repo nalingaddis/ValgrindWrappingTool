@@ -1,3 +1,4 @@
 #!/bin/bash
 
-java -jar valgrindpp.jar
+cd /autograder/submission
+java -jar /autograder/source/valgrindpp.jar
